@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Amigos do Brilho</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Rubik',sans-serif;
+    background:#000;
+    overflow-x:hidden;
+}
+
+.hero{
+    width:100%;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    background:#000;
+}
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:1;
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,0,0,.96) 0%,
+        rgba(0,0,0,.82) 34%,
+        rgba(0,0,0,.20) 68%,
+        rgba(0,0,0,.58) 100%
+    );
+    z-index:2;
+}
+
+.container{
+    width:100%;
+    max-width:1320px;
+    margin:0 auto;
+    position:relative;
+    z-index:5;
+    padding:28px 70px;
+}
+
+.header{
+    width:100%;
+    height:96px;
+    border:1.5px solid #ff8c00;
+    border-radius:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 36px;
+    background:rgba(0,0,0,.58);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    width:155px;
+    height:auto;
+    display:block;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:38px;
+}
+
+.menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:300;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ff8c00;
+}
+
+.menu .active{
+    font-weight:800;
+}
+
+.contact-btn{
+    background:#16ba2f;
+    color:#fff;
+    text-decoration:none;
+    padding:18px 48px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:800;
+    transition:.3s;
+}
+
+.contact-btn:hover{
+    transform:translateY(-2px);
+}
+
+.hero-content{
+    width:100%;
+    min-height:calc(100vh - 130px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.hero-text{
+    width:42%;
+    position:relative;
+    z-index:10;
+}
+
+.hero-text h1{
+    color:#f2f2f2;
+    font-size:78px;
+    line-height:.92;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-2px;
+}
+
+.hero-text h1 span{
+    color:#ff8c00;
+}
+
+.hero-text p{
+    margin-top:26px;
+    color:#fff;
+    font-size:27px;
+    line-height:1.05;
+    font-weight:300;
+    max-width:520px;
+}
+
+.hero-buttons{
+    margin-top:42px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    max-width:460px;
+}
+
+.hero-buttons a{
+    width:100%;
+    height:74px;
+    border-radius:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:25px;
+    font-weight:900;
+    transition:.3s;
+}
+
+.btn-products{
+    background:#ff8c00;
+    color:#000;
+}
+
+.btn-whatsapp{
+    background:#18c133;
+    color:#fff;
+}
+
+.hero-buttons a:hover{
+    transform:translateY(-2px) scale(1.01);
+}
+
+.hero-slider{
+    width:58%;
+    height:720px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:grab;
+    user-select:none;
+}
+
+.hero-slider:active{
+    cursor:grabbing;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    pointer-events:none;
+    transform:translateX(120px) scale(.95);
+    transition:opacity .85s ease, transform .85s ease;
+}
+
+.slide.active{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateX(0) scale(1);
+}
+
+.product-wrap{
+    width:100%;
+    height:100%;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.product{
+    position:relative;
+    z-index:5;
+    width:auto;
+    object-fit:contain;
+    filter:drop-shadow(0 25px 45px rgba(0,0,0,.55));
+    animation:float 3.2s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.product.coat{
+    max-height:590px;
+}
+
+.product.luster{
+    max-height:665px;
+}
+
+.product.graphene{
+    max-height:675px;
+}
+
+.product-light{
+    position:absolute;
+    z-index:2;
+    width:330px;
+    height:330px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(255,140,0,.40),rgba(255,140,0,.08) 42%,rgba(255,140,0,0) 70%);
+    filter:blur(8px);
+    animation:pulse 3s ease-in-out infinite;
+}
+
+.light-one{
+    top:120px;
+    left:90px;
+}
+
+.light-two{
+    right:80px;
+    bottom:120px;
+}
+
+.slider-controls{
+    position:absolute;
+    top:130px;
+    right:50px;
+    z-index:30;
+    display:flex;
+    gap:12px;
+}
+
+.slider-controls button{
+    width:64px;
+    height:64px;
+    border-radius:18px;
+    border:2px solid #ff8c00;
+    background:rgba(0,0,0,.42);
+    color:#ff8c00;
+    font-size:42px;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    line-height:1;
+}
+
+.slider-controls button:hover{
+    background:#ff8c00;
+    color:#000;
+}
+
+.dots{
+    position:absolute;
+    bottom:36px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+    z-index:20;
+}
+
+.dot{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    border:2px solid #fff;
+    background:transparent;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:#ff8c00;
+    border-color:#ff8c00;
+}
+
+@keyframes float{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-14px)}
+    100%{transform:translateY(0)}
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(.95);opacity:.75}
+    50%{transform:scale(1.12);opacity:1}
+}
+
+@media(max-width:1100px){
+    .container{
+        padding:20px;
+    }
+
+    .menu{
+        display:none;
+    }
+
+    .header{
+        height:84px;
+        padding:0 20px;
+    }
+
+    .logo{
+        width:120px;
+    }
+
+    .contact-btn{
+        padding:14px 28px;
+        font-size:15px;
+    }
+
+    .hero-content{
+        flex-direction:column;
+        align-items:flex-start;
+        padding-top:40px;
+        gap:0;
+    }
+
+    .hero-text,
+    .hero-slider{
+        width:100%;
+    }
+
+    .hero-text h1{
+        font-size:52px;
+        letter-spacing:-1px;
+    }
+
+    .hero-text p{
+        font-size:22px;
+    }
+
+    .hero-buttons{
+        max-width:100%;
+    }
+
+    .hero-buttons a{
+        height:62px;
+        font-size:21px;
+    }
+
+    .hero-slider{
+        height:560px;
+        margin-top:20px;
+    }
+
+    .product.coat{
+        max-height:410px;
+    }
+
+    .product.luster{
+        max-height:485px;
+    }
+
+    .product.graphene{
+        max-height:495px;
+    }
+
+    .product-light{
+        width:230px;
+        height:230px;
+    }
+
+    .light-one{
+        top:90px;
+        left:40px;
+    }
+
+    .light-two{
+        bottom:80px;
+        right:35px;
+    }
+
+    .slider-controls{
+        top:20px;
+        right:10px;
+    }
+
+    .slider-controls button{
+        width:54px;
+        height:54px;
+        font-size:36px;
+    }
+}
+
+@media(max-width:520px){
+    .container{
+        padding:16px;
+    }
+
+    .hero-text h1{
+        font-size:43px;
+    }
+
+    .hero-text p{
+        font-size:20px;
+    }
+
+    .hero-slider{
+        height:500px;
+    }
+
+    .product.coat{
+        max-height:360px;
+    }
+
+    .product.luster,
+    .product.graphene{
+        max-height:430px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <img class="hero-bg" src="assets/hero-bg.webp" alt="Fundo Amigos do Brilho">
+
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <header class="header">
+
+            <img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Logo Amigos do Brilho">
+
+            <nav class="menu">
+                <a href="#" class="active">INÍCIO</a>
+                <a href="#">PRODUTOS</a>
+                <a href="#">LINHA PREMIUM</a>
+                <a href="#">SOBRE</a>
+            </nav>
+
+            <a href="https://wa.me/5500000000000" class="contact-btn">CONTATO</a>
+
+        </header>
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <h1>
+                    ESTÉTICA<br>
+                    AUTOMOTIVA EM<br>
+                    <span>OUTRO NÍVEL!</span>
+                </h1>
+
+                <p>
+                    Produtos premium para brilho,
+                    acabamento e proteção automotiva.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#produtos" class="btn-products">VER PRODUTOS</a>
+                    <a href="https://wa.me/5500000000000" class="btn-whatsapp">FALAR NO WHATSAPP</a>
+                </div>
+
+            </div>
+
+            <div class="hero-slider" id="slider">
+
+                <div class="slider-controls">
+                    <button type="button" id="prev" aria-label="Produto anterior">‹</button>
+                    <button type="button" id="next" aria-label="Próximo produto">›</button>
+                </div>
+
+                <div class="slide active">
+                    <div class="product-wrap">
+                        <span class="product-light light-one"></span>
+                        <span class="product-light light-two"></span>
+                        <img src="assets/produto-coat-ceramic.png" class="product coat" alt="Produto Coat Ceramic">
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="product-wrap">
+                        <span class="product-light light-one"></span>
+                        <span class="product-light light-two"></span>
+                        <img src="assets/produto-luster.webp" class="product luster" alt="Produto Luster">
+                    </div>
+                </div>
+
+                <div class="slide">
+                    <div class="product-wrap">
+                        <span class="product-light light-one"></span>
+                        <span class="product-light light-two"></span>
+                        <img src="assets/produto-graphene.webp" class="product graphene" alt="Produto Graphene">
+                    </div>
+                </div>
+
+                <div class="dots">
+                    <button class="dot active" type="button" aria-label="Slide 1"></button>
+                    <button class="dot" type="button" aria-label="Slide 2"></button>
+                    <button class="dot" type="button" aria-label="Slide 3"></button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const slider = document.getElementById('slider');
+
+let current = 0;
+let startX = 0;
+let isDragging = false;
+let autoSlide;
+
+function showSlide(index){
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+}
+
+function nextSlide(){
+    current++;
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+    showSlide(current);
+}
+
+function prevSlide(){
+    current--;
+
+    if(current < 0){
+        current = slides.length - 1;
+    }
+
+    showSlide(current);
+}
+
+function restartAutoSlide(){
+    clearInterval(autoSlide);
+    autoSlide = setInterval(nextSlide, 6000);
+}
+
+document.getElementById('next').addEventListener('click', () => {
+    nextSlide();
+    restartAutoSlide();
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+    prevSlide();
+    restartAutoSlide();
+});
+
+dots.forEach((dot,index) => {
+    dot.addEventListener('click', () => {
+        current = index;
+        showSlide(current);
+        restartAutoSlide();
+    });
+});
+
+slider.addEventListener('mousedown', e => {
+    isDragging = true;
+    startX = e.clientX;
+});
+
+slider.addEventListener('mouseup', e => {
+    if(!isDragging) return;
+
+    const diff = startX - e.clientX;
+
+    if(diff > 50){
+        nextSlide();
+        restartAutoSlide();
+    }
+
+    if(diff < -50){
+        prevSlide();
+        restartAutoSlide();
+    }
+
+    isDragging = false;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDragging = false;
+});
+
+slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+}, {passive:true});
+
+slider.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+
+    if(diff > 50){
+        nextSlide();
+        restartAutoSlide();
+    }
+
+    if(diff < -50){
+        prevSlide();
+        restartAutoSlide();
+    }
+});
+
+restartAutoSlide();
+</script>
+
+</body>
+</html>

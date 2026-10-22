@@ -236,8 +236,9 @@ body{
     height:100%;
     position:relative;
     display:flex;
-    align-items:center;
+    align-items:flex-end;
     justify-content:center;
+    padding-bottom:72px;
 }
 
 /* PRODUTOS */
@@ -248,7 +249,7 @@ body{
     width:auto;
     object-fit:contain;
     filter:drop-shadow(0 25px 45px rgba(0,0,0,.55));
-    animation:float 3.2s ease-in-out infinite;
+    animation:none;
     pointer-events:none;
 }
 
@@ -256,17 +257,17 @@ body{
 
 .product.coat{
     max-height:590px;
-    margin-top:-70px;
+    margin-top:0;
 }
 
 .product.luster{
     max-height:665px;
-    margin-top:-105px;
+    margin-top:0;
 }
 
 .product.graphene{
     max-height:675px;
-    margin-top:-115px;
+    margin-top:0;
 }
 
 /* GLOW */
@@ -330,20 +331,6 @@ body{
 
 
 /* ANIMAÇÕES */
-
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-14px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
 
 @keyframes pulse{
     0%,100%{
@@ -417,19 +404,23 @@ body{
         margin-top:20px;
     }
 
+    .product-wrap{
+        padding-bottom:54px;
+    }
+
     .product.coat{
         max-height:410px;
-        margin-top:-40px;
+        margin-top:0;
     }
 
     .product.luster{
         max-height:485px;
-        margin-top:-55px;
+        margin-top:0;
     }
 
     .product.graphene{
         max-height:495px;
-        margin-top:-60px;
+        margin-top:0;
     }
 
     .product-light{
@@ -478,15 +469,19 @@ body{
         height:500px;
     }
 
+    .product-wrap{
+        padding-bottom:48px;
+    }
+
     .product.coat{
         max-height:360px;
-        margin-top:-35px;
+        margin-top:0;
     }
 
     .product.luster,
     .product.graphene{
         max-height:430px;
-        margin-top:-45px;
+        margin-top:0;
     }
 
 }

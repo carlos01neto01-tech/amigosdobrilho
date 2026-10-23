@@ -486,6 +486,75 @@ body{
 
 }
 
+
+/* Mais vendidos */
+:root { --shop-orange:#ff8500; }
+.best-sellers { background:linear-gradient(180deg,#fff 0%,#f2f2f2 100%); color:#080808; overflow:hidden; padding-bottom:96px; }
+.best-sellers *, .best-sellers *::before, .best-sellers *::after { box-sizing:border-box; }
+.best-sellers .ticker { height:60px; display:flex; align-items:center; overflow:hidden; background:var(--shop-orange); color:#fff; white-space:nowrap; }
+.best-sellers .ticker-track { display:flex; width:max-content; animation:shop-marquee 26s linear infinite; }
+.best-sellers .ticker-line { flex:none; padding-right:18px; font-size:clamp(14px,1.9vw,25px); font-weight:800; letter-spacing:.22em; }
+.best-sellers .section-heading { padding:112px 20px 88px; text-align:center; }
+.best-sellers .eyebrow { margin:0 0 18px; font-size:clamp(15px,1.65vw,24px); font-weight:400; letter-spacing:.48em; }
+.best-sellers h2 { max-width:920px; margin:0 auto; font-size:clamp(34px,4.35vw,64px); line-height:.98; font-weight:900; letter-spacing:-.035em; text-transform:uppercase; }
+.best-sellers .product-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; max-width:1920px; margin:0 auto; padding:0 40px; }
+.best-sellers .mobile-rail { display:none; }
+.best-sellers .product-card { min-width:0; overflow:hidden; display:flex; flex-direction:column; border:2px solid #242424; border-radius:16px; background:linear-gradient(180deg,#fff 53%,#dedede 100%); box-shadow:0 3px 5px #0006; opacity:0; transform:translateY(42px); transition:opacity .72s ease,transform .72s cubic-bezier(.18,.75,.28,1),box-shadow .25s ease; transition-delay:var(--card-delay,0ms),var(--card-delay,0ms),0ms; }
+.best-sellers .product-card.is-visible { opacity:1; transform:translateY(0); }
+.best-sellers .product-card.is-visible:hover { transform:translateY(-5px); box-shadow:0 9px 18px #0003; }
+.best-sellers .product-kind { min-height:60px; display:grid; place-items:center; padding:8px 12px; background:var(--shop-orange); color:#fff; text-align:center; font-size:clamp(12px,1vw,16px); line-height:1.15; font-weight:700; }
+.best-sellers .product-photo { display:block; width:100%; aspect-ratio:.93/1; object-fit:cover; background:#f7f7f7; }
+.best-sellers .product-info { display:flex; flex:1; flex-direction:column; padding:20px 16px 18px; }
+.best-sellers .product-name { margin:0 0 10px; font-size:clamp(25px,2.1vw,38px); line-height:1; font-weight:900; letter-spacing:-.02em; }
+.best-sellers .product-description { min-height:4.1em; margin:0 0 16px; font-size:clamp(13px,1.05vw,18px); line-height:1.14; }
+.best-sellers .product-tags { display:flex; flex-wrap:wrap; justify-content:center; align-content:flex-start; gap:6px; margin:auto 0 17px; }
+.best-sellers .product-tag { min-height:38px; flex:0 1 calc(50% - 3px); display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:7px 9px; border:1.5px solid var(--shop-orange); border-radius:999px; color:var(--shop-orange); text-align:center; font-size:clamp(9px,.75vw,12px); line-height:1.05; font-weight:500; }
+.best-sellers .product-tag::before { content:""; width:11px; height:11px; flex:0 0 11px; border-radius:50%; background:var(--shop-orange); box-shadow:0 0 9px #ff8500bf; }
+.best-sellers .whatsapp-cta { position:relative; isolation:isolate; overflow:hidden; min-height:62px; display:flex; align-items:center; justify-content:center; padding:15px 14px; border-radius:999px; background:var(--shop-orange); color:#fff; text-align:center; text-decoration:none; font-size:clamp(12px,.92vw,16px); line-height:1.15; font-weight:800; transition:transform .2s ease,background .2s ease; }
+.best-sellers .whatsapp-cta::after { content:""; position:absolute; z-index:-1; top:-55%; left:-58%; width:42%; height:210%; transform:skewX(-22deg); background:linear-gradient(90deg,transparent,#ffffffc7,transparent); animation:shop-light-sweep 3.8s ease-in-out infinite; pointer-events:none; }
+.best-sellers .whatsapp-cta:hover { transform:translateY(-2px); background:#f17c00; }
+.best-sellers .whatsapp-cta:focus-visible,.best-sellers .pagination button:focus-visible { outline:3px solid #111; outline-offset:3px; }
+.best-sellers .pagination { display:none; }
+@keyframes shop-marquee { to { transform:translateX(-50%); } }
+@keyframes shop-light-sweep { 0%,55% { left:-58%; } 82%,100% { left:125%; } }
+@media(max-width:1080px) and (min-width:701px) {
+ .best-sellers .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); padding-inline:28px; gap:18px; }
+ .best-sellers .product-photo { aspect-ratio:1.12/1; }
+ .best-sellers .product-name { font-size:32px; }
+ .best-sellers .product-description { font-size:16px; }
+ .best-sellers .product-tag { font-size:11px; }
+ .best-sellers .whatsapp-cta { font-size:15px; }
+}
+@media(max-width:700px) {
+ .best-sellers { padding-bottom:56px; }
+ .best-sellers .ticker { height:37px; }
+ .best-sellers .ticker-line { font-size:10px; letter-spacing:.19em; }
+ .best-sellers .section-heading { padding:48px 18px 58px; }
+ .best-sellers .desktop-break { display:none; }
+ .best-sellers .eyebrow { margin-bottom:22px; font-size:14px; letter-spacing:.43em; }
+ .best-sellers h2 { max-width:370px; font-size:clamp(29px,9vw,37px); line-height:.96; }
+ .best-sellers .product-grid { display:none; }
+ .best-sellers .mobile-rail { display:flex; gap:18px; overflow-x:auto; padding:0 max(18px,calc((100vw - 328px)/2)); scrollbar-width:none; scroll-snap-type:x mandatory; scroll-behavior:smooth; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch; }
+ .best-sellers .mobile-rail::-webkit-scrollbar { display:none; }
+ .best-sellers .mobile-rail .product-card { flex:0 0 min(328px,calc(100vw - 74px)); width:min(328px,calc(100vw - 74px)); scroll-snap-align:center; border-radius:13px; }
+ .best-sellers .product-kind { min-height:54px; padding-inline:10px; font-size:14px; }
+ .best-sellers .product-photo { aspect-ratio:1.055/1; }
+ .best-sellers .product-info { padding:30px 21px 17px; }
+ .best-sellers .product-name { margin-bottom:17px; font-size:34px; }
+ .best-sellers .product-description { min-height:3.2em; margin-bottom:35px; font-size:15px; line-height:1.08; }
+ .best-sellers .product-tags { gap:6px; margin-bottom:20px; }
+ .best-sellers .product-tag { min-height:42px; flex:1 1 calc(50% - 6px); gap:8px; padding:7px 9px; font-size:10px; }
+ .best-sellers .whatsapp-cta { min-height:70px; font-size:14px; }
+ .best-sellers .pagination { display:flex; align-items:center; justify-content:center; gap:5px; margin-top:34px; }
+ .best-sellers .pagination button { width:10px; height:10px; padding:0; border:0; border-radius:50%; background:#d7d7d7; cursor:pointer; transition:background .2s ease,transform .2s ease; }
+ .best-sellers .pagination button[aria-current="true"] { background:var(--shop-orange); transform:scale(1.05); }
+}
+@media(max-width:360px) { .best-sellers .section-heading { padding-bottom:46px; } .best-sellers .product-info { padding-inline:16px; } .best-sellers .product-name { font-size:30px; } .best-sellers .product-tag { font-size:9px; } }
+@media(prefers-reduced-motion:reduce) {
+ .best-sellers *, .best-sellers *::before, .best-sellers *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; scroll-behavior:auto!important; transition-duration:.01ms!important; }
+ .best-sellers .product-card { opacity:1; transform:none; }
+}
+
 </style>
 </head>
 
@@ -521,7 +590,7 @@ body{
                     INÍCIO
                 </a>
 
-                <a href="#">
+                <a href="#mais-vendidos">
                     PRODUTOS
                 </a>
 
@@ -562,7 +631,7 @@ body{
 
                 <div class="hero-buttons">
 
-                    <a href="#" class="btn-products">
+                    <a href="#mais-vendidos" class="btn-products">
                         VER PRODUTOS
                     </a>
 
@@ -672,6 +741,20 @@ body{
 
 </section>
 
+
+<section class="best-sellers" id="mais-vendidos" aria-labelledby="best-sellers-title">
+ <div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
+  <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
+ </div></div>
+ <header class="section-heading"><p class="eyebrow">MAIS VENDIDOS</p><h2 id="best-sellers-title">ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS</h2></header>
+ <div class="product-grid" id="product-grid" aria-label="Produtos mais vendidos"></div>
+ <div class="mobile-rail" id="mobile-product-rail" role="region" aria-label="Carrossel de produtos mais vendidos" tabindex="0"></div>
+ <nav class="pagination" id="product-pagination" aria-label="Navegação dos produtos">
+  <button type="button" aria-label="Ir para o primeiro grupo de produtos"></button><button type="button" aria-label="Ir para o segundo grupo de produtos"></button><button type="button" aria-label="Ir para o terceiro grupo de produtos"></button><button type="button" aria-label="Ir para o quarto grupo de produtos"></button><button type="button" aria-label="Ir para o quinto grupo de produtos"></button>
+ </nav>
+</section>
+
 <script>
 
 const slides = document.querySelectorAll('.slide');
@@ -772,6 +855,34 @@ slider.addEventListener('touchend',(e)=>{
 
 });
 
+</script>
+
+
+<script>
+(() => {
+ const products = [
+  ['DESENGRAXANTE','TRON','produto-01.png','Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.',['Desengraxe intenso','Alta eficiência','Ação profunda']],
+  ['LIMPADOR DE ALUMÍNIO','ALUMAX','produto-02.png','Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.',['Alto rendimento','Limpeza profunda','Ação eficiente']],
+  ['LAVA MOTOS NEUTRO','FLOW','produto-03.png','Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.',['pH neutro','Seguro para pintura','Fácil enxágue']],
+  ['DESENGRAXANTE','EVOX','produto-04.png','Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.',['Aspecto natural','Proteção prolongada','Acabamento refinado']],
+  ['DESENGRAXANTE','ZUCS','produto-05.png','Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.',['Alta fixação','Proteção prolongada','Resistente à água']],
+  ['REMOVEDOR DE INSETOS','GREEN','produto-06.png','Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+  ['ACABAMENTO PREMIUM','DOCTOR SHINE','produto-07.png','Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+  ['POLIDOR','PREMIUM PAD','produto-08.png','Alta performance para quem busca polimento com acabamento refinado e resultado profissional.',['Excelente nível de acabamento','Ideal para refino e correção da pintura','Alta durabilidade']]
+ ];
+ const markup = (p,i) => `<article class="product-card" style="--card-delay:${i*105}ms"><div class="product-kind">${p[0]}</div><img class="product-photo" src="assets/${p[2]}" alt="${p[1]}" loading="lazy"><div class="product-info"><h3 class="product-name">${p[1]}</h3><p class="product-description">${p[3]}</p><div class="product-tags">${p[4].map(t=>`<span class="product-tag">${t}</span>`).join('')}</div><a class="whatsapp-cta" href="https://wa.me/?text=${encodeURIComponent(`Olá! Tenho interesse no produto ${p[1]}.`)}" target="_blank" rel="noopener noreferrer">SOLICITAR PELO WHATSAPP</a></div></article>`;
+ const grid=document.getElementById('product-grid'), rail=document.getElementById('mobile-product-rail');
+ grid.innerHTML=products.map(markup).join(''); rail.innerHTML=products.map(markup).join('');
+ const cards=[...document.querySelectorAll('.best-sellers .product-card')];
+ const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.12});
+ cards.forEach(card=>observer.observe(card));
+ const dots=[...document.querySelectorAll('#product-pagination button')];
+ const update=()=>{const center=rail.getBoundingClientRect().left+rail.clientWidth/2;let ix=0,dist=Infinity;[...rail.querySelectorAll('.product-card')].forEach((card,i)=>{const b=card.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-center);if(d<dist){ix=i;dist=d;}});const active=Math.round(ix*(dots.length-1)/(products.length-1));dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===active)));};
+ rail.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>rail.querySelectorAll('.product-card')[Math.round(i*(products.length-1)/(dots.length-1))].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})));
+ if(matchMedia('(max-width: 700px)').matches) requestAnimationFrame(()=>rail.querySelectorAll('.product-card')[1].scrollIntoView({block:'nearest',inline:'center'}));
+ update();
+})();
 </script>
 
 </body>

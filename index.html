@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Amigos do Brilho</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -234,17 +232,14 @@ body {
 
 .product.coat {
     max-height: 590px;
-    margin-top: 0;
 }
 
 .product.luster {
     max-height: 665px;
-    margin-top: 0;
 }
 
 .product.graphene {
     max-height: 675px;
-    margin-top: 0;
 }
 
 .product-light {
@@ -304,146 +299,9 @@ body {
         transform: scale(.95);
         opacity: .75;
     }
-
     50% {
         transform: scale(1.12);
         opacity: 1;
-    }
-}
-
-@media(max-width: 1100px) {
-    .container {
-        padding: 20px;
-    }
-
-    .menu {
-        display: none;
-    }
-
-    .header {
-        height: 84px;
-        padding: 0 20px;
-    }
-
-    .logo {
-        width: 120px;
-    }
-
-    .contact-btn {
-        padding: 14px 28px;
-        font-size: 15px;
-    }
-
-    .hero-content {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 40px;
-    }
-
-    .hero-text,
-    .hero-slider {
-        width: 100%;
-    }
-
-    .hero-text h1 {
-        font-size: 52px;
-        letter-spacing: -1px;
-    }
-
-    .hero-text p {
-        font-size: 22px;
-    }
-
-    .hero-buttons {
-        max-width: 100%;
-    }
-
-    .hero-buttons a {
-        height: 62px;
-        font-size: 21px;
-    }
-
-    .hero-slider {
-        height: 560px;
-        margin-top: 20px;
-    }
-
-    .product-wrap {
-        padding-bottom: 54px;
-    }
-
-    .product.coat {
-        max-height: 410px;
-        margin-top: 0;
-    }
-
-    .product.luster {
-        max-height: 485px;
-        margin-top: 0;
-    }
-
-    .product.graphene {
-        max-height: 495px;
-        margin-top: 0;
-    }
-
-    .product-light {
-        width: 230px;
-        height: 230px;
-    }
-
-    .light-one {
-        top: 90px;
-        left: 40px;
-    }
-
-    .light-two {
-        bottom: 80px;
-        right: 35px;
-    }
-
-    .slider-controls {
-        top: 20px;
-        right: 10px;
-    }
-
-    .slider-controls button {
-        width: 54px;
-        height: 54px;
-        font-size: 36px;
-    }
-}
-
-@media(max-width: 520px) {
-    .container {
-        padding: 16px;
-    }
-
-    .hero-text h1 {
-        font-size: 43px;
-    }
-
-    .hero-text p {
-        font-size: 20px;
-    }
-
-    .hero-slider {
-        height: 500px;
-    }
-
-    .product-wrap {
-        padding-bottom: 48px;
-    }
-
-    .product.coat {
-        max-height: 360px;
-        margin-top: 0;
-    }
-
-    .product.luster,
-    .product.graphene {
-        max-height: 430px;
-        margin-top: 0;
     }
 }
 
@@ -655,7 +513,8 @@ body {
     transition: transform .2s ease,background .2s ease;
 }
 
-.best-sellers .whatsapp-cta::after {
+.best-sellers .whatsapp-cta::after,
+.service-lines .service-cta::after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -674,12 +533,6 @@ body {
     background: #f17c00;
 }
 
-.best-sellers .whatsapp-cta:focus-visible,
-.best-sellers .pagination button:focus-visible {
-    outline: 3px solid #111;
-    outline-offset: 3px;
-}
-
 .best-sellers .pagination {
     display: none;
 }
@@ -694,7 +547,6 @@ body {
     0%,55% {
         left: -58%;
     }
-
     82%,100% {
         left: 125%;
     }
@@ -849,12 +701,10 @@ body {
         border-radius: 50%;
         background: #d7d7d7;
         cursor: pointer;
-        transition: background .2s ease,transform .2s ease;
     }
 
     .best-sellers .pagination button[aria-current="true"] {
         background: var(--shop-orange);
-        transform: scale(1.05);
     }
 }
 
@@ -892,7 +742,7 @@ body {
     }
 }
 
-/* TERCEIRA SEÇÃO: LINHAS DE SERVIÇO */
+/* TERCEIRA SEÇÃO: TRÊS CARDS EM CIMA E DOIS CENTRALIZADOS ABAIXO */
 
 .service-lines {
     overflow: hidden;
@@ -948,7 +798,8 @@ body {
     transform: translateY(0);
 }
 
-.service-lines .service-card:nth-child(4):not(:last-child) {
+/* Cards quatro e cinco ficam centralizados na segunda linha */
+.service-lines .service-card:nth-child(4) {
     grid-column: 2/span 2;
 }
 
@@ -956,15 +807,18 @@ body {
     grid-column: 4/span 2;
 }
 
-.service-lines .service-card:nth-child(4):last-child {
-    grid-column: 3/span 2;
-}
-
 .service-lines .service-art {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: fill;
+}
+
+/* O asset Acabamento Premium não traz a moldura; ela é aplicada aqui */
+.service-lines .service-card-premium .service-art {
+    border: 2px solid #ff8500;
+    border-radius: 12px;
+    box-shadow: 0 0 18px #ff850080;
 }
 
 .service-lines .service-cta {
@@ -990,20 +844,6 @@ body {
     line-height: 1.1;
     font-weight: 900;
     transition: transform .2s ease,box-shadow .2s ease;
-}
-
-.service-lines .service-cta::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -55%;
-    left: -58%;
-    width: 42%;
-    height: 210%;
-    transform: skewX(-22deg);
-    background: linear-gradient(90deg,transparent,#ffffffc7,transparent);
-    animation: shop-light-sweep 3.8s ease-in-out infinite;
-    pointer-events: none;
 }
 
 .service-lines .service-cta:hover {
@@ -1038,13 +878,8 @@ body {
         grid-column: span 2;
     }
 
-    .service-lines .service-card:nth-child(4):last-child {
+    .service-lines .service-card:nth-child(5):last-child {
         grid-column: 2/span 2;
-    }
-
-    .service-lines .service-card:nth-child(4):not(:last-child),
-    .service-lines .service-card:nth-child(5) {
-        grid-column: span 2;
     }
 
     .service-lines .service-cta {
@@ -1123,24 +958,12 @@ body {
 <!-- PRIMEIRA SEÇÃO -->
 
 <section class="hero">
-
-    <img
-        class="hero-bg"
-        src="assets/hero-bg.webp"
-        alt="Fundo Amigos do Brilho"
-    >
-
+    <img class="hero-bg" src="assets/hero-bg.webp" alt="Fundo Amigos do Brilho">
     <div class="overlay"></div>
 
     <div class="container">
-
         <header class="header">
-
-            <img
-                class="logo"
-                src="assets/logo-amigos-do-brilho.png"
-                alt="Logo Amigos do Brilho"
-            >
+            <img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Logo Amigos do Brilho">
 
             <nav class="menu">
                 <a href="#" class="active">INÍCIO</a>
@@ -1150,13 +973,10 @@ body {
             </nav>
 
             <a href="#" class="contact-btn">CONTATO</a>
-
         </header>
 
         <div class="hero-content">
-
             <div class="hero-text">
-
                 <h1>
                     ESTÉTICA<br>
                     AUTOMOTIVA<br>
@@ -1169,21 +989,12 @@ body {
                 </p>
 
                 <div class="hero-buttons">
-
-                    <a href="#mais-vendidos" class="btn-products">
-                        VER PRODUTOS
-                    </a>
-
-                    <a href="#" class="btn-whatsapp">
-                        FALAR NO WHATSAPP
-                    </a>
-
+                    <a href="#mais-vendidos" class="btn-products">VER PRODUTOS</a>
+                    <a href="#" class="btn-whatsapp">FALAR NO WHATSAPP</a>
                 </div>
-
             </div>
 
             <div class="hero-slider" id="slider">
-
                 <div class="slider-controls">
                     <button type="button" id="prev">‹</button>
                     <button type="button" id="next">›</button>
@@ -1193,11 +1004,7 @@ body {
                     <div class="product-wrap">
                         <span class="product-light light-one"></span>
                         <span class="product-light light-two"></span>
-                        <img
-                            src="assets/produto-coat-ceramic.png"
-                            class="product coat"
-                            alt="Produto Coat Ceramic"
-                        >
+                        <img src="assets/produto-coat-ceramic.png" class="product coat" alt="Produto Coat Ceramic">
                     </div>
                 </div>
 
@@ -1205,11 +1012,7 @@ body {
                     <div class="product-wrap">
                         <span class="product-light light-one"></span>
                         <span class="product-light light-two"></span>
-                        <img
-                            src="assets/produto-luster.webp"
-                            class="product luster"
-                            alt="Produto Luster"
-                        >
+                        <img src="assets/produto-luster.webp" class="product luster" alt="Produto Luster">
                     </div>
                 </div>
 
@@ -1217,11 +1020,7 @@ body {
                     <div class="product-wrap">
                         <span class="product-light light-one"></span>
                         <span class="product-light light-two"></span>
-                        <img
-                            src="assets/produto-graphene.webp"
-                            class="product graphene"
-                            alt="Produto Graphene"
-                        >
+                        <img src="assets/produto-graphene.webp" class="product graphene" alt="Produto Graphene">
                     </div>
                 </div>
 
@@ -1230,19 +1029,14 @@ body {
                     <button class="dot"></button>
                     <button class="dot"></button>
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 <!-- SEGUNDA SEÇÃO -->
 
 <section class="best-sellers" id="mais-vendidos" aria-labelledby="best-sellers-title">
-
     <div class="ticker" aria-hidden="true">
         <div class="ticker-track">
             <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
@@ -1252,9 +1046,7 @@ body {
 
     <header class="section-heading">
         <p class="eyebrow">MAIS VENDIDOS</p>
-        <h2 id="best-sellers-title">
-            ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS
-        </h2>
+        <h2 id="best-sellers-title">ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS</h2>
     </header>
 
     <div class="product-grid" id="product-grid" aria-label="Produtos mais vendidos"></div>
@@ -1274,13 +1066,11 @@ body {
         <button type="button" aria-label="Ir para o quarto grupo de produtos"></button>
         <button type="button" aria-label="Ir para o quinto grupo de produtos"></button>
     </nav>
-
 </section>
 
 <!-- TERCEIRA SEÇÃO -->
 
 <section class="service-lines" id="linhas" aria-labelledby="service-lines-title">
-
     <header class="service-heading">
         <h2 id="service-lines-title">
             <span class="desktop-title">
@@ -1299,7 +1089,6 @@ body {
     </header>
 
     <div class="service-grid">
-
         <article class="service-card">
             <img
                 class="service-art"
@@ -1325,6 +1114,21 @@ body {
             <a
                 class="service-cta"
                 href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva."
+                target="_blank"
+                rel="noopener noreferrer"
+            >VER LINHA COMPLETA</a>
+        </article>
+
+        <article class="service-card service-card-premium">
+            <img
+                class="service-art"
+                src="assets/CARD%20ACABAMENTO%20PREMIUM.png"
+                alt="Acabamento premium: produtos para uma finalização sofisticada e visual refinado em cada detalhe do veículo."
+                loading="lazy"
+            >
+            <a
+                class="service-cta"
+                href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium."
                 target="_blank"
                 rel="noopener noreferrer"
             >VER LINHA COMPLETA</a>
@@ -1359,58 +1163,42 @@ body {
                 rel="noopener noreferrer"
             >VER LINHA COMPLETA</a>
         </article>
-
     </div>
-
 </section>
 
 <script>
 const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
+const heroDots = document.querySelectorAll('.dot');
 let current = 0;
 
 function showSlide(index) {
     slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-
+    heroDots.forEach(dot => dot.classList.remove('active'));
     slides[index].classList.add('active');
-    dots[index].classList.add('active');
+    heroDots[index].classList.add('active');
 }
 
 function nextSlide() {
-    current++;
-
-    if (current >= slides.length) {
-        current = 0;
-    }
-
+    current = (current + 1) % slides.length;
     showSlide(current);
 }
 
 function prevSlide() {
-    current--;
-
-    if (current < 0) {
-        current = slides.length - 1;
-    }
-
+    current = (current - 1 + slides.length) % slides.length;
     showSlide(current);
 }
 
 document.getElementById('next').addEventListener('click', nextSlide);
 document.getElementById('prev').addEventListener('click', prevSlide);
 
-dots.forEach((dot, index) => {
+heroDots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
         current = index;
         showSlide(current);
     });
 });
 
-setInterval(() => {
-    nextSlide();
-}, 6000);
+setInterval(nextSlide, 6000);
 
 const slider = document.getElementById('slider');
 let startX = 0;
@@ -1420,101 +1208,36 @@ slider.addEventListener('touchstart', event => {
 });
 
 slider.addEventListener('touchend', event => {
-    const endX = event.changedTouches[0].clientX;
-    const diff = startX - endX;
+    const diff = startX - event.changedTouches[0].clientX;
 
-    if (diff > 50) {
-        nextSlide();
-    }
-
-    if (diff < -50) {
-        prevSlide();
-    }
+    if (diff > 50) nextSlide();
+    if (diff < -50) prevSlide();
 });
 </script>
 
 <script>
 (() => {
     const products = [
-        [
-            'DESENGRAXANTE',
-            'TRON',
-            'PRODUTO 1.png',
-            'Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.',
-            ['Desengraxe intenso', 'Alta eficiência', 'Ação profunda']
-        ],
-        [
-            'LIMPADOR DE ALUMÍNIO',
-            'ALUMAX',
-            'PRODUTO 2 png.png',
-            'Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.',
-            ['Alto rendimento', 'Limpeza profunda', 'Ação eficiente']
-        ],
-        [
-            'LAVA MOTOS NEUTRO',
-            'FLOW',
-            'PRODUTO 3.png',
-            'Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.',
-            ['pH neutro', 'Seguro para pintura', 'Fácil enxágue']
-        ],
-        [
-            'DESENGRAXANTE',
-            'EVOX',
-            'PRODUTO 4 .png',
-            'Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.',
-            ['Aspecto natural', 'Proteção prolongada', 'Acabamento refinado']
-        ],
-        [
-            'DESENGRAXANTE',
-            'ZUCS',
-            'PRODUTO 5 .png',
-            'Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.',
-            ['Alta fixação', 'Proteção prolongada', 'Resistente à água']
-        ],
-        [
-            'REMOVEDOR DE INSETOS',
-            'GREEN',
-            'PRODUTO 6.png',
-            'Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.',
-            ['Ação rápida', 'Seguro para pintura', 'Pronto para uso']
-        ],
-        [
-            'ACABAMENTO PREMIUM',
-            'DOCTOR SHINE',
-            'PRODUTO 7.png',
-            'Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.',
-            ['Ação rápida', 'Seguro para pintura', 'Pronto para uso']
-        ],
-        [
-            'POLIDOR',
-            'PREMIUM PAD',
-            'PRODUTO 8.png',
-            'Alta performance para quem busca polimento com acabamento refinado e resultado profissional.',
-            ['Excelente nível de acabamento', 'Ideal para refino e correção da pintura', 'Alta durabilidade']
-        ]
+        ['DESENGRAXANTE','TRON','PRODUTO 1.png','Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.',['Desengraxe intenso','Alta eficiência','Ação profunda']],
+        ['LIMPADOR DE ALUMÍNIO','ALUMAX','PRODUTO 2 png.png','Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.',['Alto rendimento','Limpeza profunda','Ação eficiente']],
+        ['LAVA MOTOS NEUTRO','FLOW','PRODUTO 3.png','Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.',['pH neutro','Seguro para pintura','Fácil enxágue']],
+        ['DESENGRAXANTE','EVOX','PRODUTO 4 .png','Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.',['Aspecto natural','Proteção prolongada','Acabamento refinado']],
+        ['DESENGRAXANTE','ZUCS','PRODUTO 5 .png','Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.',['Alta fixação','Proteção prolongada','Resistente à água']],
+        ['REMOVEDOR DE INSETOS','GREEN','PRODUTO 6.png','Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+        ['ACABAMENTO PREMIUM','DOCTOR SHINE','PRODUTO 7.png','Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+        ['POLIDOR','PREMIUM PAD','PRODUTO 8.png','Alta performance para quem busca polimento com acabamento refinado e resultado profissional.',['Excelente nível de acabamento','Ideal para refino e correção da pintura','Alta durabilidade']]
     ];
 
     const cardMarkup = (product, index) => `
         <article class="product-card" style="--card-delay:${index * 105}ms">
             <div class="product-kind">${product[0]}</div>
-
-            <img
-                class="product-photo"
-                src="assets/${product[2]}"
-                alt="${product[1]}"
-                loading="lazy"
-            >
-
+            <img class="product-photo" src="assets/${product[2]}" alt="${product[1]}" loading="lazy">
             <div class="product-info">
                 <h3 class="product-name">${product[1]}</h3>
                 <p class="product-description">${product[3]}</p>
-
                 <div class="product-tags">
-                    ${product[4].map(tag => `
-                        <span class="product-tag">${tag}</span>
-                    `).join('')}
+                    ${product[4].map(tag => `<span class="product-tag">${tag}</span>`).join('')}
                 </div>
-
                 <a
                     class="whatsapp-cta"
                     href="https://wa.me/?text=${encodeURIComponent(`Olá! Tenho interesse no produto ${product[1]}.`)}"
@@ -1531,35 +1254,33 @@ slider.addEventListener('touchend', event => {
     grid.innerHTML = products.map(cardMarkup).join('');
     rail.innerHTML = products.map(cardMarkup).join('');
 
-    const cards = [...document.querySelectorAll('.best-sellers .product-card')];
+    const productCards = [
+        ...document.querySelectorAll('.best-sellers .product-card')
+    ];
 
-    const observer = new IntersectionObserver(entries => {
+    const productObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                productObserver.unobserve(entry.target);
             }
         });
     }, { threshold: .12 });
 
-    cards.forEach(card => observer.observe(card));
+    productCards.forEach(card => productObserver.observe(card));
 
     const paginationDots = [
         ...document.querySelectorAll('#product-pagination button')
     ];
 
     const updatePagination = () => {
-        const center =
-            rail.getBoundingClientRect().left + rail.clientWidth / 2;
-
+        const center = rail.getBoundingClientRect().left + rail.clientWidth / 2;
         let closestIndex = 0;
         let closestDistance = Infinity;
 
         [...rail.querySelectorAll('.product-card')].forEach((card, index) => {
             const bounds = card.getBoundingClientRect();
-            const distance = Math.abs(
-                bounds.left + bounds.width / 2 - center
-            );
+            const distance = Math.abs(bounds.left + bounds.width / 2 - center);
 
             if (distance < closestDistance) {
                 closestIndex = index;
@@ -1568,16 +1289,11 @@ slider.addEventListener('touchend', event => {
         });
 
         const activeDot = Math.round(
-            closestIndex *
-            (paginationDots.length - 1) /
-            (products.length - 1)
+            closestIndex * (paginationDots.length - 1) / (products.length - 1)
         );
 
         paginationDots.forEach((dot, index) => {
-            dot.setAttribute(
-                'aria-current',
-                String(index === activeDot)
-            );
+            dot.setAttribute('aria-current', String(index === activeDot));
         });
     };
 
@@ -1590,27 +1306,23 @@ slider.addEventListener('touchend', event => {
     paginationDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             const targetIndex = Math.round(
-                index *
-                (products.length - 1) /
-                (paginationDots.length - 1)
+                index * (products.length - 1) / (paginationDots.length - 1)
             );
 
-            rail.querySelectorAll('.product-card')[targetIndex]
-                .scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
+            rail.querySelectorAll('.product-card')[targetIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
         });
     });
 
     if (matchMedia('(max-width: 700px)').matches) {
         requestAnimationFrame(() => {
-            rail.querySelectorAll('.product-card')[1]
-                .scrollIntoView({
-                    block: 'nearest',
-                    inline: 'center'
-                });
+            rail.querySelectorAll('.product-card')[1].scrollIntoView({
+                block: 'nearest',
+                inline: 'center'
+            });
         });
     }
 

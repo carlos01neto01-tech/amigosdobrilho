@@ -1001,12 +1001,204 @@ body{
     .why-amigos *, .why-amigos *::before, .why-amigos *::after { scroll-behavior:auto!important; transition-duration:.01ms!important; }
 }
 
+/* CHAMADA FINAL + RODAPE */
+.final-contact {
+    min-height:clamp(700px,70vw,1120px);
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+    grid-template-areas:"copy phone";
+    align-items:center;
+    gap:2vw;
+    max-width:1920px;
+    margin:0 auto;
+    padding:clamp(72px,8vw,150px) 5%;
+    background:#fff;
+    color:#090909;
+    overflow:hidden;
+}
+.final-contact .final-copy { grid-area:copy; position:relative; z-index:1; }
+.final-contact h2 {
+    max-width:800px;
+    color:#090909;
+    font-size:clamp(44px,4.6vw,88px);
+    line-height:.9;
+    letter-spacing:-.035em;
+    font-weight:900;
+    text-transform:uppercase;
+}
+.final-contact h2 span { color:#ff8500; }
+.final-contact p {
+    max-width:760px;
+    margin-top:clamp(24px,2.6vw,50px);
+    font-size:clamp(20px,2.1vw,36px);
+    line-height:1.05;
+    font-weight:400;
+}
+.final-contact .final-cta {
+    width:min(100%,860px);
+    min-height:clamp(72px,8vw,150px);
+    margin-top:clamp(34px,3.8vw,74px);
+    padding:18px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:radial-gradient(ellipse at 50% 50%,#ffad32 0%,#ff8500 58%,#ff7900 100%);
+    box-shadow:0 5px 4px rgba(0,0,0,.28);
+    color:#050505;
+    font-size:clamp(20px,2.25vw,38px);
+    line-height:1;
+    font-weight:900;
+    text-align:center;
+    text-decoration:none;
+    transition:transform .25s ease,filter .25s ease;
+}
+.final-contact .final-cta:hover { transform:translateY(-3px); filter:brightness(1.05); }
+.final-contact .final-cta:focus-visible,
+.site-footer a:focus-visible { outline:3px solid #111; outline-offset:5px; }
+.final-contact .final-phone {
+    grid-area:phone;
+    justify-self:center;
+    display:block;
+    width:clamp(500px,46vw,840px);
+    max-width:112%;
+    line-height:0;
+    opacity:1;
+    transform:translateX(0);
+    transition:opacity .85s ease,transform .95s cubic-bezier(.2,.75,.25,1);
+}
+.final-contact .final-phone img { display:block; width:100%; height:auto; }
+.has-scroll-reveal .final-contact .final-phone { opacity:0; transform:translateX(150px); }
+.has-scroll-reveal .final-contact .final-phone.is-visible { opacity:1; transform:translateX(0); }
+.site-footer {
+    background:#ff8500;
+    color:#050505;
+    padding:clamp(48px,5.2vw,100px) 7.5%;
+}
+.site-footer .footer-inner {
+    max-width:1600px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr .62fr 1.2fr;
+    align-items:center;
+    gap:clamp(35px,6vw,120px);
+}
+.site-footer .footer-brand { display:flex; justify-content:center; }
+.site-footer .footer-brand-link {
+    width:clamp(210px,19vw,370px);
+    aspect-ratio:1;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#050505;
+    color:#ff8500;
+    text-decoration:none;
+}
+.site-footer .footer-brand-link svg { width:78%; height:auto; }
+.site-footer .footer-column h2 {
+    margin:0 0 clamp(20px,2.3vw,42px);
+    font-size:clamp(34px,4vw,68px);
+    line-height:1;
+    font-weight:800;
+    letter-spacing:-.04em;
+}
+.site-footer .footer-links { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+.site-footer .footer-links a,
+.site-footer .footer-address {
+    color:#050505;
+    font-size:clamp(19px,2vw,33px);
+    line-height:1.3;
+    text-decoration:none;
+}
+.site-footer .footer-links a:hover,
+.site-footer .footer-address:hover { text-decoration:underline; }
+.site-footer .footer-address { display:inline-block; }
+.site-footer .footer-contact {
+    width:min(100%,460px);
+    min-height:clamp(68px,6vw,114px);
+    margin:clamp(22px,2.3vw,44px) auto 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:999px;
+    background:linear-gradient(110deg,#050505,#282828);
+    color:#ff8500;
+    font-size:clamp(24px,2.35vw,42px);
+    line-height:1;
+    font-weight:900;
+    text-decoration:none;
+    transition:transform .25s ease,filter .25s ease;
+}
+.site-footer .footer-contact:hover { transform:translateY(-3px); filter:brightness(1.18); }
+@media(max-width:700px) {
+    .final-contact {
+        min-height:0;
+        grid-template-columns:1fr;
+        grid-template-areas:"phone" "copy";
+        gap:0;
+        padding:26px 28px 68px;
+        text-align:center;
+    }
+    .final-contact .final-phone {
+        width:min(100%,430px);
+        max-width:none;
+        margin:0 auto 0;
+        transform:translateY(0);
+    }
+    .has-scroll-reveal .final-contact .final-phone { transform:translateY(-125px); }
+    .has-scroll-reveal .final-contact .final-phone.is-visible { transform:translateY(0); }
+    .final-contact h2 {
+        max-width:520px;
+        margin:0 auto;
+        font-size:clamp(29px,7.4vw,42px);
+        line-height:.91;
+        letter-spacing:-.025em;
+    }
+    .final-contact p {
+        max-width:480px;
+        margin:16px auto 0;
+        font-size:clamp(15px,4vw,19px);
+        line-height:1.02;
+    }
+    .final-contact .final-cta {
+        width:min(100%,450px);
+        min-height:72px;
+        margin:28px auto 0;
+        padding:14px 18px;
+        font-size:clamp(17px,4.6vw,22px);
+    }
+    .site-footer { padding:74px 28px 48px; text-align:center; }
+    .site-footer .footer-inner {
+        grid-template-columns:1fr;
+        gap:34px;
+    }
+    .site-footer .footer-brand { margin-bottom:2px; }
+    .site-footer .footer-brand-link { width:min(50vw,210px); }
+    .site-footer .footer-column h2 {
+        margin-bottom:12px;
+        font-size:clamp(27px,7vw,34px);
+    }
+    .site-footer .footer-links { align-items:center; gap:2px; }
+    .site-footer .footer-links a,
+    .site-footer .footer-address { font-size:16px; line-height:1.45; }
+    .site-footer .footer-contact {
+        width:min(100%,340px);
+        min-height:74px;
+        margin:30px auto 0;
+        font-size:27px;
+    }
+}
+@media(prefers-reduced-motion:reduce) {
+    .final-contact *, .site-footer * { transition-duration:.01ms!important; }
+    .has-scroll-reveal .final-contact .final-phone { opacity:1!important; transform:none!important; }
+}
+
 </style>
 </head>
 
 <body>
 
-<section class="hero">
+<section class="hero" id="inicio">
 
     <!-- FUNDO -->
 
@@ -1303,6 +1495,65 @@ body{
         </div>
     </div>
 </section>
+
+<section class="final-contact" id="contato" aria-labelledby="final-contact-title">
+    <div class="final-copy">
+        <h2 id="final-contact-title">ENCONTRE O<br>PRODUTO <span>IDEAL</span><br>PARA O SEU CARRO</h2>
+        <p>Fale diretamente com nossa equipe e descubra os produtos ideais para brilho, proteção, acabamento e detalhamento automotivo.</p>
+        <a class="final-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a>
+    </div>
+    <a class="final-phone" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer" aria-label="Fale com a equipe Amigos do Brilho pelo WhatsApp">
+        <img src="assets/WHATS%20PHONE.png" alt="Celular com a conversa do WhatsApp Amigos do Brilho" loading="lazy">
+    </a>
+</section>
+
+<footer class="site-footer" aria-label="Rodapé Amigos do Brilho">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a class="footer-brand-link" href="#inicio" aria-label="Amigos do Brilho, voltar ao início">
+                <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/>
+                    <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/>
+                    <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/>
+                    <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text>
+                    <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text>
+                </svg>
+            </a>
+        </div>
+        <nav class="footer-column" aria-label="Redes sociais">
+            <h2>Links</h2>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </nav>
+        <div class="footer-column footer-location">
+            <h2>Localização</h2>
+            <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a>
+            <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(() => {
+    const phone = document.querySelector('.final-phone');
+    if (!phone) return;
+    document.body.classList.add('has-scroll-reveal');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        phone.classList.add('is-visible');
+        return;
+    }
+    const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+            phone.classList.add('is-visible');
+            observer.disconnect();
+        }
+    }, { threshold: .2 });
+    observer.observe(phone);
+})();
+</script>
 
 <script>
 

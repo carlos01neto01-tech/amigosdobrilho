@@ -843,6 +843,164 @@ body{
     .results-showcase *, .results-showcase *::before, .results-showcase *::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important; }
 }
 
+/* SESSÃO 5: POR QUE ESCOLHER A AMIGOS DO BRILHO */
+.why-amigos {
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    min-height:clamp(780px,63.8vw,1225px);
+    background:#090909;
+    color:#fff;
+}
+.why-amigos .why-background {
+    position:absolute;
+    z-index:-2;
+    inset:0;
+    display:block;
+}
+.why-amigos .why-background img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+}
+.why-amigos::after {
+    content:"";
+    position:absolute;
+    z-index:-1;
+    inset:0;
+    background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,0) 75%);
+    pointer-events:none;
+}
+.why-amigos .why-content {
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:1920px;
+    margin:0 auto;
+    padding:clamp(120px,9vw,175px) 4.3% 70px;
+}
+.why-amigos h2 {
+    max-width:1100px;
+    margin:0;
+    color:#fff;
+    font-size:clamp(42px,4.5vw,88px);
+    line-height:.94;
+    font-weight:900;
+    letter-spacing:-.035em;
+    text-transform:uppercase;
+}
+.why-amigos h2 span { color:#ff8500; }
+.why-amigos .why-benefits {
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    width:min(61%,1135px);
+    margin-top:clamp(65px,7vw,138px);
+}
+.why-amigos .why-benefit {
+    min-height:clamp(88px,7.2vw,138px);
+    display:flex;
+    align-items:stretch;
+    overflow:hidden;
+    border:2px solid #ff8500;
+    border-radius:30px;
+    background:rgba(0,0,0,.86);
+    box-shadow:0 0 20px rgba(255,133,0,.19);
+    backdrop-filter:blur(5px);
+}
+.why-amigos .why-icon-box {
+    flex:0 0 clamp(72px,6.1vw,118px);
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#ff7900,#ff9b00);
+    border-radius:26px;
+}
+.why-amigos .why-icon {
+    display:block;
+    width:clamp(34px,3vw,58px);
+    height:clamp(34px,3vw,58px);
+    object-fit:contain;
+}
+.why-amigos .why-copy {
+    align-self:center;
+    min-width:0;
+    padding:14px clamp(18px,1.8vw,35px);
+}
+.why-amigos .why-copy h3 {
+    margin:0 0 3px;
+    color:#ff8500;
+    font-size:clamp(22px,2.3vw,43px);
+    line-height:1;
+    font-weight:700;
+    text-transform:uppercase;
+}
+.why-amigos .why-copy p {
+    margin:0;
+    color:#f4f4f4;
+    font-size:clamp(13px,1.15vw,22px);
+    line-height:1.13;
+    font-weight:400;
+}
+@media(max-width:700px) {
+    .why-amigos {
+        min-height:max(693px,172.4vw);
+        aspect-ratio:402 / 693;
+    }
+    .why-amigos .why-background img {
+        object-position:center top;
+    }
+    .why-amigos::after {
+        background:linear-gradient(180deg,transparent 28%,rgba(0,0,0,.12) 48%,rgba(0,0,0,.03) 100%);
+    }
+    .why-amigos .why-content {
+        padding:clamp(340px,85vw,600px) 32px 22px;
+    }
+    .why-amigos h2 {
+        max-width:390px;
+        margin:0 auto;
+        font-size:clamp(26px,7.2vw,34px);
+        line-height:.94;
+        letter-spacing:-.025em;
+        text-align:center;
+    }
+    .why-amigos .why-benefits {
+        width:100%;
+        max-width:470px;
+        gap:8px;
+        margin:17px auto 0;
+    }
+    .why-amigos .why-benefit {
+        min-height:58px;
+        border-width:1.5px;
+        border-radius:22px;
+        box-shadow:0 0 14px rgba(255,133,0,.25);
+    }
+    .why-amigos .why-icon-box {
+        flex-basis:52px;
+        border-radius:19px;
+    }
+    .why-amigos .why-icon {
+        width:29px;
+        height:29px;
+    }
+    .why-amigos .why-copy {
+        padding:6px 10px 6px 18px;
+    }
+    .why-amigos .why-copy h3 {
+        margin-bottom:2px;
+        font-size:clamp(12px,3.55vw,15px);
+    }
+    .why-amigos .why-copy p {
+        font-size:clamp(8px,2.35vw,10px);
+        line-height:1.03;
+    }
+}
+@media(prefers-reduced-motion:reduce) {
+    .why-amigos *, .why-amigos *::before, .why-amigos *::after { scroll-behavior:auto!important; transition-duration:.01ms!important; }
+}
+
 </style>
 </head>
 
@@ -886,7 +1044,7 @@ body{
                     LINHA PREMIUM
                 </a>
 
-                <a href="#">
+                <a href="#porque-escolher">
                     SOBRE
                 </a>
 
@@ -1102,6 +1260,47 @@ body{
 
     <div class="results-cta-wrap">
         <a class="results-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a>
+    </div>
+</section>
+
+
+<section class="why-amigos" id="porque-escolher" aria-labelledby="why-amigos-title">
+    <picture class="why-background" aria-hidden="true">
+        <source media="(max-width: 700px)" srcset="assets/RAPAZ%20MOBILE%20.png">
+        <img src="assets/RAPAZ.png" alt="">
+    </picture>
+    <div class="why-content">
+        <h2 id="why-amigos-title">POR QUE ESCOLHER A<br><span>AMIGOS DO BRILHO?</span></h2>
+        <div class="why-benefits">
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/whatsapp.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>ATENDIMENTO DIRETO</h3>
+                    <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p>
+                </div>
+            </article>
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/correto%20.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>LINHA SELECIONADA</h3>
+                    <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p>
+                </div>
+            </article>
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/LIMPEZA.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>CATALOGO COMPLETO</h3>
+                    <p>Diversas opções para brilho, proteção, revitalização e acabamento automotivo.</p>
+                </div>
+            </article>
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/ESTATISTICA%20.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>FOCO EM PERFORMANCE</h3>
+                    <p>Uma linha desenvolvida para elevar o padrão visual e a experiência no cuidado automotivo.</p>
+                </div>
+            </article>
+        </div>
     </div>
 </section>
 

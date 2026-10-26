@@ -1193,6 +1193,160 @@ body{
     .has-scroll-reveal .final-contact .final-phone { opacity:1!important; transform:none!important; }
 }
 
+
+
+/* Ajustes de leitura, proporção e reprodução dos vídeos */
+:root { --page-gutter:clamp(16px,4vw,54px); }
+.hero { min-height:clamp(620px,100svh,900px); }
+.container { max-width:1480px; padding:22px var(--page-gutter); }
+.header { height:76px; padding:0 clamp(20px,2.5vw,34px); }
+.logo { width:clamp(112px,10vw,138px); }
+.menu { gap:clamp(18px,2.25vw,34px); }
+.menu a { font-size:clamp(15px,1.25vw,18px); }
+.contact-btn { padding:14px clamp(22px,3vw,38px); font-size:16px; }
+.hero-content { min-height:calc(100svh - 120px); gap:clamp(24px,3vw,44px); }
+.hero-text { width:44%; }
+.hero-text h1 { font-size:clamp(46px,5vw,72px); line-height:.98; letter-spacing:-.045em; }
+.hero-text p { margin-top:20px; font-size:clamp(18px,1.65vw,23px); line-height:1.2; }
+.hero-buttons { max-width:390px; margin-top:30px; gap:12px; }
+.hero-buttons a { height:58px; font-size:clamp(16px,1.5vw,20px); }
+.hero-slider { width:56%; height:min(610px,68svh); }
+.product-wrap { padding-bottom:50px; }
+.product.coat { max-height:500px; }
+.product.luster,.product.graphene { max-height:560px; }
+.best-sellers { padding-bottom:68px; }
+.best-sellers .section-heading { padding:78px 20px 62px; }
+.best-sellers .product-grid { max-width:1400px; gap:16px; padding:0 var(--page-gutter); }
+.service-lines { padding:88px 24px 92px; }
+.service-lines .service-heading { max-width:1420px; margin-bottom:76px; }
+.service-lines h2 { font-size:clamp(34px,4vw,64px); line-height:1; }
+.service-lines .service-grid { max-width:1320px; gap:18px; }
+.service-lines .service-card { aspect-ratio:1.46 / 1; }
+.service-lines .service-art { object-fit:cover; }
+.service-lines .service-card-premium .service-art { border-width:2px; }
+.service-lines .service-cta {
+    left:50%; bottom:6%; width:min(78%,280px); height:44px; min-height:44px;
+    padding:10px 14px; transform:translateX(-50%); font-size:clamp(12px,1vw,15px);
+}
+.service-lines .service-cta:hover { transform:translate(-50%,-2px); }
+.results-showcase { padding:86px 0 88px; }
+.results-showcase .results-heading { margin-bottom:54px; }
+.results-showcase .results-eyebrow { margin-bottom:14px; font-size:clamp(15px,1.5vw,22px); }
+.results-showcase h2 { font-size:clamp(36px,4.5vw,70px); }
+.results-showcase .results-viewport { max-width:1500px; padding:0 32px; }
+.results-showcase .results-card {
+    flex-basis:calc((min(100vw - 64px, 1436px) - 60px) / 4);
+    width:calc((min(100vw - 64px, 1436px) - 60px) / 4); aspect-ratio:.72 / 1;
+}
+.results-showcase .video-play { width:clamp(72px,6.2vw,104px); }
+.results-showcase .results-cta-wrap { max-width:920px; margin:56px auto 0; }
+.results-showcase .results-cta { min-height:84px; font-size:clamp(20px,2vw,32px); }
+.why-amigos { min-height:clamp(650px,62vw,920px); }
+.why-amigos .why-content { max-width:1480px; padding:clamp(90px,7.4vw,132px) 5% 56px; }
+.why-amigos h2 { font-size:clamp(40px,4.1vw,72px); }
+.why-amigos .why-benefits { width:min(60%,850px); gap:16px; margin-top:clamp(54px,5.5vw,86px); }
+.why-amigos .why-benefit { min-height:94px; border-radius:24px; }
+.why-amigos .why-icon-box { flex:0 0 84px; width:84px; border-radius:21px; }
+.why-amigos .why-icon { width:42px; height:42px; }
+.why-amigos .why-copy { padding:12px 22px; }
+.why-amigos .why-copy h3 { font-size:clamp(19px,1.8vw,28px); }
+.why-amigos .why-copy p { font-size:clamp(13px,1.05vw,17px); line-height:1.25; }
+.final-contact { min-height:clamp(560px,58vw,850px); gap:2.5vw; padding:clamp(58px,6.5vw,104px) 5%; }
+.final-contact h2 { font-size:clamp(42px,4vw,68px); }
+.final-contact p { margin-top:24px; font-size:clamp(18px,1.65vw,25px); line-height:1.2; }
+.final-contact .final-cta { min-height:84px; margin-top:34px; font-size:clamp(18px,1.8vw,28px); }
+.final-contact .final-phone { width:clamp(380px,43vw,680px); }
+.site-footer { padding:64px 6%; }
+.site-footer .footer-inner { max-width:1400px; gap:clamp(28px,4vw,72px); }
+.site-footer .footer-brand-link { width:clamp(180px,16vw,280px); }
+.site-footer .footer-column h2 { font-size:clamp(30px,3.2vw,50px); }
+.site-footer .footer-links a,.site-footer .footer-address { font-size:clamp(17px,1.6vw,24px); }
+.site-footer .footer-contact { min-height:78px; font-size:clamp(22px,2vw,30px); }
+.video-player-dialog {
+    width:min(980px,calc(100vw - 32px)); max-width:none; max-height:calc(100svh - 32px);
+    margin:auto; padding:0; overflow:hidden; border:1px solid #ff8500; border-radius:20px;
+    background:#0b0b0b; color:#fff; box-shadow:0 24px 90px #000b;
+}
+.video-player-dialog::backdrop { background:rgba(0,0,0,.84); backdrop-filter:blur(5px); }
+.video-player-shell { background:#0b0b0b; }
+.video-player-header { min-height:64px; display:flex; align-items:center; justify-content:space-between; gap:18px; padding:10px 16px 10px 22px; }
+.video-player-title { margin:0; color:#fff; font-size:clamp(17px,2vw,23px); line-height:1.2; font-weight:700; }
+.video-player-close { flex:0 0 42px; width:42px; height:42px; display:grid; place-items:center; border:1px solid #ff8500; border-radius:50%; background:#191919; color:#ff8500; font:400 30px/1 Arial,sans-serif; cursor:pointer; }
+.video-player-close:focus-visible { outline:3px solid #fff; outline-offset:3px; }
+.video-player { display:block; width:100%; height:min(72svh,720px); background:#000; object-fit:contain; }
+@media(max-width:1100px) {
+    .hero { min-height:0; }
+    .hero-content { min-height:0; padding-top:38px; }
+    .hero-slider { height:clamp(350px,52vw,470px); }
+    .product.coat { max-height:360px; }
+    .product.luster,.product.graphene { max-height:410px; }
+    .service-lines .service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .service-lines .service-grid .service-card:nth-child(4):not(:last-child),
+    .service-lines .service-grid .service-card:nth-child(5) { grid-column:auto; }
+    .service-lines .service-grid .service-card:nth-child(5):last-child { grid-column:1 / -1; width:calc((100% - 16px) / 2); justify-self:center; }
+    .why-amigos { min-height:clamp(620px,75vw,820px); }
+    .why-amigos .why-content { padding-top:90px; }
+    .why-amigos .why-benefits { width:min(68%,760px); margin-top:48px; }
+    .final-contact { min-height:560px; }
+    .final-contact .final-phone { width:min(43vw,560px); }
+}
+@media(max-width:700px) {
+    .container { padding:14px 16px; }
+    .header { height:62px; padding:0 14px; }
+    .logo { width:100px; }
+    .contact-btn { padding:11px 18px; font-size:13px; }
+    .hero-content { padding-top:32px; gap:4px; }
+    .hero-text,.hero-slider { width:100%; }
+    .hero-text h1 { font-size:clamp(38px,10vw,48px); line-height:.98; }
+    .hero-text p { max-width:440px; margin-top:16px; font-size:18px; line-height:1.25; }
+    .hero-buttons { max-width:420px; margin-top:22px; gap:10px; }
+    .hero-buttons a { height:52px; font-size:16px; }
+    .hero-slider { height:min(390px,100vw); margin-top:12px; }
+    .product-wrap { padding-bottom:32px; }
+    .product.coat { max-height:300px; }
+    .product.luster,.product.graphene { max-height:340px; }
+    .best-sellers { padding-bottom:48px; }
+    .best-sellers .section-heading { padding:56px 16px 42px; }
+    .service-lines { padding:62px 16px 66px; }
+    .service-lines .service-heading { margin-bottom:34px; }
+    .service-lines .service-grid { display:flex; flex-direction:column; gap:14px; max-width:480px; }
+    .service-lines .service-grid .service-card,.service-lines .service-grid .service-card:nth-child(5):last-child { width:100%; aspect-ratio:1.46 / 1; }
+    .service-lines .service-cta { width:min(78%,280px); height:40px; min-height:40px; bottom:6%; padding:8px 10px; font-size:clamp(11px,3vw,14px); }
+    .results-showcase { padding:58px 0 64px; }
+    .results-showcase .results-heading { margin-bottom:32px; }
+    .results-showcase .results-card { flex-basis:min(260px,72vw); width:min(260px,72vw); aspect-ratio:.72 / 1; }
+    .results-showcase .video-play { width:76px; }
+    .results-showcase .results-cta-wrap { margin:32px auto 0; padding:0 20px; }
+    .results-showcase .results-cta { min-height:64px; padding:12px 16px; font-size:17px; }
+    .why-amigos { min-height:0; aspect-ratio:auto; }
+    .why-amigos .why-background img { object-position:center top; }
+    .why-amigos .why-content { padding:clamp(280px,78vw,360px) 20px 28px; }
+    .why-amigos h2 { font-size:clamp(26px,7.2vw,34px); }
+    .why-amigos .why-benefits { width:100%; max-width:440px; gap:8px; margin-top:16px; }
+    .why-amigos .why-benefit { min-height:60px; border-radius:18px; }
+    .why-amigos .why-icon-box { flex:0 0 54px; width:54px; border-radius:16px; }
+    .why-amigos .why-icon { width:30px; height:30px; }
+    .why-amigos .why-copy { padding:6px 10px 6px 12px; }
+    .why-amigos .why-copy h3 { margin-bottom:3px; font-size:clamp(12px,3.5vw,15px); line-height:1.05; }
+    .why-amigos .why-copy p { font-size:clamp(10px,2.8vw,12px); line-height:1.15; }
+    .final-contact { padding:24px 22px 52px; }
+    .final-contact .final-phone { width:min(100%,360px); }
+    .final-contact h2 { font-size:clamp(29px,7.4vw,40px); }
+    .final-contact p { font-size:clamp(15px,4vw,18px); line-height:1.2; }
+    .final-contact .final-cta { min-height:62px; margin-top:22px; font-size:17px; }
+    .site-footer { padding:54px 22px 42px; }
+    .site-footer .footer-inner { gap:28px; }
+    .site-footer .footer-brand-link { width:min(45vw,190px); }
+    .site-footer .footer-contact { min-height:64px; font-size:23px; }
+    .video-player-dialog { width:calc(100vw - 18px); border-radius:14px; }
+    .video-player-header { min-height:54px; padding:8px 10px 8px 14px; }
+    .video-player-close { flex-basis:38px; width:38px; height:38px; }
+    .video-player { height:min(70svh,620px); }
+}
+@media(prefers-reduced-motion:reduce) {
+    .service-lines .service-card { opacity:1; transform:none; }
+}
+
 </style>
 </head>
 
@@ -1259,7 +1413,7 @@ body{
                 <h1>
                     ESTÉTICA<br>
                     AUTOMOTIVA<br>
-                    EM<span>OUTRO<br>NÍVEL!</span>
+                    EM <span>OUTRO<br>NÍVEL!</span>
                 </h1>
 
                 <p>
@@ -1704,6 +1858,17 @@ slider.addEventListener('touchend',(e)=>{
 })();
 </script>
 
+
+<dialog class="video-player-dialog" id="video-player-dialog" aria-labelledby="video-player-title">
+    <div class="video-player-shell">
+        <header class="video-player-header">
+            <h2 class="video-player-title" id="video-player-title">Reprodutor de vídeo</h2>
+            <button class="video-player-close" type="button" aria-label="Fechar reprodutor">&times;</button>
+        </header>
+        <video class="video-player" controls playsinline preload="none" aria-label="Reprodutor do vídeo"></video>
+    </div>
+</dialog>
+
 <script>
 (() => {
     const videos = [
@@ -1718,7 +1883,7 @@ slider.addEventListener('touchend',(e)=>{
     const cardMarkup = (video, index, clone = false) => `
         <article class="results-card"${clone ? ' aria-hidden="true" inert' : ''}>
             <video class="results-video" src="assets/${encodeURIComponent(video.file)}" muted loop playsinline preload="metadata" aria-label="${video.label}" data-video-index="${index}"></video>
-            <button class="video-play" type="button" aria-label="Reproduzir ${video.label}">
+            <button class="video-play" type="button" aria-label="Assistir ${video.label}">
                 <svg class="play-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 17v66l54-33z"/></svg>
                 <svg class="pause-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M25 18h18v64H25zm32 0h18v64H57z"/></svg>
             </button>
@@ -1782,17 +1947,39 @@ slider.addEventListener('touchend',(e)=>{
     }, { root: viewport, threshold: .2 });
     allVideos.forEach(video => videoObserver.observe(video));
 
+    const playerDialog = document.getElementById('video-player-dialog');
+    const playerVideo = playerDialog.querySelector('.video-player');
+    const playerTitle = playerDialog.querySelector('.video-player-title');
+    const playerClose = playerDialog.querySelector('.video-player-close');
+    let lastPlayerTrigger = null;
+
+    function openPlayer(video, trigger) {
+        playerTitle.textContent = video.label;
+        lastPlayerTrigger = trigger;
+        const source = trigger.parentElement.querySelector('.results-video');
+        playerVideo.src = source.currentSrc || source.src;
+        playerVideo.load();
+        playerDialog.showModal();
+        playerVideo.play().catch(() => {});
+    }
+
+    playerClose.addEventListener('click', () => playerDialog.close());
+    playerDialog.addEventListener('click', event => {
+        if (event.target === playerDialog) playerDialog.close();
+    });
+    playerDialog.addEventListener('close', () => {
+        playerVideo.pause();
+        playerVideo.removeAttribute('src');
+        playerVideo.load();
+        if (lastPlayerTrigger?.isConnected) lastPlayerTrigger.focus();
+    });
+
     track.addEventListener('click', event => {
         const button = event.target.closest('.video-play');
         if (!button) return;
-        const video = button.parentElement.querySelector('video');
-        if (video.paused) {
-            video.muted = false;
-            video.play().then(() => setPlaying(video, true)).catch(() => {});
-        } else {
-            video.pause();
-            setPlaying(video, false);
-        }
+        const source = button.parentElement.querySelector('.results-video');
+        const video = videos[Number(source.dataset.videoIndex)];
+        if (video) openPlayer(video, button);
     });
 
     const moveByCard = direction => {

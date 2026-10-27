@@ -5,14 +5,879 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Amigos do Brilho</title>
+<title>Início | Amigos do Brilho</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-<style>
+<link rel="stylesheet" href="site.css">
+</head>
+
+<body>
+
+<header class="header site-header">
+    <a class="brand" href="index.html" aria-label="Amigos do Brilho, início"><img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Amigos do Brilho"></a>
+    <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html" class="active" aria-current="page">INÍCIO</a>
+        <a href="produtos.html">PRODUTOS</a>
+        <a href="mais-vendidos.html">MAIS VENDIDOS</a>
+        <a href="sobre-nos.html">SOBRE NÓS</a>
+    </nav>
+    <a href="index.html#contato" class="contact-btn">CONTATO</a>
+</header>
+
+<section class="hero" id="inicio">
+
+    <!-- FUNDO -->
+
+    <img 
+        class="hero-bg"
+        src="assets/hero-bg.webp"
+        alt="Fundo Amigos do Brilho"
+    >
+
+    <div class="overlay"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+<!-- HERO CONTENT -->
+
+        <div class="hero-content">
+
+            <!-- TEXTO -->
+
+            <div class="hero-text">
+
+                <h1>
+                    ESTÉTICA<br>
+                    AUTOMOTIVA<br>
+                    EM <span>OUTRO<br>NÍVEL!</span>
+                </h1>
+
+                <p>
+                    Produtos premium para brilho,
+                    acabamento e proteção automotiva.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="produtos.html" class="btn-products">
+                        VER PRODUTOS
+                    </a>
+
+                    <a href="#" class="btn-whatsapp">
+                        FALAR NO WHATSAPP
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- SLIDER -->
+
+            <div class="hero-slider" id="slider">
+
+                <!-- CONTROLES -->
+
+                <div class="slider-controls">
+
+                    <button type="button" id="prev">
+                        ‹
+                    </button>
+
+                    <button type="button" id="next">
+                        ›
+                    </button>
+
+                </div>
+
+                <!-- SLIDE 1 -->
+
+                <div class="slide active">
+
+                    <div class="product-wrap">
+
+                        <span class="product-light light-one"></span>
+
+                        <span class="product-light light-two"></span>
+
+                        <img
+                            src="assets/produto-coat-ceramic.png"
+                            class="product coat"
+                            alt="Produto Coat Ceramic"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 2 -->
+
+                <div class="slide">
+
+                    <div class="product-wrap">
+
+                        <span class="product-light light-one"></span>
+
+                        <span class="product-light light-two"></span>
+
+                        <img
+                            src="assets/produto-luster.webp"
+                            class="product luster"
+                            alt="Produto Luster"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 3 -->
+
+                <div class="slide">
+
+                    <div class="product-wrap">
+
+                        <span class="product-light light-one"></span>
+
+                        <span class="product-light light-two"></span>
+
+                        <img
+                            src="assets/produto-graphene.webp"
+                            class="product graphene"
+                            alt="Produto Graphene"
+                        >
+
+                    </div>
+
+                </div>
+
+                <!-- DOTS -->
+
+                <div class="dots">
+
+                    <button class="dot active"></button>
+
+                    <button class="dot"></button>
+
+                    <button class="dot"></button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="best-sellers" id="mais-vendidos" aria-labelledby="best-sellers-title">
+ <div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
+  <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
+ </div></div>
+ <header class="section-heading"><p class="eyebrow">MAIS VENDIDOS</p><h2 id="best-sellers-title">ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS</h2></header>
+ <div class="product-grid" id="product-grid" aria-label="Produtos mais vendidos"></div>
+ <div class="mobile-rail" id="mobile-product-rail" role="region" aria-label="Carrossel de produtos mais vendidos" tabindex="0"></div>
+ <nav class="pagination" id="product-pagination" aria-label="Navegação dos produtos">
+  <button type="button" aria-label="Ir para o primeiro grupo de produtos"></button><button type="button" aria-label="Ir para o segundo grupo de produtos"></button><button type="button" aria-label="Ir para o terceiro grupo de produtos"></button><button type="button" aria-label="Ir para o quarto grupo de produtos"></button><button type="button" aria-label="Ir para o quinto grupo de produtos"></button>
+ </nav>
+</section>
+
+
+<section class="service-lines" id="linhas" aria-labelledby="service-lines-title">
+    <header class="service-heading">
+        <h2 id="service-lines-title">
+            <span class="desktop-title">LINHAS DESENVOLVIDAS PARA CADA<br>ETAPA DO <span class="orange">CUIDADO AUTOMOTIVO</span></span>
+            <span class="mobile-title">LINHAS<br>DESENVOLVIDAS<br>PARA CADA<br>ETAPA DO <span class="orange">CUIDADO</span><br><span class="orange">AUTOMOTIVO</span></span>
+        </h2>
+    </header>
+
+    <div class="service-grid">
+        <article class="service-card">
+            <img class="service-art" src="assets/CARD%20DETALHAMENTO%20INTERNO.png" alt="Detalhamento interno: produtos para renovar, proteger e elevar o acabamento interno do veículo." loading="lazy">
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Detalhamento%20Interno." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+        </article>
+
+        <article class="service-card">
+            <img class="service-art" src="assets/CARD%20LIMPEZA%20AUTOMOTIVA.png" alt="Limpeza automotiva: soluções para limpeza eficiente com acabamento visual superior para o cuidado automotivo." loading="lazy">
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+        </article>
+
+        <article class="service-card service-card-premium">
+            <img class="service-art" src="assets/CARD%20ACABAMENTO%20PREMIUM.png" alt="Acabamento premium: produtos para uma finalização sofisticada e visual refinado em cada detalhe do veículo." loading="lazy">
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+        </article>
+
+        <article class="service-card">
+            <img class="service-art" src="assets/CARD%20PROTECAO%20CERAMICA.png" alt="Proteção cerâmica: tecnologia para preservar pintura, acabamento e aparência por muito mais tempo." loading="lazy">
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Prote%C3%A7%C3%A3o%20Cer%C3%A2mica." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+        </article>
+
+        <article class="service-card">
+            <img class="service-art" src="assets/CARD%20MAIS%20BRILHO.png" alt="Mais brilho: produtos para intensificar profundidade, reflexo e acabamento visual no veículo." loading="lazy">
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20Mais%20Brilho." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+        </article>
+    </div>
+</section>
+
+
+<section class="results-showcase" id="resultados" aria-labelledby="results-title">
+    <header class="results-heading">
+        <p class="results-eyebrow">RESULTADOS</p>
+        <div class="results-heading-row">
+            <h2 id="results-title">
+                <span class="desktop-title">O <span class="orange">ACABAMENTO CERTO</span> MUDA<br>COMPLETAMENTE A PERCEPÇÃO<br>VISUAL DO VEÍCULO</span>
+                <span class="mobile-title">O <span class="orange">ACABAMENTO CERTO</span><br>MUDA COMPLETAMENTE<br>A PERCEPÇÃO VISUAL<br>DO VEÍCULO</span>
+            </h2>
+            <nav class="results-controls" aria-label="Controles dos vídeos">
+                <button type="button" class="results-prev" aria-label="Vídeo anterior">‹</button>
+                <button type="button" class="results-next" aria-label="Próximo vídeo">›</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="results-viewport" aria-label="Carrossel contínuo de resultados em vídeo">
+        <div class="results-track" id="results-track"></div>
+    </div>
+
+    <div class="results-cta-wrap">
+        <a class="results-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a>
+    </div>
+</section>
+
+
+<section class="why-amigos" id="porque-escolher" aria-labelledby="why-amigos-title">
+    <picture class="why-background" aria-hidden="true">
+        <source media="(max-width: 700px)" srcset="assets/RAPAZ%20MOBILE%20.png">
+        <img src="assets/RAPAZ.png" alt="">
+    </picture>
+    <div class="why-content">
+        <h2 id="why-amigos-title">POR QUE ESCOLHER A<br><span>AMIGOS DO BRILHO?</span></h2>
+        <div class="why-benefits">
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/whatsapp.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>ATENDIMENTO DIRETO</h3>
+                    <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p>
+                </div>
+            </article>
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/correto%20.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>LINHA SELECIONADA</h3>
+                    <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p>
+                </div>
+            </article>
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/LIMPEZA.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>CATALOGO COMPLETO</h3>
+                    <p>Diversas opções para brilho, proteção, revitalização e acabamento automotivo.</p>
+                </div>
+            </article>
+            <article class="why-benefit">
+                <div class="why-icon-box"><img class="why-icon" src="assets/ESTATISTICA%20.png" alt="" aria-hidden="true"></div>
+                <div class="why-copy">
+                    <h3>FOCO EM PERFORMANCE</h3>
+                    <p>Uma linha desenvolvida para elevar o padrão visual e a experiência no cuidado automotivo.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="final-contact" id="contato" aria-labelledby="final-contact-title">
+    <div class="final-copy">
+        <h2 id="final-contact-title">ENCONTRE O<br>PRODUTO <span>IDEAL</span><br>PARA O SEU CARRO</h2>
+        <p>Fale diretamente com nossa equipe e descubra os produtos ideais para brilho, proteção, acabamento e detalhamento automotivo.</p>
+        <a class="final-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a>
+    </div>
+    <a class="final-phone" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer" aria-label="Fale com a equipe Amigos do Brilho pelo WhatsApp">
+        <img src="assets/WHATS%20PHONE.png" alt="Celular com a conversa do WhatsApp Amigos do Brilho" loading="lazy">
+    </a>
+</section>
+
+<footer class="site-footer" aria-label="Rodapé Amigos do Brilho">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a class="footer-brand-link" href="#inicio" aria-label="Amigos do Brilho, voltar ao início">
+                <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/>
+                    <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/>
+                    <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/>
+                    <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text>
+                    <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text>
+                </svg>
+            </a>
+        </div>
+        <nav class="footer-column" aria-label="Redes sociais">
+            <h2>Links</h2>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </nav>
+        <div class="footer-column footer-location">
+            <h2>Localização</h2>
+            <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a>
+            <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+(() => {
+    const phone = document.querySelector('.final-phone');
+    if (!phone) return;
+    document.body.classList.add('has-scroll-reveal');
+    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        phone.classList.add('is-visible');
+        return;
+    }
+    const observer = new IntersectionObserver(entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+            phone.classList.add('is-visible');
+            observer.disconnect();
+        }
+    }, { threshold: .2 });
+    observer.observe(phone);
+})();
+</script>
+
+<script>
+
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+let current = 0;
+
+function showSlide(index){
+
+    slides.forEach(slide=>{
+        slide.classList.remove('active');
+    });
+
+    dots.forEach(dot=>{
+        dot.classList.remove('active');
+    });
+
+    slides[index].classList.add('active');
+    dots[index].classList.add('active');
+
+}
+
+function nextSlide(){
+
+    current++;
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+    showSlide(current);
+
+}
+
+function prevSlide(){
+
+    current--;
+
+    if(current < 0){
+        current = slides.length - 1;
+    }
+
+    showSlide(current);
+
+}
+
+document.getElementById('next')
+.addEventListener('click',nextSlide);
+
+document.getElementById('prev')
+.addEventListener('click',prevSlide);
+
+dots.forEach((dot,index)=>{
+
+    dot.addEventListener('click',()=>{
+
+        current = index;
+
+        showSlide(current);
+
+    });
+
+});
+
+/* AUTO SLIDE */
+
+setInterval(()=>{
+
+    nextSlide();
+
+},6000);
+
+/* TOUCH */
+
+const slider = document.getElementById('slider');
+
+let startX = 0;
+
+slider.addEventListener('touchstart',(e)=>{
+
+    startX = e.touches[0].clientX;
+
+});
+
+slider.addEventListener('touchend',(e)=>{
+
+    let endX = e.changedTouches[0].clientX;
+
+    let diff = startX - endX;
+
+    if(diff > 50){
+        nextSlide();
+    }
+
+    if(diff < -50){
+        prevSlide();
+    }
+
+});
+
+</script>
+
+
+<script>
+(() => {
+ const products = [
+  ['DESENGRAXANTE','TRON','PRODUTO 1.png','Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.',['Desengraxe intenso','Alta eficiência','Ação profunda']],
+  ['LIMPADOR DE ALUMÍNIO','ALUMAX','PRODUTO 2 png.png','Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.',['Alto rendimento','Limpeza profunda','Ação eficiente']],
+  ['LAVA MOTOS NEUTRO','FLOW','PRODUTO 3.png','Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.',['pH neutro','Seguro para pintura','Fácil enxágue']],
+  ['REVITALIZADOR DE PLÁSTICOS','EVOX','PRODUTO 4 .png','Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.',['Aspecto natural','Proteção prolongada','Acabamento refinado']],
+  ['RESTAURADOR DE PLÁSTICOS','ZUCS','PRODUTO 5 .png','Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.',['Alta fixação','Proteção prolongada','Resistente à água']],
+  ['REMOVEDOR DE INSETOS','GREEN','PRODUTO 6.png','Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+  ['ACABAMENTO PREMIUM','DOCTOR SHINE','PRODUTO 7.png','Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+  ['POLIDOR','PREMIUM PAD','PRODUTO 8.png','Alta performance para quem busca polimento com acabamento refinado e resultado profissional.',['Excelente nível de acabamento','Ideal para refino e correção da pintura','Alta durabilidade']]
+ ];
+ const markup = (p,i) => `<article class="product-card" style="--card-delay:${i*105}ms"><div class="product-kind">${p[0]}</div><img class="product-photo" src="assets/${p[2]}" alt="${p[1]}" loading="lazy"><div class="product-info"><h3 class="product-name">${p[1]}</h3><p class="product-description">${p[3]}</p><div class="product-tags">${p[4].map(t=>`<span class="product-tag">${t}</span>`).join('')}</div><a class="whatsapp-cta" href="https://wa.me/?text=${encodeURIComponent(`Olá! Tenho interesse no produto ${p[1]}.`)}" target="_blank" rel="noopener noreferrer">SOLICITAR PELO WHATSAPP</a></div></article>`;
+ const grid=document.getElementById('product-grid'), rail=document.getElementById('mobile-product-rail');
+ grid.innerHTML=products.map(markup).join(''); rail.innerHTML=products.map(markup).join('');
+ const cards=[...document.querySelectorAll('.best-sellers .product-card')];
+ const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.12});
+ cards.forEach(card=>observer.observe(card));
+ const dots=[...document.querySelectorAll('#product-pagination button')];
+ const update=()=>{const center=rail.getBoundingClientRect().left+rail.clientWidth/2;let ix=0,dist=Infinity;[...rail.querySelectorAll('.product-card')].forEach((card,i)=>{const b=card.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-center);if(d<dist){ix=i;dist=d;}});const active=Math.round(ix*(dots.length-1)/(products.length-1));dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===active)));};
+ rail.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>rail.querySelectorAll('.product-card')[Math.round(i*(products.length-1)/(dots.length-1))].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})));
+ if(matchMedia('(max-width: 700px)').matches) requestAnimationFrame(()=>rail.querySelectorAll('.product-card')[1].scrollIntoView({block:'nearest',inline:'center'}));
+ update();
+})();
+</script>
+
+
+<script>
+(() => {
+    const serviceCards = [...document.querySelectorAll('.service-lines .service-card')];
+    serviceCards.forEach((card, index) => {
+        card.style.transitionDelay = `${index * 110}ms`;
+    });
+    const serviceObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                serviceObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: .12 });
+    serviceCards.forEach(card => serviceObserver.observe(card));
+})();
+</script>
+
+
+<dialog class="video-player-dialog" id="video-player-dialog" aria-labelledby="video-player-title">
+    <div class="video-player-shell">
+        <header class="video-player-header">
+            <h2 class="video-player-title" id="video-player-title">Reprodutor de vídeo</h2>
+            <button class="video-player-close" type="button" aria-label="Fechar reprodutor">&times;</button>
+        </header>
+        <video class="video-player" controls playsinline preload="none" aria-label="Reprodutor do vídeo"></video>
+    </div>
+</dialog>
+
+<script>
+(() => {
+    const videos = [
+        { file: 'SnapInsta.to_AQMvt_HCwwOI-ylW2M7BBTNaZe_JCxs5FiIFIS-miuOP-OZTpaXuRQeirHbLeu7v6_t_agyJdlOVbPaM2SBxTxagWXitX6RlOG9RQ2I.mp4', label: 'Aplicação de produto no veículo' },
+        { file: 'SnapInsta.to_AQN7RgGrQlkXBwIR45oPL9MaK-AQ8JldrYfFFdFBgvziqPmdy-hz5xznHrf0Naq28hBxdN0x2xDfiL5vg7osEeF6tgUh5avF28hKT-A.mp4', label: 'Limpeza automotiva com aplicador' },
+        { file: 'SnapInsta.to_AQNDlScKWD0lDym9WA_REyZPc0KiJ2bULx3RORW6ZcklLybGFIOp-EjhhvWGRFmZyBHc05OxSzY1ImZnq-FHAOvt8pF_qb77Pf-28So.mp4', label: 'Aplicação de acabamento automotivo' },
+        { file: 'SnapInsta.to_AQNyQ5_Sf4n9WLhiYbPk0nCfmC3cAHJTke3VYQsqLzASBH7NhPUOefMSqbZX1-i2ok3tiLioeMIice96AYmAb8zoRzSzoK1kI7dxZfQ.mp4', label: 'Produto de brilho aplicado com microfibra' }
+    ];
+    const track = document.getElementById('results-track');
+    const viewport = document.querySelector('.results-showcase .results-viewport');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const cardMarkup = (video, index, clone = false) => `
+        <article class="results-card"${clone ? ' aria-hidden="true" inert' : ''}>
+            <video class="results-video" src="assets/${encodeURIComponent(video.file)}" muted loop playsinline preload="metadata" aria-label="${video.label}" data-video-index="${index}"></video>
+            <button class="video-play" type="button" aria-label="Assistir ${video.label}">
+                <svg class="play-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 17v66l54-33z"/></svg>
+                <svg class="pause-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M25 18h18v64H25zm32 0h18v64H57z"/></svg>
+            </button>
+        </article>`;
+    const groupMarkup = (clone = false) => `<div class="results-group"${clone ? ' aria-hidden="true" inert' : ''}>${videos.map((video, index) => cardMarkup(video, index, clone)).join('')}</div>`;
+
+    track.innerHTML = groupMarkup(true) + groupMarkup() + groupMarkup(true);
+    const groups = [...track.querySelectorAll('.results-group')];
+    const originals = groups[1];
+    const cards = [...track.querySelectorAll('.results-card')];
+    const allVideos = [...track.querySelectorAll('video')];
+    let offset = 0;
+    let period = 0;
+    let lastTime = 0;
+    let active = false;
+    let pointerPaused = false;
+    let focusPaused = false;
+    const speed = 34;
+
+    function measureAndPosition() {
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        period = groups[0].getBoundingClientRect().width + gap;
+        const firstCard = originals.querySelector('.results-card');
+        const cardStep = firstCard.getBoundingClientRect().width + (parseFloat(getComputedStyle(originals).gap) || 0);
+        const mobileOffset = cardStep - (viewport.clientWidth - firstCard.getBoundingClientRect().width) / 2;
+        offset = period + (matchMedia('(max-width: 700px)').matches ? mobileOffset : 0);
+        track.style.transform = `translate3d(${-offset}px,0,0)`;
+    }
+
+    function draw(now) {
+        if (!lastTime) lastTime = now;
+        const delta = Math.min(now - lastTime, 40);
+        lastTime = now;
+        if (active && !pointerPaused && !focusPaused && !document.hidden && !reducedMotion.matches) offset += speed * delta / 1000;
+        if (period > 0) {
+            while (offset >= period * 2) offset -= period;
+            while (offset < period) offset += period;
+            track.style.transform = `translate3d(${-offset}px,0,0)`;
+        }
+        requestAnimationFrame(draw);
+    }
+
+    function setPlaying(video, playing) {
+        const button = video.parentElement.querySelector('.video-play');
+        button.classList.toggle('is-playing', playing);
+        button.setAttribute('aria-label', `${playing ? 'Pausar' : 'Reproduzir'} ${videos[Number(video.dataset.videoIndex)].label}`);
+    }
+
+    const videoObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting && video.dataset.loaded !== 'true') {
+                video.dataset.loaded = 'true';
+                video.preload = 'auto';
+                video.load();
+            } else if (!entry.isIntersecting && !video.paused) {
+                video.pause();
+                setPlaying(video, false);
+            }
+        });
+    }, { root: viewport, threshold: .2 });
+    allVideos.forEach(video => videoObserver.observe(video));
+
+    const playerDialog = document.getElementById('video-player-dialog');
+    const playerVideo = playerDialog.querySelector('.video-player');
+    const playerTitle = playerDialog.querySelector('.video-player-title');
+    const playerClose = playerDialog.querySelector('.video-player-close');
+    let lastPlayerTrigger = null;
+
+    function openPlayer(video, trigger) {
+        playerTitle.textContent = video.label;
+        lastPlayerTrigger = trigger;
+        const source = trigger.parentElement.querySelector('.results-video');
+        playerVideo.src = source.currentSrc || source.src;
+        playerVideo.load();
+        playerDialog.showModal();
+        playerVideo.play().catch(() => {});
+    }
+
+    playerClose.addEventListener('click', () => playerDialog.close());
+    playerDialog.addEventListener('click', event => {
+        if (event.target === playerDialog) playerDialog.close();
+    });
+    playerDialog.addEventListener('close', () => {
+        playerVideo.pause();
+        playerVideo.removeAttribute('src');
+        playerVideo.load();
+        if (lastPlayerTrigger?.isConnected) lastPlayerTrigger.focus();
+    });
+
+    track.addEventListener('click', event => {
+        const button = event.target.closest('.video-play');
+        if (!button) return;
+        const source = button.parentElement.querySelector('.results-video');
+        const video = videos[Number(source.dataset.videoIndex)];
+        if (video) openPlayer(video, button);
+    });
+
+    const moveByCard = direction => {
+        const card = originals.querySelector('.results-card');
+        const step = card.getBoundingClientRect().width + (parseFloat(getComputedStyle(originals).gap) || 0);
+        offset += direction * step;
+        while (offset >= period * 2) offset -= period;
+        while (offset < period) offset += period;
+        track.style.transform = `translate3d(${-offset}px,0,0)`;
+    };
+    document.querySelector('.results-prev').addEventListener('click', () => moveByCard(-1));
+    document.querySelector('.results-next').addEventListener('click', () => moveByCard(1));
+    viewport.addEventListener('pointerenter', () => { pointerPaused = true; });
+    viewport.addEventListener('pointerleave', () => { pointerPaused = false; });
+    viewport.addEventListener('focusin', () => { focusPaused = true; });
+    viewport.addEventListener('focusout', event => { if (!viewport.contains(event.relatedTarget)) focusPaused = false; });
+
+    new IntersectionObserver(entries => {
+        active = entries.some(entry => entry.isIntersecting);
+    }, { threshold: 0 }).observe(document.querySelector('.results-showcase'));
+    measureAndPosition();
+    window.addEventListener('resize', measureAndPosition, { passive: true });
+    requestAnimationFrame(draw);
+})();
+</script>
+
+</body>
+</html>
+
+
+==================== produtos.html ====================
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos | Amigos do Brilho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="page-body">
+<header class="header site-header">
+    <a class="brand" href="index.html" aria-label="Amigos do Brilho, início"><img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Amigos do Brilho"></a>
+    <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html">INÍCIO</a>
+        <a href="produtos.html" class="active" aria-current="page">PRODUTOS</a>
+        <a href="mais-vendidos.html">MAIS VENDIDOS</a>
+        <a href="sobre-nos.html">SOBRE NÓS</a>
+    </nav>
+    <a href="index.html#contato" class="contact-btn">CONTATO</a>
+</header>
+<main class="page-main products-page">
+  <section class="page-hero" aria-labelledby="products-title">
+    <p class="page-eyebrow">CATÁLOGO AMIGOS DO BRILHO</p>
+    <h1 id="products-title">Encontre o produto <span>ideal</span></h1>
+    <p>Explore o catálogo por categoria ou pesquise pelo nome do produto, marca ou tipo de cuidado.</p>
+  </section>
+  <section class="catalog-section page-wrap" aria-label="Pesquisar e filtrar produtos">
+    <div class="catalog-toolbar">
+      <label class="search-control" for="product-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+        <input id="product-search" type="search" placeholder="Buscar produto, marca ou categoria..." autocomplete="off">
+      </label>
+      <div class="category-filters" id="category-filters" role="group" aria-label="Filtrar por categoria"></div>
+    </div>
+    <p class="catalog-summary" id="catalog-summary" aria-live="polite"></p>
+    <div class="catalog-grid" id="catalog-grid" aria-live="polite"></div>
+  </section>
+</main>
+<footer class="site-footer" aria-label="Rodapé Amigos do Brilho">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a class="footer-brand-link" href="index.html" aria-label="Amigos do Brilho, voltar ao início">
+                <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/>
+                    <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/>
+                    <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/>
+                    <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text>
+                    <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text>
+                </svg>
+            </a>
+        </div>
+        <nav class="footer-column" aria-label="Redes sociais">
+            <h2>Links</h2>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </nav>
+        <div class="footer-column footer-location">
+            <h2>Localização</h2>
+            <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a>
+            <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a>
+        </div>
+    </div>
+</footer>
+<script src="catalogo.js" defer></script>
+<script src="produtos.js" defer></script>
+</body>
+</html>
+
+==================== mais-vendidos.html ====================
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mais vendidos | Amigos do Brilho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="page-body">
+<header class="header site-header">
+    <a class="brand" href="index.html" aria-label="Amigos do Brilho, início"><img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Amigos do Brilho"></a>
+    <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html">INÍCIO</a>
+        <a href="produtos.html">PRODUTOS</a>
+        <a href="mais-vendidos.html" class="active" aria-current="page">MAIS VENDIDOS</a>
+        <a href="sobre-nos.html">SOBRE NÓS</a>
+    </nav>
+    <a href="index.html#contato" class="contact-btn">CONTATO</a>
+</header>
+<main class="page-main bestsellers-page">
+  <section class="page-hero" aria-labelledby="bestsellers-title">
+    <p class="page-eyebrow">SELEÇÃO EM DESTAQUE</p>
+    <h1 id="bestsellers-title">Mais <span>vendidos</span></h1>
+    <p>Uma seleção de produtos para diferentes etapas do cuidado, da limpeza ao acabamento.</p>
+  </section>
+  <section class="catalog-section page-wrap" aria-label="Produtos em destaque">
+    <p class="catalog-summary">Destaques da seleção Amigos do Brilho</p>
+    <div class="catalog-grid" id="featured-grid"></div>
+  </section>
+</main>
+<footer class="site-footer" aria-label="Rodapé Amigos do Brilho">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a class="footer-brand-link" href="index.html" aria-label="Amigos do Brilho, voltar ao início">
+                <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/>
+                    <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/>
+                    <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/>
+                    <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text>
+                    <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text>
+                </svg>
+            </a>
+        </div>
+        <nav class="footer-column" aria-label="Redes sociais">
+            <h2>Links</h2>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </nav>
+        <div class="footer-column footer-location">
+            <h2>Localização</h2>
+            <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a>
+            <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a>
+        </div>
+    </div>
+</footer>
+<script src="catalogo.js" defer></script>
+<script src="mais-vendidos.js" defer></script>
+</body>
+</html>
+
+==================== sobre-nos.html ====================
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre nós | Amigos do Brilho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body class="page-body">
+<header class="header site-header">
+    <a class="brand" href="index.html" aria-label="Amigos do Brilho, início"><img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Amigos do Brilho"></a>
+    <nav class="menu" aria-label="Navegação principal">
+        <a href="index.html">INÍCIO</a>
+        <a href="produtos.html">PRODUTOS</a>
+        <a href="mais-vendidos.html">MAIS VENDIDOS</a>
+        <a href="sobre-nos.html" class="active" aria-current="page">SOBRE NÓS</a>
+    </nav>
+    <a href="index.html#contato" class="contact-btn">CONTATO</a>
+</header>
+<main class="page-main about-page">
+  <section class="page-hero" aria-labelledby="about-title">
+    <p class="page-eyebrow">SOBRE NÓS</p>
+    <h1 id="about-title">Cuidado automotivo com <span>mais brilho</span></h1>
+    <p>Uma marca feita para quem valoriza cada detalhe do veículo e acredita que o cuidado também faz parte da experiência.</p>
+  </section>
+  <section class="about-story page-wrap" aria-labelledby="story-title">
+    <div class="about-image"><img src="assets/RAPAZ.png" alt="Profissional cuidando de um veículo" loading="lazy"></div>
+    <div class="about-copy">
+      <p class="page-eyebrow">NOSSA HISTÓRIA</p>
+      <h2 id="story-title">Brilho em cada <span>etapa</span></h2>
+      <p>A Amigos do Brilho surgiu de uma ideia simples: tornar o cuidado automotivo mais prático e acessível, reunindo produtos para limpeza, proteção e acabamento em um só lugar.</p>
+      <p>A marca acompanha quem gosta de cuidar do próprio carro e também quem trabalha com estética automotiva. Cada veículo pede uma atenção diferente, e encontrar o produto certo ajuda a transformar a rotina em um resultado que dá orgulho de ver.</p>
+      <p>Seguimos construindo essa história junto com nossos clientes, com atenção aos detalhes e paixão por carros bem cuidados.</p>
+      <a class="about-cta" href="produtos.html">CONHEÇA OS PRODUTOS</a>
+    </div>
+  </section>
+  <section class="about-values page-wrap" aria-labelledby="values-title">
+    <h2 id="values-title">O que move a <span>marca</span></h2>
+    <div class="about-values-grid">
+      <article class="about-value"><h3>Cuidado</h3><p>Produtos para diferentes partes do veículo e etapas da rotina automotiva.</p></article>
+      <article class="about-value"><h3>Praticidade</h3><p>Um catálogo organizado para ajudar cada pessoa a encontrar o que procura.</p></article>
+      <article class="about-value"><h3>Brilho</h3><p>Uma paixão compartilhada por acabamento, proteção e bons resultados.</p></article>
+    </div>
+  </section>
+</main>
+<footer class="site-footer" aria-label="Rodapé Amigos do Brilho">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <a class="footer-brand-link" href="index.html" aria-label="Amigos do Brilho, voltar ao início">
+                <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/>
+                    <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/>
+                    <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/>
+                    <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text>
+                    <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text>
+                </svg>
+            </a>
+        </div>
+        <nav class="footer-column" aria-label="Redes sociais">
+            <h2>Links</h2>
+            <div class="footer-links">
+                <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
+            </div>
+        </nav>
+        <div class="footer-column footer-location">
+            <h2>Localização</h2>
+            <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a>
+            <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+==================== site.css ====================
+
+
 
 *{
     margin:0;
@@ -1347,664 +2212,287 @@ body{
     .service-lines .service-card { opacity:1; transform:none; }
 }
 
-</style>
-</head>
 
-<body>
 
-<section class="hero" id="inicio">
 
-    <!-- FUNDO -->
-
-    <img 
-        class="hero-bg"
-        src="assets/hero-bg.webp"
-        alt="Fundo Amigos do Brilho"
-    >
-
-    <div class="overlay"></div>
-
-    <div class="container">
-
-        <!-- HEADER -->
-
-        <header class="header">
-
-            <img 
-                class="logo"
-                src="assets/logo-amigos-do-brilho.png"
-                alt="Logo Amigos do Brilho"
-            >
-
-            <nav class="menu">
-
-                <a href="#" class="active">
-                    INÍCIO
-                </a>
-
-                <a href="#mais-vendidos">
-                    PRODUTOS
-                </a>
-
-                <a href="#linhas">
-                    LINHA PREMIUM
-                </a>
-
-                <a href="#porque-escolher">
-                    SOBRE
-                </a>
-
-            </nav>
-
-            <a href="#" class="contact-btn">
-                CONTATO
-            </a>
-
-        </header>
-
-        <!-- HERO CONTENT -->
-
-        <div class="hero-content">
-
-            <!-- TEXTO -->
-
-            <div class="hero-text">
-
-                <h1>
-                    ESTÉTICA<br>
-                    AUTOMOTIVA<br>
-                    EM <span>OUTRO<br>NÍVEL!</span>
-                </h1>
-
-                <p>
-                    Produtos premium para brilho,
-                    acabamento e proteção automotiva.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#mais-vendidos" class="btn-products">
-                        VER PRODUTOS
-                    </a>
-
-                    <a href="#" class="btn-whatsapp">
-                        FALAR NO WHATSAPP
-                    </a>
-
-                </div>
-
-            </div>
-
-            <!-- SLIDER -->
-
-            <div class="hero-slider" id="slider">
-
-                <!-- CONTROLES -->
-
-                <div class="slider-controls">
-
-                    <button type="button" id="prev">
-                        ‹
-                    </button>
-
-                    <button type="button" id="next">
-                        ›
-                    </button>
-
-                </div>
-
-                <!-- SLIDE 1 -->
-
-                <div class="slide active">
-
-                    <div class="product-wrap">
-
-                        <span class="product-light light-one"></span>
-
-                        <span class="product-light light-two"></span>
-
-                        <img
-                            src="assets/produto-coat-ceramic.png"
-                            class="product coat"
-                            alt="Produto Coat Ceramic"
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- SLIDE 2 -->
-
-                <div class="slide">
-
-                    <div class="product-wrap">
-
-                        <span class="product-light light-one"></span>
-
-                        <span class="product-light light-two"></span>
-
-                        <img
-                            src="assets/produto-luster.webp"
-                            class="product luster"
-                            alt="Produto Luster"
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- SLIDE 3 -->
-
-                <div class="slide">
-
-                    <div class="product-wrap">
-
-                        <span class="product-light light-one"></span>
-
-                        <span class="product-light light-two"></span>
-
-                        <img
-                            src="assets/produto-graphene.webp"
-                            class="product graphene"
-                            alt="Produto Graphene"
-                        >
-
-                    </div>
-
-                </div>
-
-                <!-- DOTS -->
-
-                <div class="dots">
-
-                    <button class="dot active"></button>
-
-                    <button class="dot"></button>
-
-                    <button class="dot"></button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="best-sellers" id="mais-vendidos" aria-labelledby="best-sellers-title">
- <div class="ticker" aria-hidden="true"><div class="ticker-track">
-  <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
-  <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span>
- </div></div>
- <header class="section-heading"><p class="eyebrow">MAIS VENDIDOS</p><h2 id="best-sellers-title">ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS</h2></header>
- <div class="product-grid" id="product-grid" aria-label="Produtos mais vendidos"></div>
- <div class="mobile-rail" id="mobile-product-rail" role="region" aria-label="Carrossel de produtos mais vendidos" tabindex="0"></div>
- <nav class="pagination" id="product-pagination" aria-label="Navegação dos produtos">
-  <button type="button" aria-label="Ir para o primeiro grupo de produtos"></button><button type="button" aria-label="Ir para o segundo grupo de produtos"></button><button type="button" aria-label="Ir para o terceiro grupo de produtos"></button><button type="button" aria-label="Ir para o quarto grupo de produtos"></button><button type="button" aria-label="Ir para o quinto grupo de produtos"></button>
- </nav>
-</section>
-
-
-<section class="service-lines" id="linhas" aria-labelledby="service-lines-title">
-    <header class="service-heading">
-        <h2 id="service-lines-title">
-            <span class="desktop-title">LINHAS DESENVOLVIDAS PARA CADA<br>ETAPA DO <span class="orange">CUIDADO AUTOMOTIVO</span></span>
-            <span class="mobile-title">LINHAS<br>DESENVOLVIDAS<br>PARA CADA<br>ETAPA DO <span class="orange">CUIDADO</span><br><span class="orange">AUTOMOTIVO</span></span>
-        </h2>
-    </header>
-
-    <div class="service-grid">
-        <article class="service-card">
-            <img class="service-art" src="assets/CARD%20DETALHAMENTO%20INTERNO.png" alt="Detalhamento interno: produtos para renovar, proteger e elevar o acabamento interno do veículo." loading="lazy">
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Detalhamento%20Interno." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-        </article>
-
-        <article class="service-card">
-            <img class="service-art" src="assets/CARD%20LIMPEZA%20AUTOMOTIVA.png" alt="Limpeza automotiva: soluções para limpeza eficiente com acabamento visual superior para o cuidado automotivo." loading="lazy">
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-        </article>
-
-        <article class="service-card service-card-premium">
-            <img class="service-art" src="assets/CARD%20ACABAMENTO%20PREMIUM.png" alt="Acabamento premium: produtos para uma finalização sofisticada e visual refinado em cada detalhe do veículo." loading="lazy">
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-        </article>
-
-        <article class="service-card">
-            <img class="service-art" src="assets/CARD%20PROTECAO%20CERAMICA.png" alt="Proteção cerâmica: tecnologia para preservar pintura, acabamento e aparência por muito mais tempo." loading="lazy">
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Prote%C3%A7%C3%A3o%20Cer%C3%A2mica." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-        </article>
-
-        <article class="service-card">
-            <img class="service-art" src="assets/CARD%20MAIS%20BRILHO.png" alt="Mais brilho: produtos para intensificar profundidade, reflexo e acabamento visual no veículo." loading="lazy">
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20Mais%20Brilho." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-        </article>
-    </div>
-</section>
-
-
-<section class="results-showcase" id="resultados" aria-labelledby="results-title">
-    <header class="results-heading">
-        <p class="results-eyebrow">RESULTADOS</p>
-        <div class="results-heading-row">
-            <h2 id="results-title">
-                <span class="desktop-title">O <span class="orange">ACABAMENTO CERTO</span> MUDA<br>COMPLETAMENTE A PERCEPÇÃO<br>VISUAL DO VEÍCULO</span>
-                <span class="mobile-title">O <span class="orange">ACABAMENTO CERTO</span><br>MUDA COMPLETAMENTE<br>A PERCEPÇÃO VISUAL<br>DO VEÍCULO</span>
-            </h2>
-            <nav class="results-controls" aria-label="Controles dos vídeos">
-                <button type="button" class="results-prev" aria-label="Vídeo anterior">‹</button>
-                <button type="button" class="results-next" aria-label="Próximo vídeo">›</button>
-            </nav>
-        </div>
-    </header>
-
-    <div class="results-viewport" aria-label="Carrossel contínuo de resultados em vídeo">
-        <div class="results-track" id="results-track"></div>
-    </div>
-
-    <div class="results-cta-wrap">
-        <a class="results-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a>
-    </div>
-</section>
-
-
-<section class="why-amigos" id="porque-escolher" aria-labelledby="why-amigos-title">
-    <picture class="why-background" aria-hidden="true">
-        <source media="(max-width: 700px)" srcset="assets/RAPAZ%20MOBILE%20.png">
-        <img src="assets/RAPAZ.png" alt="">
-    </picture>
-    <div class="why-content">
-        <h2 id="why-amigos-title">POR QUE ESCOLHER A<br><span>AMIGOS DO BRILHO?</span></h2>
-        <div class="why-benefits">
-            <article class="why-benefit">
-                <div class="why-icon-box"><img class="why-icon" src="assets/whatsapp.png" alt="" aria-hidden="true"></div>
-                <div class="why-copy">
-                    <h3>ATENDIMENTO DIRETO</h3>
-                    <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p>
-                </div>
-            </article>
-            <article class="why-benefit">
-                <div class="why-icon-box"><img class="why-icon" src="assets/correto%20.png" alt="" aria-hidden="true"></div>
-                <div class="why-copy">
-                    <h3>LINHA SELECIONADA</h3>
-                    <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p>
-                </div>
-            </article>
-            <article class="why-benefit">
-                <div class="why-icon-box"><img class="why-icon" src="assets/LIMPEZA.png" alt="" aria-hidden="true"></div>
-                <div class="why-copy">
-                    <h3>CATALOGO COMPLETO</h3>
-                    <p>Diversas opções para brilho, proteção, revitalização e acabamento automotivo.</p>
-                </div>
-            </article>
-            <article class="why-benefit">
-                <div class="why-icon-box"><img class="why-icon" src="assets/ESTATISTICA%20.png" alt="" aria-hidden="true"></div>
-                <div class="why-copy">
-                    <h3>FOCO EM PERFORMANCE</h3>
-                    <p>Uma linha desenvolvida para elevar o padrão visual e a experiência no cuidado automotivo.</p>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-
-<section class="final-contact" id="contato" aria-labelledby="final-contact-title">
-    <div class="final-copy">
-        <h2 id="final-contact-title">ENCONTRE O<br>PRODUTO <span>IDEAL</span><br>PARA O SEU CARRO</h2>
-        <p>Fale diretamente com nossa equipe e descubra os produtos ideais para brilho, proteção, acabamento e detalhamento automotivo.</p>
-        <a class="final-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a>
-    </div>
-    <a class="final-phone" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer" aria-label="Fale com a equipe Amigos do Brilho pelo WhatsApp">
-        <img src="assets/WHATS%20PHONE.png" alt="Celular com a conversa do WhatsApp Amigos do Brilho" loading="lazy">
-    </a>
-</section>
-
-<footer class="site-footer" aria-label="Rodapé Amigos do Brilho">
-    <div class="footer-inner">
-        <div class="footer-brand">
-            <a class="footer-brand-link" href="#inicio" aria-label="Amigos do Brilho, voltar ao início">
-                <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/>
-                    <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/>
-                    <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/>
-                    <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text>
-                    <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text>
-                </svg>
-            </a>
-        </div>
-        <nav class="footer-column" aria-label="Redes sociais">
-            <h2>Links</h2>
-            <div class="footer-links">
-                <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
-            </div>
-        </nav>
-        <div class="footer-column footer-location">
-            <h2>Localização</h2>
-            <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a>
-            <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a>
-        </div>
-    </div>
-</footer>
-
-<script>
-(() => {
-    const phone = document.querySelector('.final-phone');
-    if (!phone) return;
-    document.body.classList.add('has-scroll-reveal');
-    if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        phone.classList.add('is-visible');
-        return;
-    }
-    const observer = new IntersectionObserver(entries => {
-        if (entries.some(entry => entry.isIntersecting)) {
-            phone.classList.add('is-visible');
-            observer.disconnect();
-        }
-    }, { threshold: .2 });
-    observer.observe(phone);
-})();
-</script>
-
-<script>
-
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-let current = 0;
-
-function showSlide(index){
-
-    slides.forEach(slide=>{
-        slide.classList.remove('active');
-    });
-
-    dots.forEach(dot=>{
-        dot.classList.remove('active');
-    });
-
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-
+/* Navegação compartilhada e páginas internas */
+.site-header {
+    position:sticky;
+    top:10px;
+    z-index:1000;
+    width:min(1480px,calc(100% - 2 * clamp(12px,3vw,40px)));
+    height:76px;
+    margin:10px auto 0;
+    padding:0 clamp(14px,2.2vw,30px);
+    background:rgba(5,5,5,.94);
+    box-shadow:0 12px 36px rgba(0,0,0,.3);
+}
+.site-header .brand { flex:0 0 auto; display:flex; align-items:center; line-height:0; }
+.site-header .logo { display:block; width:clamp(88px,9vw,128px); height:auto; object-fit:contain; }
+.site-header .menu { display:flex; align-items:center; justify-content:center; gap:clamp(14px,2vw,30px); margin-left:auto; margin-right:clamp(14px,2.3vw,34px); }
+.site-header .menu a { color:#fff; font-size:clamp(12px,1.1vw,16px); font-weight:600; white-space:nowrap; }
+.site-header .menu a:hover,.site-header .menu a.active { color:#ff8c00; }
+.site-header .contact-btn { flex:0 0 auto; padding:12px clamp(16px,2vw,28px); font-size:14px; white-space:nowrap; }
+.page-body { min-height:100vh; background:#080808; color:#fff; }
+.page-main { min-height:calc(100svh - 86px); }
+.page-hero { position:relative; isolation:isolate; overflow:hidden; padding:clamp(68px,8vw,112px) 22px clamp(48px,6vw,78px); background:radial-gradient(ellipse at 50% 0%,#3a1c00 0%,#101010 45%,#080808 100%); color:#fff; text-align:center; }
+.page-hero::before { content:""; position:absolute; z-index:-1; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,#ff8500,transparent); }
+.page-eyebrow { margin:0 0 16px; color:#ff8500; font-size:clamp(13px,1.35vw,18px); font-weight:800; letter-spacing:.32em; text-transform:uppercase; }
+.page-hero h1 { max-width:1040px; margin:0 auto; color:#fff; font-size:clamp(36px,5.2vw,72px); line-height:.98; font-weight:900; letter-spacing:-.04em; text-transform:uppercase; }
+.page-hero h1 span { color:#ff8500; }
+.page-hero > p:last-child { max-width:760px; margin:22px auto 0; color:#e8e8e8; font-size:clamp(16px,1.55vw,21px); line-height:1.45; }
+.page-wrap { width:min(1320px,calc(100% - 2 * clamp(16px,4vw,48px))); margin:0 auto; }
+.products-page,.bestsellers-page { background:#f3f3f3; color:#101010; }
+.products-page .page-hero,.bestsellers-page .page-hero { padding-bottom:58px; }
+.catalog-section { padding:42px 0 84px; }
+.catalog-toolbar { max-width:1080px; margin:0 auto 28px; }
+.search-control { min-height:62px; display:flex; align-items:center; gap:12px; padding:0 18px; border:1px solid #c9c9c9; border-radius:15px; background:#fff; box-shadow:0 5px 20px #0000000d; }
+.search-control svg { flex:0 0 24px; width:24px; height:24px; fill:none; stroke:#777; stroke-width:2; }
+.search-control input { min-width:0; width:100%; height:58px; border:0; outline:0; color:#111; background:transparent; font:500 17px/1.2 'Rubik',sans-serif; }
+.search-control input::placeholder { color:#777; }
+.search-control:focus-within { border-color:#ff8500; box-shadow:0 0 0 3px #ff850026; }
+.category-filters { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin:20px auto 0; }
+.filter-chip { min-height:40px; padding:9px 16px; border:1px solid #c7c7c7; border-radius:999px; background:#fff; color:#242424; font:700 13px/1.1 'Rubik',sans-serif; cursor:pointer; transition:background .18s,color .18s,border-color .18s,transform .18s; }
+.filter-chip:hover { transform:translateY(-1px); border-color:#ff8500; }
+.filter-chip[aria-pressed="true"] { border-color:#ff8500; background:#ff8500; color:#111; }
+.catalog-summary { margin:0 0 18px; color:#555; text-align:center; font-size:14px; }
+.catalog-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+.catalog-card { min-width:0; overflow:hidden; display:flex; flex-direction:column; border:1px solid #d8d8d8; border-radius:17px; background:#fff; color:#111; box-shadow:0 6px 20px #00000012; transition:transform .2s,box-shadow .2s; }
+.catalog-card:hover { transform:translateY(-4px); box-shadow:0 12px 28px #00000020; }
+.catalog-card-category { min-height:44px; display:flex; align-items:center; justify-content:center; padding:9px 12px; background:#ff8500; color:#111; text-align:center; font-size:12px; line-height:1.2; font-weight:900; text-transform:uppercase; letter-spacing:.05em; }
+.catalog-card .product-photo { display:block; width:100%; aspect-ratio:1 / 1; object-fit:contain; padding:12px; background:#f7f7f7; }
+.catalog-card-body { flex:1; display:flex; flex-direction:column; padding:18px 18px 16px; }
+.catalog-card .product-name { margin:0 0 10px; font-size:clamp(22px,1.9vw,29px); line-height:1.02; font-weight:900; letter-spacing:-.025em; }
+.catalog-card .product-description { min-height:4.2em; margin:0 0 16px; color:#444; font-size:14px; line-height:1.35; }
+.catalog-card .product-tags { display:flex; flex-wrap:wrap; gap:7px; margin:auto 0 16px; }
+.catalog-card .product-tag { min-height:30px; display:inline-flex; align-items:center; padding:6px 9px; border:1px solid #ff8500; border-radius:999px; color:#6c3900; font-size:11px; line-height:1.1; font-weight:700; }
+.catalog-card .whatsapp-cta { min-height:48px; display:flex; align-items:center; justify-content:center; padding:11px 12px; border-radius:999px; background:#ff8500; color:#111; text-align:center; text-decoration:none; font-size:13px; line-height:1.1; font-weight:900; transition:background .18s,transform .18s; }
+.catalog-card .whatsapp-cta:hover { transform:translateY(-2px); background:#ff9c26; }
+.catalog-empty { grid-column:1/-1; padding:40px 20px; border:1px dashed #aaa; border-radius:16px; color:#555; text-align:center; }
+.bestsellers-page .catalog-section { padding-top:52px; }
+.bestsellers-page .catalog-grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.about-page { background:#080808; color:#fff; }
+.about-story { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); align-items:center; gap:clamp(28px,5vw,76px); padding:clamp(54px,7vw,96px) 0; }
+.about-image { min-height:360px; overflow:hidden; border:1px solid #ff8500; border-radius:22px; background:#111; box-shadow:0 15px 48px #ff85001c; }
+.about-image img { display:block; width:100%; height:100%; min-height:360px; object-fit:cover; object-position:center; }
+.about-copy .page-eyebrow { margin-bottom:12px; }
+.about-copy h2 { margin:0 0 20px; font-size:clamp(30px,3.5vw,48px); line-height:1; font-weight:900; text-transform:uppercase; }
+.about-copy h2 span { color:#ff8500; }
+.about-copy p { margin:0 0 15px; color:#dedede; font-size:clamp(16px,1.3vw,19px); line-height:1.65; }
+.about-values { padding:0 0 clamp(60px,7vw,92px); }
+.about-values h2 { margin:0 0 24px; text-align:center; font-size:clamp(28px,3.2vw,44px); line-height:1; font-weight:900; text-transform:uppercase; }
+.about-values h2 span { color:#ff8500; }
+.about-values-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.about-value { padding:24px; border:1px solid #ff8500; border-radius:18px; background:linear-gradient(145deg,#171717,#0d0d0d); }
+.about-value h3 { margin:0 0 9px; color:#ff8500; font-size:20px; text-transform:uppercase; }
+.about-value p { margin:0; color:#ddd; font-size:15px; line-height:1.5; }
+.about-cta { display:inline-flex; min-height:54px; align-items:center; justify-content:center; margin-top:14px; padding:14px 26px; border-radius:999px; background:#ff8500; color:#111; text-decoration:none; font-size:14px; font-weight:900; }
+@media(max-width:1100px) {
+    .site-header { width:calc(100% - 24px); height:68px; padding-inline:14px; }
+    .site-header .menu { display:flex; gap:clamp(8px,1.4vw,16px); margin-right:12px; }
+    .site-header .logo { width:clamp(76px,9vw,100px); }
+    .site-header .menu a { font-size:clamp(10px,1.35vw,13px); }
+    .site-header .contact-btn { padding:10px 13px; font-size:11px; }
+    .catalog-grid,.bestsellers-page .catalog-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:700px) {
+    .site-header { display:grid; grid-template-columns:1fr auto; grid-template-rows:31px 22px; gap:5px 8px; height:auto; min-height:70px; top:6px; padding:7px 10px 8px; border-radius:19px; }
+    .site-header .brand { grid-row:1; grid-column:1; }
+    .site-header .logo { width:68px; max-height:30px; }
+    .site-header .contact-btn { grid-row:1; grid-column:2; justify-self:end; min-height:30px; padding:7px 12px; font-size:10px; }
+    .site-header .menu { grid-row:2; grid-column:1/-1; justify-content:space-between; gap:4px; width:100%; margin:0; }
+    .site-header .menu a { font-size:clamp(9px,2.6vw,11px); line-height:1; letter-spacing:0; }
+    .page-hero { padding:54px 17px 40px; }
+    .page-hero > p:last-child { margin-top:15px; font-size:15px; line-height:1.4; }
+    .page-wrap { width:calc(100% - 32px); }
+    .catalog-section,.bestsellers-page .catalog-section { padding:28px 0 54px; }
+    .catalog-toolbar { margin-bottom:20px; }
+    .search-control { min-height:54px; padding-inline:13px; }
+    .search-control input { height:50px; font-size:15px; }
+    .category-filters { flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; margin-top:14px; padding:2px 2px 8px; scrollbar-width:thin; }
+    .filter-chip { flex:none; min-height:36px; padding:8px 12px; font-size:11px; }
+    .catalog-grid,.bestsellers-page .catalog-grid { grid-template-columns:minmax(0,1fr); gap:14px; }
+    .catalog-card { display:grid; grid-template-columns:minmax(110px,.72fr) minmax(0,1.28fr); grid-template-rows:auto 1fr; border-radius:14px; }
+    .catalog-card-category { grid-column:1/-1; min-height:36px; font-size:10px; }
+    .catalog-card .product-photo { grid-row:2; width:100%; height:100%; min-height:180px; aspect-ratio:auto; padding:8px; }
+    .catalog-card-body { grid-row:2; padding:13px 12px 12px; }
+    .catalog-card .product-name { margin-bottom:7px; font-size:21px; }
+    .catalog-card .product-description { min-height:0; margin-bottom:10px; font-size:12px; line-height:1.28; }
+    .catalog-card .product-tags { gap:5px; margin:0 0 10px; }
+    .catalog-card .product-tag { min-height:25px; padding:5px 7px; font-size:9px; }
+    .catalog-card .whatsapp-cta { min-height:40px; padding:9px 8px; font-size:10px; }
+    .about-story { grid-template-columns:1fr; gap:25px; padding:38px 0 48px; }
+    .about-image,.about-image img { min-height:230px; max-height:300px; }
+    .about-image img { object-position:center 35%; }
+    .about-values { padding-bottom:52px; }
+    .about-values-grid { grid-template-columns:1fr; gap:11px; }
+    .about-value { padding:18px; }
+}
+@media(max-width:360px) {
+    .site-header { width:calc(100% - 16px); padding-inline:8px; }
+    .site-header .menu a { font-size:9px; }
+    .catalog-card { grid-template-columns:minmax(100px,.68fr) minmax(0,1.32fr); }
+    .catalog-card .product-name { font-size:19px; }
 }
 
-function nextSlide(){
 
-    current++;
+==================== catalogo.js ====================
 
-    if(current >= slides.length){
-        current = 0;
-    }
-
-    showSlide(current);
-
-}
-
-function prevSlide(){
-
-    current--;
-
-    if(current < 0){
-        current = slides.length - 1;
-    }
-
-    showSlide(current);
-
-}
-
-document.getElementById('next')
-.addEventListener('click',nextSlide);
-
-document.getElementById('prev')
-.addEventListener('click',prevSlide);
-
-dots.forEach((dot,index)=>{
-
-    dot.addEventListener('click',()=>{
-
-        current = index;
-
-        showSlide(current);
-
-    });
-
-});
-
-/* AUTO SLIDE */
-
-setInterval(()=>{
-
-    nextSlide();
-
-},6000);
-
-/* TOUCH */
-
-const slider = document.getElementById('slider');
-
-let startX = 0;
-
-slider.addEventListener('touchstart',(e)=>{
-
-    startX = e.touches[0].clientX;
-
-});
-
-slider.addEventListener('touchend',(e)=>{
-
-    let endX = e.changedTouches[0].clientX;
-
-    let diff = startX - endX;
-
-    if(diff > 50){
-        nextSlide();
-    }
-
-    if(diff < -50){
-        prevSlide();
-    }
-
-});
-
-</script>
-
-
-<script>
 (() => {
- const products = [
-  ['DESENGRAXANTE','TRON','PRODUTO 1.png','Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.',['Desengraxe intenso','Alta eficiência','Ação profunda']],
-  ['LIMPADOR DE ALUMÍNIO','ALUMAX','PRODUTO 2 png.png','Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.',['Alto rendimento','Limpeza profunda','Ação eficiente']],
-  ['LAVA MOTOS NEUTRO','FLOW','PRODUTO 3.png','Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.',['pH neutro','Seguro para pintura','Fácil enxágue']],
-  ['DESENGRAXANTE','EVOX','PRODUTO 4 .png','Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.',['Aspecto natural','Proteção prolongada','Acabamento refinado']],
-  ['DESENGRAXANTE','ZUCS','PRODUTO 5 .png','Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.',['Alta fixação','Proteção prolongada','Resistente à água']],
-  ['REMOVEDOR DE INSETOS','GREEN','PRODUTO 6.png','Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.',['Ação rápida','Seguro para pintura','Pronto para uso']],
-  ['ACABAMENTO PREMIUM','DOCTOR SHINE','PRODUTO 7.png','Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.',['Ação rápida','Seguro para pintura','Pronto para uso']],
-  ['POLIDOR','PREMIUM PAD','PRODUTO 8.png','Alta performance para quem busca polimento com acabamento refinado e resultado profissional.',['Excelente nível de acabamento','Ideal para refino e correção da pintura','Alta durabilidade']]
- ];
- const markup = (p,i) => `<article class="product-card" style="--card-delay:${i*105}ms"><div class="product-kind">${p[0]}</div><img class="product-photo" src="assets/${p[2]}" alt="${p[1]}" loading="lazy"><div class="product-info"><h3 class="product-name">${p[1]}</h3><p class="product-description">${p[3]}</p><div class="product-tags">${p[4].map(t=>`<span class="product-tag">${t}</span>`).join('')}</div><a class="whatsapp-cta" href="https://wa.me/?text=${encodeURIComponent(`Olá! Tenho interesse no produto ${p[1]}.`)}" target="_blank" rel="noopener noreferrer">SOLICITAR PELO WHATSAPP</a></div></article>`;
- const grid=document.getElementById('product-grid'), rail=document.getElementById('mobile-product-rail');
- grid.innerHTML=products.map(markup).join(''); rail.innerHTML=products.map(markup).join('');
- const cards=[...document.querySelectorAll('.best-sellers .product-card')];
- const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.12});
- cards.forEach(card=>observer.observe(card));
- const dots=[...document.querySelectorAll('#product-pagination button')];
- const update=()=>{const center=rail.getBoundingClientRect().left+rail.clientWidth/2;let ix=0,dist=Infinity;[...rail.querySelectorAll('.product-card')].forEach((card,i)=>{const b=card.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-center);if(d<dist){ix=i;dist=d;}});const active=Math.round(ix*(dots.length-1)/(products.length-1));dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===active)));};
- rail.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
- dots.forEach((dot,i)=>dot.addEventListener('click',()=>rail.querySelectorAll('.product-card')[Math.round(i*(products.length-1)/(dots.length-1))].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})));
- if(matchMedia('(max-width: 700px)').matches) requestAnimationFrame(()=>rail.querySelectorAll('.product-card')[1].scrollIntoView({block:'nearest',inline:'center'}));
- update();
+  const products = [
+  {
+    "id": "tron",
+    "category": "Desengraxante",
+    "brand": "TRON",
+    "image": "PRODUTO 1.png",
+    "description": "Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.",
+    "features": [
+      "Desengraxe intenso",
+      "Alta eficiência",
+      "Ação profunda"
+    ]
+  },
+  {
+    "id": "alumax",
+    "category": "Limpador de alumínio",
+    "brand": "ALUMAX",
+    "image": "PRODUTO 2 png.png",
+    "description": "Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.",
+    "features": [
+      "Alto rendimento",
+      "Limpeza profunda",
+      "Ação eficiente"
+    ]
+  },
+  {
+    "id": "flow",
+    "category": "Lava motos neutro",
+    "brand": "FLOW",
+    "image": "PRODUTO 3.png",
+    "description": "Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.",
+    "features": [
+      "pH neutro",
+      "Seguro para pintura",
+      "Fácil enxágue"
+    ]
+  },
+  {
+    "id": "evox",
+    "category": "Revitalizador de plásticos",
+    "brand": "EVOX",
+    "image": "PRODUTO 4 .png",
+    "description": "Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.",
+    "features": [
+      "Aspecto natural",
+      "Proteção prolongada",
+      "Acabamento refinado"
+    ]
+  },
+  {
+    "id": "zucs",
+    "category": "Restaurador de plásticos",
+    "brand": "ZUCS",
+    "image": "PRODUTO 5 .png",
+    "description": "Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.",
+    "features": [
+      "Alta fixação",
+      "Proteção prolongada",
+      "Resistente à água"
+    ]
+  },
+  {
+    "id": "green",
+    "category": "Removedor de insetos",
+    "brand": "GREEN",
+    "image": "PRODUTO 6.png",
+    "description": "Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.",
+    "features": [
+      "Ação rápida",
+      "Seguro para pintura",
+      "Pronto para uso"
+    ]
+  },
+  {
+    "id": "doctor-shine",
+    "category": "Acabamento premium",
+    "brand": "DOCTOR SHINE",
+    "image": "PRODUTO 7.png",
+    "description": "Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.",
+    "features": [
+      "Ação rápida",
+      "Seguro para pintura",
+      "Pronto para uso"
+    ]
+  },
+  {
+    "id": "premium-pad",
+    "category": "Polidor",
+    "brand": "PREMIUM PAD",
+    "image": "PRODUTO 8.png",
+    "description": "Alta performance para quem busca polimento com acabamento refinado e resultado profissional.",
+    "features": [
+      "Excelente nível de acabamento",
+      "Ideal para refino e correção da pintura",
+      "Alta durabilidade"
+    ]
+  }
+];
+  const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  const cardMarkup = product => {
+    const features = product.features.map(feature => '<span class="product-tag">' + escapeHtml(feature) + '</span>').join('');
+    const message = encodeURIComponent('Olá! Tenho interesse no produto ' + product.brand + '.');
+    return '<article class="catalog-card" data-product="' + escapeHtml(product.id) + '">' +
+      '<div class="catalog-card-category">' + escapeHtml(product.category) + '</div>' +
+      '<img class="product-photo" src="assets/' + encodeURI(product.image) + '" alt="' + escapeHtml(product.brand + ' — ' + product.category) + '" loading="lazy">' +
+      '<div class="catalog-card-body"><h2 class="product-name">' + escapeHtml(product.brand) + '</h2>' +
+      '<p class="product-description">' + escapeHtml(product.description) + '</p>' +
+      '<div class="product-tags">' + features + '</div>' +
+      '<a class="whatsapp-cta" href="https://wa.me/?text=' + message + '" target="_blank" rel="noopener noreferrer">SOLICITAR PELO WHATSAPP</a></div></article>';
+  };
+  window.AmigosDoBrilhoCatalogo = { products, cardMarkup, escapeHtml };
 })();
-</script>
 
 
-<script>
+==================== produtos.js ====================
+
 (() => {
-    const serviceCards = [...document.querySelectorAll('.service-lines .service-card')];
-    serviceCards.forEach((card, index) => {
-        card.style.transitionDelay = `${index * 110}ms`;
+  const catalog = window.AmigosDoBrilhoCatalogo;
+  if (!catalog) return;
+  const search = document.getElementById('product-search');
+  const filters = document.getElementById('category-filters');
+  const grid = document.getElementById('catalog-grid');
+  const summary = document.getElementById('catalog-summary');
+  const categories = [...new Set(catalog.products.map(product => product.category))];
+  let selectedCategory = 'Todas';
+  filters.innerHTML = ['Todas', ...categories].map(category => '<button class="filter-chip" type="button" data-category="' + catalog.escapeHtml(category) + '" aria-pressed="' + (category === 'Todas') + '">' + catalog.escapeHtml(category) + '</button>').join('');
+  function render() {
+    const query = search.value.trim().toLocaleLowerCase('pt-BR');
+    const matches = catalog.products.filter(product => {
+      const categoryMatch = selectedCategory === 'Todas' || product.category === selectedCategory;
+      const searchable = [product.brand, product.category, product.description, ...product.features].join(' ').toLocaleLowerCase('pt-BR');
+      return categoryMatch && searchable.includes(query);
     });
-    const serviceObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                serviceObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: .12 });
-    serviceCards.forEach(card => serviceObserver.observe(card));
+    summary.textContent = matches.length + (matches.length === 1 ? ' produto encontrado' : ' produtos encontrados');
+    grid.innerHTML = matches.length ? matches.map(catalog.cardMarkup).join('') : '<p class="catalog-empty">Não encontramos esse produto. Tente outro nome ou escolha uma categoria.</p>';
+  }
+  filters.addEventListener('click', event => {
+    const button = event.target.closest('[data-category]');
+    if (!button) return;
+    selectedCategory = button.dataset.category;
+    filters.querySelectorAll('.filter-chip').forEach(chip => chip.setAttribute('aria-pressed', String(chip === button)));
+    render();
+  });
+  search.addEventListener('input', render);
+  render();
 })();
-</script>
 
 
-<dialog class="video-player-dialog" id="video-player-dialog" aria-labelledby="video-player-title">
-    <div class="video-player-shell">
-        <header class="video-player-header">
-            <h2 class="video-player-title" id="video-player-title">Reprodutor de vídeo</h2>
-            <button class="video-player-close" type="button" aria-label="Fechar reprodutor">&times;</button>
-        </header>
-        <video class="video-player" controls playsinline preload="none" aria-label="Reprodutor do vídeo"></video>
-    </div>
-</dialog>
+==================== mais-vendidos.js ====================
 
-<script>
 (() => {
-    const videos = [
-        { file: 'SnapInsta.to_AQMvt_HCwwOI-ylW2M7BBTNaZe_JCxs5FiIFIS-miuOP-OZTpaXuRQeirHbLeu7v6_t_agyJdlOVbPaM2SBxTxagWXitX6RlOG9RQ2I.mp4', label: 'Aplicação de produto no veículo' },
-        { file: 'SnapInsta.to_AQN7RgGrQlkXBwIR45oPL9MaK-AQ8JldrYfFFdFBgvziqPmdy-hz5xznHrf0Naq28hBxdN0x2xDfiL5vg7osEeF6tgUh5avF28hKT-A.mp4', label: 'Limpeza automotiva com aplicador' },
-        { file: 'SnapInsta.to_AQNDlScKWD0lDym9WA_REyZPc0KiJ2bULx3RORW6ZcklLybGFIOp-EjhhvWGRFmZyBHc05OxSzY1ImZnq-FHAOvt8pF_qb77Pf-28So.mp4', label: 'Aplicação de acabamento automotivo' },
-        { file: 'SnapInsta.to_AQNyQ5_Sf4n9WLhiYbPk0nCfmC3cAHJTke3VYQsqLzASBH7NhPUOefMSqbZX1-i2ok3tiLioeMIice96AYmAb8zoRzSzoK1kI7dxZfQ.mp4', label: 'Produto de brilho aplicado com microfibra' }
-    ];
-    const track = document.getElementById('results-track');
-    const viewport = document.querySelector('.results-showcase .results-viewport');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const cardMarkup = (video, index, clone = false) => `
-        <article class="results-card"${clone ? ' aria-hidden="true" inert' : ''}>
-            <video class="results-video" src="assets/${encodeURIComponent(video.file)}" muted loop playsinline preload="metadata" aria-label="${video.label}" data-video-index="${index}"></video>
-            <button class="video-play" type="button" aria-label="Assistir ${video.label}">
-                <svg class="play-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 17v66l54-33z"/></svg>
-                <svg class="pause-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M25 18h18v64H25zm32 0h18v64H57z"/></svg>
-            </button>
-        </article>`;
-    const groupMarkup = (clone = false) => `<div class="results-group"${clone ? ' aria-hidden="true" inert' : ''}>${videos.map((video, index) => cardMarkup(video, index, clone)).join('')}</div>`;
-
-    track.innerHTML = groupMarkup(true) + groupMarkup() + groupMarkup(true);
-    const groups = [...track.querySelectorAll('.results-group')];
-    const originals = groups[1];
-    const cards = [...track.querySelectorAll('.results-card')];
-    const allVideos = [...track.querySelectorAll('video')];
-    let offset = 0;
-    let period = 0;
-    let lastTime = 0;
-    let active = false;
-    let pointerPaused = false;
-    let focusPaused = false;
-    const speed = 34;
-
-    function measureAndPosition() {
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        period = groups[0].getBoundingClientRect().width + gap;
-        const firstCard = originals.querySelector('.results-card');
-        const cardStep = firstCard.getBoundingClientRect().width + (parseFloat(getComputedStyle(originals).gap) || 0);
-        const mobileOffset = cardStep - (viewport.clientWidth - firstCard.getBoundingClientRect().width) / 2;
-        offset = period + (matchMedia('(max-width: 700px)').matches ? mobileOffset : 0);
-        track.style.transform = `translate3d(${-offset}px,0,0)`;
-    }
-
-    function draw(now) {
-        if (!lastTime) lastTime = now;
-        const delta = Math.min(now - lastTime, 40);
-        lastTime = now;
-        if (active && !pointerPaused && !focusPaused && !document.hidden && !reducedMotion.matches) offset += speed * delta / 1000;
-        if (period > 0) {
-            while (offset >= period * 2) offset -= period;
-            while (offset < period) offset += period;
-            track.style.transform = `translate3d(${-offset}px,0,0)`;
-        }
-        requestAnimationFrame(draw);
-    }
-
-    function setPlaying(video, playing) {
-        const button = video.parentElement.querySelector('.video-play');
-        button.classList.toggle('is-playing', playing);
-        button.setAttribute('aria-label', `${playing ? 'Pausar' : 'Reproduzir'} ${videos[Number(video.dataset.videoIndex)].label}`);
-    }
-
-    const videoObserver = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const video = entry.target;
-            if (entry.isIntersecting && video.dataset.loaded !== 'true') {
-                video.dataset.loaded = 'true';
-                video.preload = 'auto';
-                video.load();
-            } else if (!entry.isIntersecting && !video.paused) {
-                video.pause();
-                setPlaying(video, false);
-            }
-        });
-    }, { root: viewport, threshold: .2 });
-    allVideos.forEach(video => videoObserver.observe(video));
-
-    const playerDialog = document.getElementById('video-player-dialog');
-    const playerVideo = playerDialog.querySelector('.video-player');
-    const playerTitle = playerDialog.querySelector('.video-player-title');
-    const playerClose = playerDialog.querySelector('.video-player-close');
-    let lastPlayerTrigger = null;
-
-    function openPlayer(video, trigger) {
-        playerTitle.textContent = video.label;
-        lastPlayerTrigger = trigger;
-        const source = trigger.parentElement.querySelector('.results-video');
-        playerVideo.src = source.currentSrc || source.src;
-        playerVideo.load();
-        playerDialog.showModal();
-        playerVideo.play().catch(() => {});
-    }
-
-    playerClose.addEventListener('click', () => playerDialog.close());
-    playerDialog.addEventListener('click', event => {
-        if (event.target === playerDialog) playerDialog.close();
-    });
-    playerDialog.addEventListener('close', () => {
-        playerVideo.pause();
-        playerVideo.removeAttribute('src');
-        playerVideo.load();
-        if (lastPlayerTrigger?.isConnected) lastPlayerTrigger.focus();
-    });
-
-    track.addEventListener('click', event => {
-        const button = event.target.closest('.video-play');
-        if (!button) return;
-        const source = button.parentElement.querySelector('.results-video');
-        const video = videos[Number(source.dataset.videoIndex)];
-        if (video) openPlayer(video, button);
-    });
-
-    const moveByCard = direction => {
-        const card = originals.querySelector('.results-card');
-        const step = card.getBoundingClientRect().width + (parseFloat(getComputedStyle(originals).gap) || 0);
-        offset += direction * step;
-        while (offset >= period * 2) offset -= period;
-        while (offset < period) offset += period;
-        track.style.transform = `translate3d(${-offset}px,0,0)`;
-    };
-    document.querySelector('.results-prev').addEventListener('click', () => moveByCard(-1));
-    document.querySelector('.results-next').addEventListener('click', () => moveByCard(1));
-    viewport.addEventListener('pointerenter', () => { pointerPaused = true; });
-    viewport.addEventListener('pointerleave', () => { pointerPaused = false; });
-    viewport.addEventListener('focusin', () => { focusPaused = true; });
-    viewport.addEventListener('focusout', event => { if (!viewport.contains(event.relatedTarget)) focusPaused = false; });
-
-    new IntersectionObserver(entries => {
-        active = entries.some(entry => entry.isIntersecting);
-    }, { threshold: 0 }).observe(document.querySelector('.results-showcase'));
-    measureAndPosition();
-    window.addEventListener('resize', measureAndPosition, { passive: true });
-    requestAnimationFrame(draw);
+  const catalog = window.AmigosDoBrilhoCatalogo;
+  if (!catalog) return;
+  const featuredIds = ['tron', 'flow', 'green', 'doctor-shine'];
+  const featured = featuredIds.map(id => catalog.products.find(product => product.id === id)).filter(Boolean);
+  document.getElementById('featured-grid').innerHTML = featured.map(catalog.cardMarkup).join('');
 })();
-</script>
-
-</body>
-</html>

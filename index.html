@@ -1,4 +1,4 @@
-
+<!-- BEGIN FILE: index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -2475,12 +2475,9 @@ slider.addEventListener('touchend',(e)=>{
 </script>
 </body>
 </html>
-FIM DO CONTEÚDO
+<!-- END FILE: index.html -->
 
-==========================================================================================
-ARQUIVO 02/54: guias/index.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2502,12 +2499,9 @@ if(!buttons.some(b=>b.dataset.filter===selected))selected='todos';
 function render(){const query=search.value.trim().toLocaleLowerCase('pt-BR');let visible=0;cards.forEach(card=>{const okTheme=selected==='todos'||card.dataset.theme===selected;const okText=card.dataset.search.includes(query);card.hidden=!(okTheme&&okText);if(!card.hidden)visible++;});count.textContent=visible+' '+(visible===1?'artigo disponível':'artigos disponíveis');buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===selected)));}
 buttons.forEach(b=>b.addEventListener('click',()=>{selected=b.dataset.filter;render();}));search.addEventListener('input',render);render();
 })();</script></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/index.html -->
 
-==========================================================================================
-ARQUIVO 03/54: guias/estilo.css
-==========================================================================================
-INÍCIO DO CONTEÚDO
+/* BEGIN FILE: guias/estilo.css */
 :root{--orange:#ff8500;--ink:#090909;--paper:#f4f4f4}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Rubik,Arial,sans-serif}a{color:inherit}
 .blog-top{position:sticky;top:0;z-index:20;background:#090909;color:#fff;border-bottom:1px solid #ff850060}.blog-nav{width:min(1320px,calc(100% - 36px));min-height:68px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}.blog-brand{color:#fff;text-decoration:none;font-size:17px;font-weight:900}.blog-brand span{color:var(--orange)}.blog-nav-links{display:flex;align-items:center;gap:22px}.blog-nav a{color:#fff;text-decoration:none;font-size:13px;font-weight:700}.blog-nav a:hover{color:var(--orange)}.blog-nav .blog-home-link{padding:11px 17px;border-radius:999px;background:var(--orange);color:#111}
 .blog-hero{padding:72px 18px 58px;background:radial-gradient(ellipse at 50% 0%,#462300 0%,#141414 48%,#090909 100%);color:#fff;text-align:center}.blog-hero-inner{max-width:900px;margin:auto}.blog-eyebrow{margin:0 0 15px;color:#ff9c24;font-size:12px;font-weight:900;letter-spacing:.32em;text-transform:uppercase}.blog-hero h1{margin:0;font-size:clamp(36px,6vw,68px);line-height:.98;font-weight:900;letter-spacing:-.045em;text-transform:uppercase}.blog-hero h1 span{color:var(--orange)}.blog-hero p:last-child{max-width:720px;margin:20px auto 0;color:#e7e7e7;font-size:17px;line-height:1.55}
@@ -2520,12 +2514,9 @@ INÍCIO DO CONTEÚDO
 .related-section{margin-top:56px;padding-top:34px;border-top:1px solid #d9d9d9}.related-section h2{margin:0 0 18px;font-size:27px;letter-spacing:-.03em}.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.related-card{min-width:0;display:flex;flex-direction:column;padding:17px;border:1px solid #ddd;border-top:3px solid var(--orange);border-radius:12px;background:#fff;text-decoration:none}.related-card span{margin-bottom:8px;color:#9a4d00;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.related-card strong{font-size:15px;line-height:1.2}.related-card small{margin-top:8px;color:#555;font-size:12px;line-height:1.4}.blog-footer{padding:28px 18px;background:#090909;color:#ddd;text-align:center}.blog-footer a{color:#ff9a1d;text-decoration:none;font-weight:700}.blog-footer p{margin:5px;font-size:12px;line-height:1.5}
 @media(max-width:900px){.blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.article-columns{grid-template-columns:1fr}.article-sidebar{position:static;grid-row:1}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.blog-nav{min-height:62px}.blog-nav-links{gap:10px}.blog-nav-links a{font-size:10px}.blog-nav .blog-home-link{padding:9px 11px}.blog-hero{padding:52px 16px 44px}.blog-hero p:last-child{font-size:15px}.blog-grid{grid-template-columns:1fr;width:calc(100% - 28px);gap:12px}.article-card{display:grid;grid-template-columns:120px 1fr;grid-template-rows:1fr;min-height:150px}.article-card .article-photo-slot{height:100%;min-height:150px;aspect-ratio:auto}.article-card-body{padding:14px 13px}.article-card h2{font-size:17px}.article-card p{font-size:12px}.article-card .read-more{padding-top:10px}.blog-controls{width:calc(100% - 28px);margin-top:24px}.blog-filters{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding:2px 2px 8px}.blog-filter{flex:none}.article-shell{width:calc(100% - 30px);padding-top:24px}.article-title{font-size:clamp(31px,9vw,42px)}.article-dek{font-size:16px}.article-photo-widget .article-photo-slot{aspect-ratio:1.2/1}.article-lead{padding:16px;font-size:16px}.article-content p{font-size:15px;line-height:1.65}.related-grid{grid-template-columns:1fr}.related-card{padding:15px}}
-FIM DO CONTEÚDO
+/* END FILE: guias/estilo.css */
 
-==========================================================================================
-ARQUIVO 04/54: guias/artigos/aplicar-revitalizador-sem-manchas.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/aplicar-revitalizador-sem-manchas.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2549,12 +2540,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="recuperar-plastico-esbranquicado-carro.html"><span>Plásticos e acabamento</span><strong>Como recuperar plástico esbranquiçado do carro?</strong><small>Limpe e seque para separar sujeira superficial de alteração do plástico. Um revitalizador pode melhorar aparência, mas não repara trinca ou desgaste profundo.</small></a><a class="related-card" href="revitalizador-ou-restaurador-plasticos.html"><span>Plásticos e acabamento</span><strong>Revitalizador e restaurador de plásticos: qual a diferença?</strong><small>Os nomes variam por fabricante. Compare uso declarado, superfície e acabamento em vez de confiar só no nome comercial.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/aplicar-revitalizador-sem-manchas.html -->
 
-==========================================================================================
-ARQUIVO 05/54: guias/artigos/carro-precisa-polimento-ou-manutencao.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/carro-precisa-polimento-ou-manutencao.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2578,12 +2566,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="polimento-antes-ou-depois-protecao.html"><span>Polimento e proteção</span><strong>Polimento vem antes ou depois da proteção da pintura?</strong><small>Quando há defeitos a corrigir, o polimento costuma ser avaliado antes da proteção. A necessidade depende do estado do verniz.</small></a><a class="related-card" href="o-que-polidor-corrige-e-o-que-nao.html"><span>Polimento e proteção</span><strong>O que um polidor automotivo corrige — e o que não corrige?</strong><small>Polidores podem corrigir certos defeitos superficiais conforme o produto e o processo; não reparam automaticamente danos profundos.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/carro-precisa-polimento-ou-manutencao.html -->
 
-==========================================================================================
-ARQUIVO 06/54: guias/artigos/ceramica-e-grafeno-comparar-produtos.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/ceramica-e-grafeno-comparar-produtos.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2607,12 +2592,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>COAT CERAMIC</strong> como proteção cerâmica mostrada no site. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="proteger-pintura-carro-ao-relento.html"><span>Polimento e proteção</span><strong>Qual proteção escolher para um carro que fica ao relento?</strong><small>Considere sol, chuva, árvores, poluição e frequência de lavagem. Proteção não dispensa sombra quando possível nem remoção de contaminantes.</small></a><a class="related-card" href="carro-precisa-polimento-ou-manutencao.html"><span>Polimento e proteção</span><strong>A pintura precisa de polimento ou só de uma boa manutenção?</strong><small>Se a falta de brilho vier de sujeira, lavagem pode bastar. Polimento só deve ser considerado quando há defeitos corrigíveis e condição segura do verniz.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/ceramica-e-grafeno-comparar-produtos.html -->
 
-==========================================================================================
-ARQUIVO 07/54: guias/artigos/coating-ceramico-elimina-lavagem.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/coating-ceramico-elimina-lavagem.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2636,12 +2618,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="manter-pintura-depois-coating.html"><span>Polimento e proteção</span><strong>Como manter a pintura depois de aplicar coating?</strong><small>Mantenha lavagem suave compatível e remova sujeira sem esfregar a seco. A manutenção precisa seguir as instruções da proteção aplicada.</small></a><a class="related-card" href="proteger-pintura-carro-ao-relento.html"><span>Polimento e proteção</span><strong>Qual proteção escolher para um carro que fica ao relento?</strong><small>Considere sol, chuva, árvores, poluição e frequência de lavagem. Proteção não dispensa sombra quando possível nem remoção de contaminantes.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/coating-ceramico-elimina-lavagem.html -->
 
-==========================================================================================
-ARQUIVO 08/54: guias/artigos/como-limpar-parabrisa-por-dentro-sem-manchas.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/como-limpar-parabrisa-por-dentro-sem-manchas.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2665,12 +2644,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="remover-pelicula-gordurosa-vidro-interno.html"><span>Vidros e para-brisa</span><strong>Como tirar a película gordurosa do vidro interno do carro?</strong><small>Limpe em etapas com pano limpo e produto adequado ao vidro; remova todo o resíduo em vez de espalhar a gordura.</small></a><a class="related-card" href="limpa-vidros-compativel-insulfilm.html"><span>Vidros e para-brisa</span><strong>Qual produto usar para limpar vidro automotivo com insulfilm?</strong><small>Escolha conforme a película instalada, usando pano macio e produto autorizado pelo instalador e pelo fabricante do filme.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/como-limpar-parabrisa-por-dentro-sem-manchas.html -->
 
-==========================================================================================
-ARQUIVO 09/54: guias/artigos/comparar-evox-zucs-doctor-shine.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/comparar-evox-zucs-doctor-shine.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2694,12 +2670,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>EVOX</strong> como revitalizador de plásticos. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="recuperar-plasticos-externos-desbotados.html"><span>Plásticos e acabamento</span><strong>Como recuperar o acabamento de plásticos externos desbotados?</strong><small>Limpe, seque e avalie se a alteração é superficial. Um tratamento compatível pode uniformizar a aparência, dependendo do estado da peça.</small></a><a class="related-card" href="limpar-painel-sem-aspecto-engordurado.html"><span>Plásticos e acabamento</span><strong>Como limpar o painel sem deixá-lo engordurado ou brilhante?</strong><small>Retire o pó com pano macio e use limpador compatível, aplicado no pano. Trabalhe com pouca quantidade e finalize sem resíduos.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/comparar-evox-zucs-doctor-shine.html -->
 
-==========================================================================================
-ARQUIVO 10/54: guias/artigos/cuidar-plastico-texturizado-automotivo.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/cuidar-plastico-texturizado-automotivo.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2723,12 +2696,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="revitalizador-ou-restaurador-plasticos.html"><span>Plásticos e acabamento</span><strong>Revitalizador e restaurador de plásticos: qual a diferença?</strong><small>Os nomes variam por fabricante. Compare uso declarado, superfície e acabamento em vez de confiar só no nome comercial.</small></a><a class="related-card" href="preparar-plastico-antes-restaurador.html"><span>Plásticos e acabamento</span><strong>Como preparar o plástico antes de aplicar um restaurador?</strong><small>Remova poeira, gordura e resíduos antigos com método seguro para o material; deixe secar se o rótulo exigir.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/cuidar-plastico-texturizado-automotivo.html -->
 
-==========================================================================================
-ARQUIVO 11/54: guias/artigos/cuidar-vidro-apos-instalar-insulfilm.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/cuidar-vidro-apos-instalar-insulfilm.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2752,12 +2722,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a><a class="related-card" href="remover-pelicula-gordurosa-vidro-interno.html"><span>Vidros e para-brisa</span><strong>Como tirar a película gordurosa do vidro interno do carro?</strong><small>Limpe em etapas com pano limpo e produto adequado ao vidro; remova todo o resíduo em vez de espalhar a gordura.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/cuidar-vidro-apos-instalar-insulfilm.html -->
 
-==========================================================================================
-ARQUIVO 12/54: guias/artigos/detergente-cozinha-lavar-carro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/detergente-cozinha-lavar-carro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2781,12 +2748,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="ordem-segura-lavar-carro.html"><span>Lavagem e manutenção</span><strong>Qual ordem seguir numa lavagem segura da carroceria?</strong><small>Retire sujeira solta, limpe rodas com acessórios próprios, lave a carroceria de cima para baixo e enxágue cada área.</small></a><a class="related-card" href="lavagem-manual-ou-snow-foam.html"><span>Lavagem e manutenção</span><strong>Lavagem manual ou snow foam: o que muda na prática?</strong><small>Snow foam pode soltar parte da sujeira antes da lavagem por contato, mas não substitui a avaliação e a limpeza manual de resíduos aderidos.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/detergente-cozinha-lavar-carro.html -->
 
-==========================================================================================
-ARQUIVO 13/54: guias/artigos/diferenca-cera-selante-coating.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/diferenca-cera-selante-coating.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2810,12 +2774,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="o-que-polidor-corrige-e-o-que-nao.html"><span>Polimento e proteção</span><strong>O que um polidor automotivo corrige — e o que não corrige?</strong><small>Polidores podem corrigir certos defeitos superficiais conforme o produto e o processo; não reparam automaticamente danos profundos.</small></a><a class="related-card" href="preparar-pintura-antes-protecao.html"><span>Polimento e proteção</span><strong>Como preparar a pintura antes de aplicar uma proteção?</strong><small>Comece com lavagem e avaliação. Descontaminação ou correção podem ser necessárias, mas os requisitos dependem da proteção escolhida.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/diferenca-cera-selante-coating.html -->
 
-==========================================================================================
-ARQUIVO 14/54: guias/artigos/diferenca-desengraxante-insetos-limpa-aluminio.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/diferenca-desengraxante-insetos-limpa-aluminio.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2839,12 +2800,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>GREEN</strong> como removedor de insetos. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="ler-rotulo-limpador-tecnico-automotivo.html"><span>Insetos e sujeira pesada</span><strong>O que conferir no rótulo antes de usar um limpador técnico?</strong><small>Confira finalidade, superfícies autorizadas, diluição, tempo de ação, enxágue, proteção pessoal e advertências.</small></a><a class="related-card" href="remover-insetos-secos-sem-esfregar.html"><span>Insetos e sujeira pesada</span><strong>Como remover insetos secos da pintura sem esfregar a seco?</strong><small>Amoleça com água ou removedor autorizado, aguarde o tempo indicado e enxágue. Não esfregue crostas secas na lataria.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/diferenca-desengraxante-insetos-limpa-aluminio.html -->
 
-==========================================================================================
-ARQUIVO 15/54: guias/artigos/insetos-podem-marcar-verniz.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/insetos-podem-marcar-verniz.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2868,12 +2826,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo apresenta GREEN como removedor de insetos, TRON como desengraxante e ALUMAX como limpador de alumínio. Confirme compatibilidade e instruções no rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="onde-usar-desengraxante-automotivo.html"><span>Insetos e sujeira pesada</span><strong>Desengraxante automotivo: onde pode ser aplicado?</strong><small>Use apenas nas superfícies listadas pelo fabricante. O nome não comprova compatibilidade com toda pintura, borracha ou plástico.</small></a><a class="related-card" href="limpador-aluminio-pecas-automotivas.html"><span>Insetos e sujeira pesada</span><strong>Limpador de alumínio pode ser usado em qualquer peça automotiva?</strong><small>Não. Use apenas no metal e acabamento autorizados; alumínio polido, anodizado, pintado ou envernizado pode reagir de modo diferente.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/insetos-podem-marcar-verniz.html -->
 
-==========================================================================================
-ARQUIVO 16/54: guias/artigos/lavagem-manual-ou-snow-foam.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/lavagem-manual-ou-snow-foam.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2897,12 +2852,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a><a class="related-card" href="shampoo-neutro-ou-desengraxante.html"><span>Lavagem e manutenção</span><strong>Shampoo neutro ou desengraxante: qual usar em cada situação?</strong><small>Shampoo automotivo é para lavagem regular; desengraxante é limpeza técnica para usos definidos pelo fabricante.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/lavagem-manual-ou-snow-foam.html -->
 
-==========================================================================================
-ARQUIVO 17/54: guias/artigos/lavar-carro-dia-quente-sem-manchas.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/lavar-carro-dia-quente-sem-manchas.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2926,12 +2878,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="lavagem-manual-ou-snow-foam.html"><span>Lavagem e manutenção</span><strong>Lavagem manual ou snow foam: o que muda na prática?</strong><small>Snow foam pode soltar parte da sujeira antes da lavagem por contato, mas não substitui a avaliação e a limpeza manual de resíduos aderidos.</small></a><a class="related-card" href="produto-limpeza-tipo-sujeira-carro.html"><span>Lavagem e manutenção</span><strong>Como escolher o produto de limpeza conforme o tipo de sujeira?</strong><small>Identifique o resíduo e o material: poeira, gordura, insetos e depósitos minerais pedem abordagens diferentes.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/lavar-carro-dia-quente-sem-manchas.html -->
 
-==========================================================================================
-ARQUIVO 18/54: guias/artigos/lavar-carro-em-casa-sem-riscar-pintura.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/lavar-carro-em-casa-sem-riscar-pintura.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2955,12 +2904,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="produto-lavagem-manutencao-moto.html"><span>Lavagem e manutenção</span><strong>Como escolher um produto para a lavagem de manutenção da moto?</strong><small>Escolha produto identificado para motocicletas e compatível com as superfícies da moto. O FLOW aparece no catálogo como lava-motos neutro; confira o rótulo.</small></a><a class="related-card" href="lavar-moto-sem-marcar-carenagem.html"><span>Lavagem e manutenção</span><strong>Como lavar a moto sem marcar carenagem e plásticos?</strong><small>Lave carenagem fria e à sombra com produto compatível, pano macio e pouca pressão. Enxágue para tirar partículas antes do contato.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/lavar-carro-em-casa-sem-riscar-pintura.html -->
 
-==========================================================================================
-ARQUIVO 19/54: guias/artigos/lavar-moto-sem-marcar-carenagem.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/lavar-moto-sem-marcar-carenagem.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2984,12 +2930,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="detergente-cozinha-lavar-carro.html"><span>Lavagem e manutenção</span><strong>Detergente de cozinha serve para lavar o carro?</strong><small>Não é a melhor escolha para a rotina automotiva: sua finalidade não considera todas as superfícies e proteções do veículo.</small></a><a class="related-card" href="lavar-carro-dia-quente-sem-manchas.html"><span>Lavagem e manutenção</span><strong>Como evitar manchas ao lavar o veículo em dias quentes?</strong><small>Lave à sombra e com a carroceria fria. Trabalhe em áreas pequenas e enxágue antes que água ou produto sequem.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/lavar-moto-sem-marcar-carenagem.html -->
 
-==========================================================================================
-ARQUIVO 20/54: guias/artigos/ler-rotulo-limpador-tecnico-automotivo.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/ler-rotulo-limpador-tecnico-automotivo.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3013,12 +2956,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo apresenta GREEN como removedor de insetos, TRON como desengraxante e ALUMAX como limpador de alumínio. Confirme compatibilidade e instruções no rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="removedor-insetos-pintura-plastico-vidro.html"><span>Insetos e sujeira pesada</span><strong>Removedor de insetos pode ser usado em pintura, plástico e vidro?</strong><small>Só use nas superfícies expressamente autorizadas na embalagem. A compatibilidade varia por fórmula.</small></a><a class="related-card" href="mancha-inseto-nao-saiu-na-lavagem.html"><span>Insetos e sujeira pesada</span><strong>Lavei o carro e as marcas de insetos ficaram: e agora?</strong><small>Não aumente a força de esfregação. Verifique se ainda há resíduo ou se a pintura ficou marcada; são situações diferentes.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/ler-rotulo-limpador-tecnico-automotivo.html -->
 
-==========================================================================================
-ARQUIVO 21/54: guias/artigos/limpa-vidros-antiembacante-repelente-diferenca.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/limpa-vidros-antiembacante-repelente-diferenca.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3042,12 +2982,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="cuidar-vidro-apos-instalar-insulfilm.html"><span>Vidros e para-brisa</span><strong>Como cuidar do vidro nos primeiros dias depois de instalar película?</strong><small>Espere o prazo indicado pelo instalador antes de limpar ou movimentar o vidro. O tempo de cura depende do filme e das condições.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/limpa-vidros-antiembacante-repelente-diferenca.html -->
 
-==========================================================================================
-ARQUIVO 22/54: guias/artigos/limpa-vidros-compativel-insulfilm.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/limpa-vidros-compativel-insulfilm.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3071,12 +3008,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="usar-limpa-vidros-domestico-no-carro.html"><span>Vidros e para-brisa</span><strong>Posso usar limpa-vidros doméstico no carro?</strong><small>Depende da fórmula e da superfície. Confira o rótulo; em insulfilm, confirme com o instalador antes de aplicar.</small></a><a class="related-card" href="tirar-marcas-de-agua-do-vidro-sem-riscar.html"><span>Vidros e para-brisa</span><strong>Como tirar marcas de água do vidro sem riscar?</strong><small>Lave para remover partículas e use limpador indicado para vidro automotivo com pano macio. Marcas persistentes podem exigir avaliação especializada.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/limpa-vidros-compativel-insulfilm.html -->
 
-==========================================================================================
-ARQUIVO 23/54: guias/artigos/limpador-aluminio-pecas-automotivas.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/limpador-aluminio-pecas-automotivas.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3100,12 +3034,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>ALUMAX</strong> como limpador de alumínio. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="limpar-aluminio-automotivo-sem-manchas.html"><span>Insetos e sujeira pesada</span><strong>Como limpar alumínio automotivo sem manchar?</strong><small>Identifique se a peça é de alumínio nu, polido, anodizado ou protegido. Limpe fria e com produto indicado para o acabamento.</small></a><a class="related-card" href="ler-rotulo-limpador-tecnico-automotivo.html"><span>Insetos e sujeira pesada</span><strong>O que conferir no rótulo antes de usar um limpador técnico?</strong><small>Confira finalidade, superfícies autorizadas, diluição, tempo de ação, enxágue, proteção pessoal e advertências.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/limpador-aluminio-pecas-automotivas.html -->
 
-==========================================================================================
-ARQUIVO 24/54: guias/artigos/limpar-aluminio-automotivo-sem-manchas.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/limpar-aluminio-automotivo-sem-manchas.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3129,12 +3060,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo apresenta GREEN como removedor de insetos, TRON como desengraxante e ALUMAX como limpador de alumínio. Confirme compatibilidade e instruções no rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="insetos-podem-marcar-verniz.html"><span>Insetos e sujeira pesada</span><strong>Insetos podem marcar o verniz se ficarem muito tempo na pintura?</strong><small>Resíduos orgânicos podem aderir e dificultar a remoção conforme o tempo e as condições. Limpe assim que for seguro.</small></a><a class="related-card" href="removedor-insetos-pintura-plastico-vidro.html"><span>Insetos e sujeira pesada</span><strong>Removedor de insetos pode ser usado em pintura, plástico e vidro?</strong><small>Só use nas superfícies expressamente autorizadas na embalagem. A compatibilidade varia por fórmula.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/limpar-aluminio-automotivo-sem-manchas.html -->
 
-==========================================================================================
-ARQUIVO 25/54: guias/artigos/limpar-painel-sem-aspecto-engordurado.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/limpar-painel-sem-aspecto-engordurado.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3158,12 +3086,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="restaurador-plasticos-remove-riscos.html"><span>Plásticos e acabamento</span><strong>Riscos em plástico saem com restaurador ou precisam de reparo?</strong><small>Restaurador pode uniformizar algumas marcas superficiais, mas não necessariamente remove sulcos profundos ou cortes.</small></a><a class="related-card" href="comparar-evox-zucs-doctor-shine.html"><span>Plásticos e acabamento</span><strong>EVOX, ZUCS ou DOCTOR SHINE: como comparar opções para plásticos?</strong><small>Compare uso declarado, superfície, acabamento e aplicação. A categoria comercial ajuda a começar, mas a ficha técnica decide a compatibilidade.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/limpar-painel-sem-aspecto-engordurado.html -->
 
-==========================================================================================
-ARQUIVO 26/54: guias/artigos/limpar-vidro-carro-sem-fiapos-halos.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/limpar-vidro-carro-sem-fiapos-halos.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3187,12 +3112,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="palheta-espalha-sujeira-no-parabrisa.html"><span>Vidros e para-brisa</span><strong>A palheta espalha sujeira no para-brisa: o que verificar?</strong><small>Rastros podem vir de palheta suja ou danificada, do vidro ou de resíduos de produto. Limpe e inspecione antes de trocar a peça.</small></a><a class="related-card" href="limpa-vidros-antiembacante-repelente-diferenca.html"><span>Vidros e para-brisa</span><strong>Limpa-vidros, antiembaçante e repelente de chuva: qual a diferença?</strong><small>Limpa-vidros remove sujeira; antiembaçante busca reduzir embaçamento; repelente muda o comportamento das gotas. São funções diferentes.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/limpar-vidro-carro-sem-fiapos-halos.html -->
 
-==========================================================================================
-ARQUIVO 27/54: guias/artigos/mancha-inseto-nao-saiu-na-lavagem.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/mancha-inseto-nao-saiu-na-lavagem.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3216,12 +3138,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo apresenta GREEN como removedor de insetos, TRON como desengraxante e ALUMAX como limpador de alumínio. Confirme compatibilidade e instruções no rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="diferenca-desengraxante-insetos-limpa-aluminio.html"><span>Insetos e sujeira pesada</span><strong>Desengraxante, removedor de insetos e limpa-alumínio: para que serve cada um?</strong><small>São categorias distintas para resíduos e superfícies definidos pelo fabricante. Escolha pelo tipo de sujeira e pelo material ao mesmo tempo.</small></a><a class="related-card" href="remover-sujeira-pesada-sem-atacar-acabamento.html"><span>Insetos e sujeira pesada</span><strong>Como remover sujeira pesada sem atacar o acabamento?</strong><small>Identifique se é graxa, barro, resíduo orgânico ou depósito mineral e use um limpador aprovado para aquela superfície.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/mancha-inseto-nao-saiu-na-lavagem.html -->
 
-==========================================================================================
-ARQUIVO 28/54: guias/artigos/manter-pintura-depois-coating.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/manter-pintura-depois-coating.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3245,12 +3164,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="coating-ceramico-elimina-lavagem.html"><span>Polimento e proteção</span><strong>Proteção cerâmica elimina a necessidade de lavar o carro?</strong><small>Não. A sujeira e os contaminantes ainda precisam ser removidos, mesmo com uma proteção aplicada.</small></a><a class="related-card" href="ceramica-e-grafeno-comparar-produtos.html"><span>Polimento e proteção</span><strong>Cerâmica e grafeno: como comparar produtos sem olhar só o nome?</strong><small>Compare ficha técnica, superfície, preparação, aplicação e manutenção. Os nomes não comprovam superioridade por si só.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/manter-pintura-depois-coating.html -->
 
-==========================================================================================
-ARQUIVO 29/54: guias/artigos/o-que-polidor-corrige-e-o-que-nao.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/o-que-polidor-corrige-e-o-que-nao.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3274,12 +3190,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="diferenca-cera-selante-coating.html"><span>Polimento e proteção</span><strong>Cera, selante e coating cerâmico: qual a diferença?</strong><small>São categorias diferentes de proteção, com preparação, aplicação e manutenção próprias. O nome não basta para comparar desempenho.</small></a><a class="related-card" href="vitrificacao-vale-a-pena-uso-diario.html"><span>Polimento e proteção</span><strong>Vitrificação automotiva vale a pena para quem usa o carro todo dia?</strong><small>Pode fazer sentido para quem quer manter a aparência e seguirá os cuidados recomendados. O resultado depende do produto, da aplicação e da rotina.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/o-que-polidor-corrige-e-o-que-nao.html -->
 
-==========================================================================================
-ARQUIVO 30/54: guias/artigos/onde-usar-desengraxante-automotivo.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/onde-usar-desengraxante-automotivo.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3303,12 +3216,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>TRON</strong> como desengraxante. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="remover-sujeira-pesada-sem-atacar-acabamento.html"><span>Insetos e sujeira pesada</span><strong>Como remover sujeira pesada sem atacar o acabamento?</strong><small>Identifique se é graxa, barro, resíduo orgânico ou depósito mineral e use um limpador aprovado para aquela superfície.</small></a><a class="related-card" href="limpar-aluminio-automotivo-sem-manchas.html"><span>Insetos e sujeira pesada</span><strong>Como limpar alumínio automotivo sem manchar?</strong><small>Identifique se a peça é de alumínio nu, polido, anodizado ou protegido. Limpe fria e com produto indicado para o acabamento.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/onde-usar-desengraxante-automotivo.html -->
 
-==========================================================================================
-ARQUIVO 31/54: guias/artigos/ordem-segura-lavar-carro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/ordem-segura-lavar-carro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3332,12 +3242,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="produto-limpeza-tipo-sujeira-carro.html"><span>Lavagem e manutenção</span><strong>Como escolher o produto de limpeza conforme o tipo de sujeira?</strong><small>Identifique o resíduo e o material: poeira, gordura, insetos e depósitos minerais pedem abordagens diferentes.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/ordem-segura-lavar-carro.html -->
 
-==========================================================================================
-ARQUIVO 32/54: guias/artigos/palheta-espalha-sujeira-no-parabrisa.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/palheta-espalha-sujeira-no-parabrisa.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3361,12 +3268,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="limpa-vidros-antiembacante-repelente-diferenca.html"><span>Vidros e para-brisa</span><strong>Limpa-vidros, antiembaçante e repelente de chuva: qual a diferença?</strong><small>Limpa-vidros remove sujeira; antiembaçante busca reduzir embaçamento; repelente muda o comportamento das gotas. São funções diferentes.</small></a><a class="related-card" href="cuidar-vidro-apos-instalar-insulfilm.html"><span>Vidros e para-brisa</span><strong>Como cuidar do vidro nos primeiros dias depois de instalar película?</strong><small>Espere o prazo indicado pelo instalador antes de limpar ou movimentar o vidro. O tempo de cura depende do filme e das condições.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/palheta-espalha-sujeira-no-parabrisa.html -->
 
-==========================================================================================
-ARQUIVO 33/54: guias/artigos/polimento-antes-ou-depois-protecao.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/polimento-antes-ou-depois-protecao.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3390,12 +3294,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="carro-precisa-polimento-ou-manutencao.html"><span>Polimento e proteção</span><strong>A pintura precisa de polimento ou só de uma boa manutenção?</strong><small>Se a falta de brilho vier de sujeira, lavagem pode bastar. Polimento só deve ser considerado quando há defeitos corrigíveis e condição segura do verniz.</small></a><a class="related-card" href="diferenca-cera-selante-coating.html"><span>Polimento e proteção</span><strong>Cera, selante e coating cerâmico: qual a diferença?</strong><small>São categorias diferentes de proteção, com preparação, aplicação e manutenção próprias. O nome não basta para comparar desempenho.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/polimento-antes-ou-depois-protecao.html -->
 
-==========================================================================================
-ARQUIVO 34/54: guias/artigos/por-que-vidro-embaca-por-dentro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/por-que-vidro-embaca-por-dentro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3419,12 +3320,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="limpar-vidro-carro-sem-fiapos-halos.html"><span>Vidros e para-brisa</span><strong>Como limpar vidros do carro sem fiapos, halos ou reflexos?</strong><small>Use panos limpos e sem fiapos, pouco produto e acabamento seco. Limpe à sombra e confira de ângulos diferentes.</small></a><a class="related-card" href="palheta-espalha-sujeira-no-parabrisa.html"><span>Vidros e para-brisa</span><strong>A palheta espalha sujeira no para-brisa: o que verificar?</strong><small>Rastros podem vir de palheta suja ou danificada, do vidro ou de resíduos de produto. Limpe e inspecione antes de trocar a peça.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/por-que-vidro-embaca-por-dentro.html -->
 
-==========================================================================================
-ARQUIVO 35/54: guias/artigos/preparar-pintura-antes-protecao.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/preparar-pintura-antes-protecao.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3448,12 +3346,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="vitrificacao-vale-a-pena-uso-diario.html"><span>Polimento e proteção</span><strong>Vitrificação automotiva vale a pena para quem usa o carro todo dia?</strong><small>Pode fazer sentido para quem quer manter a aparência e seguirá os cuidados recomendados. O resultado depende do produto, da aplicação e da rotina.</small></a><a class="related-card" href="coating-ceramico-elimina-lavagem.html"><span>Polimento e proteção</span><strong>Proteção cerâmica elimina a necessidade de lavar o carro?</strong><small>Não. A sujeira e os contaminantes ainda precisam ser removidos, mesmo com uma proteção aplicada.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/preparar-pintura-antes-protecao.html -->
 
-==========================================================================================
-ARQUIVO 36/54: guias/artigos/preparar-plastico-antes-restaurador.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/preparar-plastico-antes-restaurador.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3477,12 +3372,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="aplicar-revitalizador-sem-manchas.html"><span>Plásticos e acabamento</span><strong>Como aplicar revitalizador sem deixar manchas ou excesso?</strong><small>Com a peça limpa, seca e fria, coloque pouca quantidade no aplicador e espalhe em áreas pequenas.</small></a><a class="related-card" href="cuidar-plastico-texturizado-automotivo.html"><span>Plásticos e acabamento</span><strong>Como cuidar de plásticos texturizados sem alterar o acabamento?</strong><small>Use pano ou escova macia e produto autorizado para remover a sujeira dos relevos sem desgaste.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/preparar-plastico-antes-restaurador.html -->
 
-==========================================================================================
-ARQUIVO 37/54: guias/artigos/produto-lavagem-manutencao-moto.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/produto-lavagem-manutencao-moto.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3506,12 +3398,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="shampoo-carro-e-lava-motos-sao-iguais.html"><span>Lavagem e manutenção</span><strong>Shampoo para carro e lava-motos são a mesma coisa?</strong><small>Não necessariamente. Fórmulas, diluições e superfícies previstas podem ser diferentes; use cada produto conforme a embalagem.</small></a><a class="related-card" href="detergente-cozinha-lavar-carro.html"><span>Lavagem e manutenção</span><strong>Detergente de cozinha serve para lavar o carro?</strong><small>Não é a melhor escolha para a rotina automotiva: sua finalidade não considera todas as superfícies e proteções do veículo.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/produto-lavagem-manutencao-moto.html -->
 
-==========================================================================================
-ARQUIVO 38/54: guias/artigos/produto-limpeza-tipo-sujeira-carro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/produto-limpeza-tipo-sujeira-carro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3535,12 +3424,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="shampoo-neutro-ou-desengraxante.html"><span>Lavagem e manutenção</span><strong>Shampoo neutro ou desengraxante: qual usar em cada situação?</strong><small>Shampoo automotivo é para lavagem regular; desengraxante é limpeza técnica para usos definidos pelo fabricante.</small></a><a class="related-card" href="produto-lavagem-manutencao-moto.html"><span>Lavagem e manutenção</span><strong>Como escolher um produto para a lavagem de manutenção da moto?</strong><small>Escolha produto identificado para motocicletas e compatível com as superfícies da moto. O FLOW aparece no catálogo como lava-motos neutro; confira o rótulo.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/produto-limpeza-tipo-sujeira-carro.html -->
 
-==========================================================================================
-ARQUIVO 39/54: guias/artigos/produto-plastico-interno-e-externo.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/produto-plastico-interno-e-externo.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3564,12 +3450,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="comparar-evox-zucs-doctor-shine.html"><span>Plásticos e acabamento</span><strong>EVOX, ZUCS ou DOCTOR SHINE: como comparar opções para plásticos?</strong><small>Compare uso declarado, superfície, acabamento e aplicação. A categoria comercial ajuda a começar, mas a ficha técnica decide a compatibilidade.</small></a><a class="related-card" href="recuperar-plastico-esbranquicado-carro.html"><span>Plásticos e acabamento</span><strong>Como recuperar plástico esbranquiçado do carro?</strong><small>Limpe e seque para separar sujeira superficial de alteração do plástico. Um revitalizador pode melhorar aparência, mas não repara trinca ou desgaste profundo.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/produto-plastico-interno-e-externo.html -->
 
-==========================================================================================
-ARQUIVO 40/54: guias/artigos/proteger-pintura-carro-ao-relento.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/proteger-pintura-carro-ao-relento.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3593,12 +3476,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="ceramica-e-grafeno-comparar-produtos.html"><span>Polimento e proteção</span><strong>Cerâmica e grafeno: como comparar produtos sem olhar só o nome?</strong><small>Compare ficha técnica, superfície, preparação, aplicação e manutenção. Os nomes não comprovam superioridade por si só.</small></a><a class="related-card" href="polimento-antes-ou-depois-protecao.html"><span>Polimento e proteção</span><strong>Polimento vem antes ou depois da proteção da pintura?</strong><small>Quando há defeitos a corrigir, o polimento costuma ser avaliado antes da proteção. A necessidade depende do estado do verniz.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/proteger-pintura-carro-ao-relento.html -->
 
-==========================================================================================
-ARQUIVO 41/54: guias/artigos/recuperar-plastico-esbranquicado-carro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/recuperar-plastico-esbranquicado-carro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3622,12 +3502,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>EVOX</strong> como revitalizador de plásticos. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="limpar-painel-sem-aspecto-engordurado.html"><span>Plásticos e acabamento</span><strong>Como limpar o painel sem deixá-lo engordurado ou brilhante?</strong><small>Retire o pó com pano macio e use limpador compatível, aplicado no pano. Trabalhe com pouca quantidade e finalize sem resíduos.</small></a><a class="related-card" href="produto-plastico-interno-e-externo.html"><span>Plásticos e acabamento</span><strong>O mesmo produto de plástico serve para interior e exterior?</strong><small>Só use nas duas áreas se o fabricante indicar ambas. Textura, exposição e acabamento podem ser diferentes.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/recuperar-plastico-esbranquicado-carro.html -->
 
-==========================================================================================
-ARQUIVO 42/54: guias/artigos/recuperar-plasticos-externos-desbotados.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/recuperar-plasticos-externos-desbotados.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3651,12 +3528,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="cuidar-plastico-texturizado-automotivo.html"><span>Plásticos e acabamento</span><strong>Como cuidar de plásticos texturizados sem alterar o acabamento?</strong><small>Use pano ou escova macia e produto autorizado para remover a sujeira dos relevos sem desgaste.</small></a><a class="related-card" href="restaurador-plasticos-remove-riscos.html"><span>Plásticos e acabamento</span><strong>Riscos em plástico saem com restaurador ou precisam de reparo?</strong><small>Restaurador pode uniformizar algumas marcas superficiais, mas não necessariamente remove sulcos profundos ou cortes.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/recuperar-plasticos-externos-desbotados.html -->
 
-==========================================================================================
-ARQUIVO 43/54: guias/artigos/removedor-insetos-pintura-plastico-vidro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/removedor-insetos-pintura-plastico-vidro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3680,12 +3554,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo apresenta GREEN como removedor de insetos, TRON como desengraxante e ALUMAX como limpador de alumínio. Confirme compatibilidade e instruções no rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="limpador-aluminio-pecas-automotivas.html"><span>Insetos e sujeira pesada</span><strong>Limpador de alumínio pode ser usado em qualquer peça automotiva?</strong><small>Não. Use apenas no metal e acabamento autorizados; alumínio polido, anodizado, pintado ou envernizado pode reagir de modo diferente.</small></a><a class="related-card" href="diferenca-desengraxante-insetos-limpa-aluminio.html"><span>Insetos e sujeira pesada</span><strong>Desengraxante, removedor de insetos e limpa-alumínio: para que serve cada um?</strong><small>São categorias distintas para resíduos e superfícies definidos pelo fabricante. Escolha pelo tipo de sujeira e pelo material ao mesmo tempo.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/removedor-insetos-pintura-plastico-vidro.html -->
 
-==========================================================================================
-ARQUIVO 44/54: guias/artigos/remover-insetos-secos-sem-esfregar.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/remover-insetos-secos-sem-esfregar.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3709,12 +3580,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>GREEN</strong> como removedor de insetos. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="mancha-inseto-nao-saiu-na-lavagem.html"><span>Insetos e sujeira pesada</span><strong>Lavei o carro e as marcas de insetos ficaram: e agora?</strong><small>Não aumente a força de esfregação. Verifique se ainda há resíduo ou se a pintura ficou marcada; são situações diferentes.</small></a><a class="related-card" href="onde-usar-desengraxante-automotivo.html"><span>Insetos e sujeira pesada</span><strong>Desengraxante automotivo: onde pode ser aplicado?</strong><small>Use apenas nas superfícies listadas pelo fabricante. O nome não comprova compatibilidade com toda pintura, borracha ou plástico.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/remover-insetos-secos-sem-esfregar.html -->
 
-==========================================================================================
-ARQUIVO 45/54: guias/artigos/remover-pelicula-gordurosa-vidro-interno.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/remover-pelicula-gordurosa-vidro-interno.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3738,12 +3606,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="limpa-vidros-compativel-insulfilm.html"><span>Vidros e para-brisa</span><strong>Qual produto usar para limpar vidro automotivo com insulfilm?</strong><small>Escolha conforme a película instalada, usando pano macio e produto autorizado pelo instalador e pelo fabricante do filme.</small></a><a class="related-card" href="usar-limpa-vidros-domestico-no-carro.html"><span>Vidros e para-brisa</span><strong>Posso usar limpa-vidros doméstico no carro?</strong><small>Depende da fórmula e da superfície. Confira o rótulo; em insulfilm, confirme com o instalador antes de aplicar.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/remover-pelicula-gordurosa-vidro-interno.html -->
 
-==========================================================================================
-ARQUIVO 46/54: guias/artigos/remover-sujeira-pesada-sem-atacar-acabamento.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/remover-sujeira-pesada-sem-atacar-acabamento.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3767,12 +3632,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.gov.br/anvisa/pt-br/assuntos/saneantes" target="_blank" rel="noopener noreferrer">Anvisa — informações sobre produtos saneantes</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo apresenta GREEN como removedor de insetos, TRON como desengraxante e ALUMAX como limpador de alumínio. Confirme compatibilidade e instruções no rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="remover-insetos-secos-sem-esfregar.html"><span>Insetos e sujeira pesada</span><strong>Como remover insetos secos da pintura sem esfregar a seco?</strong><small>Amoleça com água ou removedor autorizado, aguarde o tempo indicado e enxágue. Não esfregue crostas secas na lataria.</small></a><a class="related-card" href="insetos-podem-marcar-verniz.html"><span>Insetos e sujeira pesada</span><strong>Insetos podem marcar o verniz se ficarem muito tempo na pintura?</strong><small>Resíduos orgânicos podem aderir e dificultar a remoção conforme o tempo e as condições. Limpe assim que for seguro.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/remover-sujeira-pesada-sem-atacar-acabamento.html -->
 
-==========================================================================================
-ARQUIVO 47/54: guias/artigos/restaurador-plasticos-remove-riscos.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/restaurador-plasticos-remove-riscos.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3796,12 +3658,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo associa EVOX a revitalizador de plásticos, ZUCS a restaurador e DOCTOR SHINE a acabamento premium. A indicação de cada rótulo deve guiar a escolha.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="preparar-plastico-antes-restaurador.html"><span>Plásticos e acabamento</span><strong>Como preparar o plástico antes de aplicar um restaurador?</strong><small>Remova poeira, gordura e resíduos antigos com método seguro para o material; deixe secar se o rótulo exigir.</small></a><a class="related-card" href="recuperar-plasticos-externos-desbotados.html"><span>Plásticos e acabamento</span><strong>Como recuperar o acabamento de plásticos externos desbotados?</strong><small>Limpe, seque e avalie se a alteração é superficial. Um tratamento compatível pode uniformizar a aparência, dependendo do estado da peça.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/restaurador-plasticos-remove-riscos.html -->
 
-==========================================================================================
-ARQUIVO 48/54: guias/artigos/revitalizador-ou-restaurador-plasticos.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/revitalizador-ou-restaurador-plasticos.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3825,12 +3684,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/trim-protectant-glossy-300-ml-03800410" target="_blank" rel="noopener noreferrer">SONAX — orientações de aplicação em plásticos</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>EVOX</strong> como revitalizador de plásticos. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="produto-plastico-interno-e-externo.html"><span>Plásticos e acabamento</span><strong>O mesmo produto de plástico serve para interior e exterior?</strong><small>Só use nas duas áreas se o fabricante indicar ambas. Textura, exposição e acabamento podem ser diferentes.</small></a><a class="related-card" href="aplicar-revitalizador-sem-manchas.html"><span>Plásticos e acabamento</span><strong>Como aplicar revitalizador sem deixar manchas ou excesso?</strong><small>Com a peça limpa, seca e fria, coloque pouca quantidade no aplicador e espalhe em áreas pequenas.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/revitalizador-ou-restaurador-plasticos.html -->
 
-==========================================================================================
-ARQUIVO 49/54: guias/artigos/shampoo-carro-e-lava-motos-sao-iguais.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/shampoo-carro-e-lava-motos-sao-iguais.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3854,12 +3710,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Relacionando a dúvida ao catálogo</h2><p>O catálogo descreve <strong>FLOW</strong> como lava-motos neutro. Confira a embalagem e a ficha técnica para confirmar se serve para a superfície e necessidade.</p><a href="../../index.html#produtos">Ver produtos</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="lavar-carro-dia-quente-sem-manchas.html"><span>Lavagem e manutenção</span><strong>Como evitar manchas ao lavar o veículo em dias quentes?</strong><small>Lave à sombra e com a carroceria fria. Trabalhe em áreas pequenas e enxágue antes que água ou produto sequem.</small></a><a class="related-card" href="ordem-segura-lavar-carro.html"><span>Lavagem e manutenção</span><strong>Qual ordem seguir numa lavagem segura da carroceria?</strong><small>Retire sujeira solta, limpe rodas com acessórios próprios, lave a carroceria de cima para baixo e enxágue cada área.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/shampoo-carro-e-lava-motos-sao-iguais.html -->
 
-==========================================================================================
-ARQUIVO 50/54: guias/artigos/shampoo-neutro-ou-desengraxante.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/shampoo-neutro-ou-desengraxante.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3883,12 +3736,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.sonax.com/en/care-products/car-wash-shampoo-1-l-03143410-544" target="_blank" rel="noopener noreferrer">SONAX — shampoo automotivo e instruções</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O FLOW está descrito no catálogo como lava-motos neutro. A descrição não confirma aplicação em todos os veículos ou superfícies; consulte o rótulo.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="lavar-moto-sem-marcar-carenagem.html"><span>Lavagem e manutenção</span><strong>Como lavar a moto sem marcar carenagem e plásticos?</strong><small>Lave carenagem fria e à sombra com produto compatível, pano macio e pouca pressão. Enxágue para tirar partículas antes do contato.</small></a><a class="related-card" href="shampoo-carro-e-lava-motos-sao-iguais.html"><span>Lavagem e manutenção</span><strong>Shampoo para carro e lava-motos são a mesma coisa?</strong><small>Não necessariamente. Fórmulas, diluições e superfícies previstas podem ser diferentes; use cada produto conforme a embalagem.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/shampoo-neutro-ou-desengraxante.html -->
 
-==========================================================================================
-ARQUIVO 51/54: guias/artigos/tirar-marcas-de-agua-do-vidro-sem-riscar.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/tirar-marcas-de-agua-do-vidro-sem-riscar.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3912,12 +3762,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="por-que-vidro-embaca-por-dentro.html"><span>Vidros e para-brisa</span><strong>Por que o vidro embaça por dentro e como melhorar a visibilidade?</strong><small>O embaçamento ocorre quando umidade condensa no vidro frio. Use o desembaçador e a ventilação do veículo conforme o manual.</small></a><a class="related-card" href="limpar-vidro-carro-sem-fiapos-halos.html"><span>Vidros e para-brisa</span><strong>Como limpar vidros do carro sem fiapos, halos ou reflexos?</strong><small>Use panos limpos e sem fiapos, pouco produto e acabamento seco. Limpe à sombra e confira de ângulos diferentes.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/tirar-marcas-de-agua-do-vidro-sem-riscar.html -->
 
-==========================================================================================
-ARQUIVO 52/54: guias/artigos/usar-limpa-vidros-domestico-no-carro.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/usar-limpa-vidros-domestico-no-carro.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3941,12 +3788,9 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://www.3m.com/3M/en_US/car-personalization-us/resources/product-care/" target="_blank" rel="noopener noreferrer">3M — cuidados com película automotiva</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O catálogo enviado não apresenta um limpa-vidros ou repelente de chuva específico. Este guia responde à dúvida sem indicar outro produto como substituto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="tirar-marcas-de-agua-do-vidro-sem-riscar.html"><span>Vidros e para-brisa</span><strong>Como tirar marcas de água do vidro sem riscar?</strong><small>Lave para remover partículas e use limpador indicado para vidro automotivo com pano macio. Marcas persistentes podem exigir avaliação especializada.</small></a><a class="related-card" href="por-que-vidro-embaca-por-dentro.html"><span>Vidros e para-brisa</span><strong>Por que o vidro embaça por dentro e como melhorar a visibilidade?</strong><small>O embaçamento ocorre quando umidade condensa no vidro frio. Use o desembaçador e a ventilação do veículo conforme o manual.</small></a><a class="related-card" href="lavar-carro-em-casa-sem-riscar-pintura.html"><span>Lavagem e manutenção</span><strong>Como lavar o carro em casa sem riscar a pintura?</strong><small>Remova a sujeira solta antes do contato, use luva automotiva limpa e enxágue com frequência. Lave o carro frio e à sombra.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
-FIM DO CONTEÚDO
+<!-- END FILE: guias/artigos/usar-limpa-vidros-domestico-no-carro.html -->
 
-==========================================================================================
-ARQUIVO 53/54: guias/artigos/vitrificacao-vale-a-pena-uso-diario.html
-==========================================================================================
-INÍCIO DO CONTEÚDO
+<!-- BEGIN FILE: guias/artigos/vitrificacao-vale-a-pena-uso-diario.html -->
 <!DOCTYPE html>
 <html lang="pt-BR"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -3970,3 +3814,5 @@ INÍCIO DO CONTEÚDO
 <section><h2>Referência para consulta</h2><p>As instruções variam entre fabricantes e produtos. Consulte também <a href="https://sonax.com.br/cera-selante-coating/universo-automotivo/blog/" target="_blank" rel="noopener noreferrer">SONAX — cera, selante e coating</a> e use a documentação correspondente ao produto que você tem em mãos.</p></section></div><aside class="article-sidebar"><h2>Escolha com informação</h2><p>O site mostra COAT CERAMIC, LUSTER e GRAPHENE e o catálogo inclui PREMIUM PAD como polidor. Confirme especificações e compatibilidade na documentação de cada produto.</p><a href="../../index.html#produtos">Ver catálogo</a></aside></div></article>
 <section class="related-section" aria-labelledby="related-title"><h2 id="related-title">Continue lendo</h2><div class="related-grid"><a class="related-card" href="preparar-pintura-antes-protecao.html"><span>Polimento e proteção</span><strong>Como preparar a pintura antes de aplicar uma proteção?</strong><small>Comece com lavagem e avaliação. Descontaminação ou correção podem ser necessárias, mas os requisitos dependem da proteção escolhida.</small></a><a class="related-card" href="manter-pintura-depois-coating.html"><span>Polimento e proteção</span><strong>Como manter a pintura depois de aplicar coating?</strong><small>Mantenha lavagem suave compatível e remova sujeira sem esfregar a seco. A manutenção precisa seguir as instruções da proteção aplicada.</small></a><a class="related-card" href="como-limpar-parabrisa-por-dentro-sem-manchas.html"><span>Vidros e para-brisa</span><strong>Como limpar o para-brisa por dentro sem deixar manchas?</strong><small>Use pano limpo para vidros, pouco produto compatível e movimentos sobrepostos. Finalize com outra parte seca do pano.</small></a></div></section></main>
 <footer class="blog-footer"><p>Guias Amigos do Brilho · Conteúdo educativo</p><p><a href="../index.html">Ver todos os artigos</a> · <a href="../../index.html#produtos">Ver catálogo</a></p></footer></body></html>
+<!-- END FILE: guias/artigos/vitrificacao-vale-a-pena-uso-diario.html -->
+

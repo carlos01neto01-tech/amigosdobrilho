@@ -1491,6 +1491,65 @@ body{
     .catalog-card .product-name { font-size:19px; }
 }
 
+.guide-hub {
+    position:relative;
+    overflow:hidden;
+    padding:clamp(68px,7vw,108px) var(--page-gutter) clamp(72px,7vw,112px);
+    background:linear-gradient(180deg,#f4f4f4 0%,#fff 100%);
+    color:#090909;
+}
+.guide-hub::before {
+    content:"";
+    position:absolute;
+    top:-220px;
+    right:-190px;
+    width:520px;
+    height:520px;
+    border-radius:50%;
+    background:radial-gradient(circle,#ff85001c 0%,#ff850000 70%);
+    pointer-events:none;
+}
+.guide-wrap { position:relative; z-index:1; max-width:1400px; margin:0 auto; }
+.guide-heading { max-width:920px; margin:0 auto 48px; text-align:center; }
+.guide-kicker { margin:0 0 16px; color:#a95400; font-size:14px; font-weight:800; letter-spacing:.38em; text-transform:uppercase; }
+.guide-heading h2 { margin:0; font-size:clamp(34px,4.2vw,62px); line-height:.98; font-weight:900; letter-spacing:-.04em; text-transform:uppercase; }
+.guide-heading h2 span { color:#ff8500; }
+.guide-heading > p:last-child { max-width:740px; margin:20px auto 0; color:#444; font-size:clamp(16px,1.45vw,20px); line-height:1.5; }
+.guide-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:14px; }
+.guide-card { min-width:0; min-height:260px; display:flex; flex-direction:column; padding:24px 20px 20px; border:1px solid #dedede; border-top:4px solid #ff8500; border-radius:14px; background:#fff; box-shadow:0 8px 26px #0000000a; }
+.guide-card-top { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:22px; }
+.guide-card-number { color:#ff8500; font-size:14px; font-weight:900; letter-spacing:.12em; }
+.guide-card-theme { color:#666; font-size:10px; line-height:1.2; font-weight:800; letter-spacing:.1em; text-align:right; text-transform:uppercase; }
+.guide-card h3 { margin:0 0 12px; font-size:clamp(20px,1.65vw,25px); line-height:1.05; font-weight:900; letter-spacing:-.025em; }
+.guide-card-question { margin:0; color:#444; font-size:15px; line-height:1.42; }
+.guide-card-count { margin:auto 0 0; padding-top:22px; color:#904800; font-size:11px; line-height:1.2; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+.guide-note { max-width:900px; margin:28px auto 0; color:#555; font-size:13px; line-height:1.5; text-align:center; }
+.guide-actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:26px; }
+.guide-button { min-height:50px; display:inline-flex; align-items:center; justify-content:center; padding:12px 22px; border:2px solid #ff8500; border-radius:999px; background:#ff8500; color:#111; text-decoration:none; font-size:13px; font-weight:900; letter-spacing:.04em; transition:transform .2s ease,background .2s ease; }
+.guide-button:hover { transform:translateY(-2px); background:#ff9c24; }
+.guide-button.secondary { background:transparent; color:#111; }
+.guide-button.secondary:hover { background:#fff0df; }
+.guide-button:focus-visible { outline:3px solid #111; outline-offset:3px; }
+@media(max-width:1100px) {
+    .guide-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .guide-card { min-height:238px; }
+}
+@media(max-width:700px) {
+    .guide-hub { padding:58px 16px 64px; }
+    .guide-heading { margin-bottom:30px; }
+    .guide-kicker { margin-bottom:12px; font-size:11px; letter-spacing:.3em; }
+    .guide-heading h2 { max-width:430px; margin:0 auto; font-size:clamp(31px,8.5vw,40px); }
+    .guide-heading > p:last-child { margin-top:14px; font-size:15px; }
+    .guide-grid { grid-template-columns:1fr; gap:10px; }
+    .guide-card { min-height:0; padding:20px 18px 17px; }
+    .guide-card-top { margin-bottom:14px; }
+    .guide-card h3 { margin-bottom:8px; font-size:22px; }
+    .guide-card-question { font-size:14px; }
+    .guide-card-count { padding-top:15px; }
+    .guide-note { margin-top:20px; font-size:12px; }
+    .guide-actions { flex-direction:column; margin:22px auto 0; max-width:380px; }
+    .guide-button { width:100%; min-height:48px; font-size:12px; }
+}
 .site-page[hidden]{display:none!important}
 </style>
 </head>
@@ -1777,6 +1836,52 @@ body{
     <a class="final-phone" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer" aria-label="Fale com a equipe Amigos do Brilho pelo WhatsApp">
         <img src="assets/WHATS%20PHONE.png" alt="Celular com a conversa do WhatsApp Amigos do Brilho" loading="lazy">
     </a>
+</section>
+<section class="guide-hub" id="guias" aria-labelledby="guides-title">
+    <div class="guide-wrap">
+        <header class="guide-heading">
+            <p class="guide-kicker">GUIAS AMIGOS DO BRILHO</p>
+            <h2 id="guides-title">Dúvidas reais.<br><span>Cuidado em cada detalhe.</span></h2>
+            <p>Estamos preparando respostas práticas para quem quer escolher e usar produtos automotivos com mais segurança. Os temas partem de dúvidas comuns sobre limpeza, acabamento e proteção.</p>
+        </header>
+        <div class="guide-grid" aria-label="Temas dos próximos guias automotivos">
+            <article class="guide-card">
+                <div class="guide-card-top"><span class="guide-card-number">01</span><span class="guide-card-theme">Visibilidade</span></div>
+                <h3>Vidros e para-brisa</h3>
+                <p class="guide-card-question">Como limpar o para-brisa por dentro sem deixar manchas?</p>
+                <p class="guide-card-count">10 pautas pesquisadas</p>
+            </article>
+            <article class="guide-card">
+                <div class="guide-card-top"><span class="guide-card-number">02</span><span class="guide-card-theme">Rotina</span></div>
+                <h3>Lavagem e manutenção</h3>
+                <p class="guide-card-question">Como lavar carro ou moto sem riscar a pintura?</p>
+                <p class="guide-card-count">10 pautas pesquisadas</p>
+            </article>
+            <article class="guide-card">
+                <div class="guide-card-top"><span class="guide-card-number">03</span><span class="guide-card-theme">Limpeza técnica</span></div>
+                <h3>Insetos e sujeira pesada</h3>
+                <p class="guide-card-question">Como remover insetos da pintura sem esfregar a seco?</p>
+                <p class="guide-card-count">10 pautas pesquisadas</p>
+            </article>
+            <article class="guide-card">
+                <div class="guide-card-top"><span class="guide-card-number">04</span><span class="guide-card-theme">Acabamento</span></div>
+                <h3>Plásticos automotivos</h3>
+                <p class="guide-card-question">Como recuperar plásticos esbranquiçados sem deixar aspecto engordurado?</p>
+                <p class="guide-card-count">10 pautas pesquisadas</p>
+            </article>
+            <article class="guide-card">
+                <div class="guide-card-top"><span class="guide-card-number">05</span><span class="guide-card-theme">Proteção</span></div>
+                <h3>Polimento e proteção</h3>
+                <p class="guide-card-question">Qual a diferença entre cera, selante e proteção cerâmica?</p>
+                <p class="guide-card-count">10 pautas pesquisadas</p>
+            </article>
+        </div>
+        <p class="guide-note">Os guias completos serão publicados após a redação e revisão das instruções de uso e compatibilidade de cada produto.</p>
+        <div class="guide-actions">
+            <a class="guide-button" href="#produtos" data-page-link="produtos">EXPLORAR PRODUTOS</a>
+            <a class="guide-button secondary" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20produtos%20para%20cuidado%20automotivo." target="_blank" rel="noopener noreferrer">TIRAR UMA DÚVIDA</a>
+        </div>
+    </div>
 </section></div>
 <div class="site-page" data-site-page="produtos" hidden><main class="page-main products-page">
   <section class="page-hero" aria-labelledby="products-title">
@@ -1846,12 +1951,13 @@ body{
                 </svg>
             </a>
         </div>
-        <nav class="footer-column" aria-label="Redes sociais">
+        <nav class="footer-column" aria-label="Redes sociais e guias">
             <h2>Links</h2>
             <div class="footer-links">
                 <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a>
                 <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="#guias" data-guide-link>Guias e dicas</a>
             </div>
         </nav>
         <div class="footer-column footer-location">
@@ -2340,14 +2446,17 @@ slider.addEventListener('touchend',(e)=>{
   const pages = ["inicio","produtos","mais-vendidos","sobre-nos"];
   const views = [...document.querySelectorAll("[data-site-page]")];
   const navLinks = [...document.querySelectorAll(".site-header .menu [data-page-link]")];
-  function showPage(name, contact = false) {
+  function showPage(name, contact = false, targetId = null) {
     const page = pages.includes(name) ? name : "inicio";
     views.forEach(view => { view.hidden = view.dataset.sitePage !== page; });
     navLinks.forEach(link => { const active = link.dataset.pageLink === page; link.classList.toggle("active", active); if (active) link.setAttribute("aria-current","page"); else link.removeAttribute("aria-current"); });
     if (contact) requestAnimationFrame(() => document.getElementById("contato")?.scrollIntoView({behavior:"smooth"}));
+    else if (targetId) requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({behavior:"smooth"}));
     else window.scrollTo({top:0,behavior:"smooth"});
   }
   document.addEventListener("click", event => {
+    const guide = event.target.closest("[data-guide-link]");
+    if (guide) { event.preventDefault(); history.pushState(null,"","#guias"); showPage("inicio",false,"guias"); return; }
     const contact = event.target.closest("[data-contact-link]");
     if (contact) { event.preventDefault(); history.pushState(null,"","#contato"); showPage("inicio",true); return; }
     const link = event.target.closest("[data-page-link]");
@@ -2355,7 +2464,7 @@ slider.addEventListener('touchend',(e)=>{
     event.preventDefault(); const page = link.dataset.pageLink;
     history.pushState(null,"","#" + page); showPage(page);
   });
-  function sync() { const hash = location.hash.slice(1); if (pages.includes(hash)) showPage(hash); else if (hash === "contato") showPage("inicio",true); else showPage("inicio"); }
+  function sync() { const hash = location.hash.slice(1); if (pages.includes(hash)) showPage(hash); else if (hash === "contato") showPage("inicio",true); else if (hash === "guias") showPage("inicio",false,"guias"); else showPage("inicio"); }
   window.addEventListener("popstate",sync); window.addEventListener("hashchange",sync); sync();
 })();
 </script>

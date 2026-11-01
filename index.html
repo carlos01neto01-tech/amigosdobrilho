@@ -627,3 +627,934 @@
   </script>
 </body>
 </html>
+
+
+17:56
+
+
+
+
+
+
+
+Prate, por incrível que pareça ficou muito bom, tá? Ficou ótimo. O único porém é que saiu aquele carrossel que eu coloquei de início dos produtos, onde a pessoa clicava ali e ia trocando os três produtos que eu cadastrei ali. Eu queria manter esse carrossel ali, que você adicionasse nesse código inteiro que você fez, tá? Eu quero também que você faça o seguinte: os cards de detalhamento premium, entre outros serviços que a empresa oferece.
+
+
+
+
+
+
+
+18:03
+
+
+
+
+
+
+Trabalhou por 28 s
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Produtos e guias para limpeza, acabamento e proteção automotiva.">
+  <title>Amigos do Brilho | Produtos automotivos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --orange: #ff8500;
+      --black: #080808;
+      --green: #18c133;
+      --gray: #f2f2f2;
+      --text: #171717;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--gray);
+      font-family: "Rubik", Arial, sans-serif;
+    }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    section[id] { scroll-margin-top: 86px; }
+    .wrap { width: min(1200px, calc(100% - 36px)); margin: 0 auto; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #080808f2;
+      border-bottom: 1px solid #ff850044;
+      backdrop-filter: blur(12px);
+    }
+    .nav {
+      width: min(1320px, calc(100% - 36px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .logo span { color: var(--orange); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #fff;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links .nav-contact {
+      padding: 12px 20px;
+      border-radius: 30px;
+      background: var(--green);
+      font-weight: 800;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(90deg, #000 0%, #000e 52%, #0008 100%),
+        radial-gradient(ellipse at 78% 40%, #8a4100 0, #261300 35%, #090909 72%);
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 24px;
+      padding: 64px 0;
+    }
+    .hero-copy { position: relative; z-index: 2; }
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 900;
+      line-height: .92;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+    .hero h1 span { color: var(--orange); }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 560px;
+      margin: 24px 0 0;
+      color: #eee;
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.5;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 0;
+      border-radius: 40px;
+      background: var(--orange);
+      color: #111;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, filter .2s ease;
+    }
+    .button:hover { filter: brightness(1.08); transform: translateY(-1px); }
+    .button.green { background: var(--green); color: #fff; }
+
+    .hero-slider {
+      position: relative;
+      height: 490px;
+      overflow: hidden;
+      border: 1px solid #ff850044;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% 52%, #ff850047, transparent 33%),
+        linear-gradient(145deg, #181818cc, #08080844);
+      touch-action: pan-y;
+    }
+    .slide {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 48px 54px 72px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(50px) scale(.96);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0) scale(1);
+    }
+    .slide img {
+      display: block;
+      max-width: 88%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 22px 35px #000b);
+    }
+    .product-fallback {
+      color: var(--orange);
+      font-size: clamp(28px, 5vw, 54px);
+      font-weight: 900;
+      text-align: center;
+      text-shadow: 0 8px 28px #000;
+    }
+    .slider-controls {
+      position: absolute;
+      z-index: 5;
+      top: 50%;
+      right: 16px;
+      left: 16px;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .slider-controls button {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--orange);
+      border-radius: 50%;
+      background: #080808bb;
+      color: var(--orange);
+      font-size: 31px;
+      line-height: 1;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .slider-controls button:hover { background: var(--orange); color: #111; }
+    .slide-name {
+      position: absolute;
+      right: 0;
+      bottom: 52px;
+      left: 0;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-align: center;
+    }
+    .slider-dots {
+      position: absolute;
+      z-index: 6;
+      right: 0;
+      bottom: 20px;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+    }
+    .slider-dots button {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: #777;
+      cursor: pointer;
+    }
+    .slider-dots button[aria-current="true"] {
+      background: var(--orange);
+      transform: scale(1.25);
+    }
+
+    .section { padding: 82px 0; }
+    .section.dark { background: var(--black); color: #fff; }
+    .section.light { background: #fff; }
+    .section-heading { max-width: 820px; margin: 0 auto 42px; text-align: center; }
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      line-height: .98;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+    }
+    .section-heading h2 span { color: var(--orange); }
+    .section-heading p:not(.eyebrow) {
+      max-width: 680px;
+      margin: 16px auto 0;
+      color: #696969;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .dark .section-heading p:not(.eyebrow) { color: #c9c9c9; }
+
+    .product-tools { max-width: 600px; margin: 0 auto 28px; }
+    .product-tools input, .guide-search input {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      background: #fff;
+      outline: none;
+    }
+    .product-tools input:focus, .guide-search input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px #ff850022;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .product-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 5px 18px #0000000c;
+    }
+    .product-card[hidden] { display: none; }
+    .product-kind {
+      padding: 11px;
+      background: var(--orange);
+      color: #111;
+      font-size: 11px;
+      font-weight: 900;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .product-image {
+      width: 100%;
+      height: 210px;
+      padding: 16px;
+      object-fit: contain;
+      background: linear-gradient(#fff, #eee);
+    }
+    .product-info { flex: 1; padding: 18px; display: flex; flex-direction: column; }
+    .product-info h3 { margin: 0 0 8px; font-size: 24px; font-weight: 900; }
+    .product-info p { margin: 0 0 16px; color: #555; font-size: 14px; line-height: 1.45; }
+    .product-info .button { width: 100%; margin-top: auto; padding: 12px; font-size: 12px; }
+
+    .feature-grid, .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .value {
+      padding: 24px;
+      border: 1px solid #333;
+      border-radius: 14px;
+      background: #111;
+    }
+    .value b { display: block; margin-bottom: 10px; color: var(--orange); font-size: 18px; }
+    .value p { margin: 0; color: #d0d0d0; font-size: 14px; line-height: 1.5; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .service-card {
+      position: relative;
+      grid-column: span 2;
+      min-height: 235px;
+      overflow: hidden;
+      border: 1px solid #ff850066;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #3a2109, #111 65%);
+    }
+    .service-card:nth-child(4) { grid-column: 2 / span 2; }
+    .service-card:nth-child(5) { grid-column: 4 / span 2; }
+    .service-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .service-fallback {
+      position: absolute;
+      top: 20px;
+      right: 18px;
+      left: 18px;
+      color: #fff;
+      font-size: 19px;
+      font-weight: 900;
+      text-shadow: 0 2px 12px #000;
+    }
+    .service-card::after {
+      position: absolute;
+      inset: 35% 0 0;
+      background: linear-gradient(transparent, #000b);
+      content: "";
+      pointer-events: none;
+    }
+    .service-cta {
+      position: absolute;
+      z-index: 2;
+      right: 6%;
+      bottom: 7%;
+      left: 6%;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 30px;
+      background: var(--orange);
+      color: #111;
+      font-size: 12px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+    .service-cta:hover { filter: brightness(1.12); }
+
+    .results {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 36px;
+    }
+    .results h2 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      line-height: .98;
+      text-transform: uppercase;
+    }
+    .results h2 span { color: var(--orange); }
+    .results p { color: #555; line-height: 1.6; }
+    .result-box {
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      border-radius: 18px;
+      background: radial-gradient(circle at center, #623000, #161616 68%);
+      color: #fff;
+      text-align: center;
+    }
+    .result-box strong { display: block; color: var(--orange); font-size: 26px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 36px;
+    }
+    .about-copy h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 900;
+      line-height: .98;
+      text-transform: uppercase;
+    }
+    .about-copy h2 span { color: var(--orange); }
+    .about-copy p { color: #ccc; line-height: 1.65; }
+    .about-panel {
+      padding: 28px;
+      border: 1px solid #ff850066;
+      border-radius: 16px;
+      background: linear-gradient(145deg, #2c1907, #101010);
+    }
+    .about-panel h3 { margin-top: 0; color: var(--orange); }
+
+    .guide-controls { display: grid; gap: 14px; margin-bottom: 24px; }
+    .guide-search { max-width: 600px; width: 100%; margin: auto; }
+    .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .filter {
+      padding: 10px 14px;
+      border: 1px solid #555;
+      border-radius: 30px;
+      background: #111;
+      color: #fff;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .filter[aria-pressed="true"] { border-color: var(--orange); background: var(--orange); color: #111; }
+    .guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .guide-card {
+      padding: 20px;
+      border: 1px solid #333;
+      border-radius: 13px;
+      background: #111;
+    }
+    .guide-card[hidden] { display: none; }
+    .guide-card summary { color: #fff; font-size: 18px; font-weight: 800; cursor: pointer; }
+    .guide-category {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .guide-card p { margin: 12px 0 0; color: #ccc; font-size: 14px; line-height: 1.55; }
+    .guide-count { color: #bbb; text-align: center; font-size: 13px; }
+
+    .contact {
+      padding: 70px 0;
+      background: linear-gradient(110deg, #ff8500, #ff9f1a);
+      color: #111;
+      text-align: center;
+    }
+    .contact h2 { margin: 0; font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; }
+    .contact p { max-width: 650px; margin: 14px auto 24px; line-height: 1.55; }
+    .contact .button { background: #111; color: #fff; }
+
+    .footer { padding: 32px 0; background: #050505; color: #bbb; font-size: 13px; }
+    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
+    .footer a { color: var(--orange); text-decoration: none; }
+
+    @media (max-width: 900px) {
+      .hero-layout { grid-template-columns: 1fr 1fr; }
+      .hero-slider { height: 410px; }
+      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .service-card, .service-card:nth-child(4), .service-card:nth-child(5) { grid-column: auto; }
+      .feature-grid, .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav-links { gap: 12px; }
+    }
+    @media (max-width: 620px) {
+      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .nav-links { justify-content: flex-start; gap: 10px 14px; }
+      .nav-links a { font-size: 11px; }
+      .nav-links .nav-contact { padding: 9px 12px; }
+      .hero { min-height: auto; }
+      .hero-layout { grid-template-columns: 1fr; padding: 58px 0 38px; }
+      .hero h1 { font-size: clamp(42px, 12vw, 62px); }
+      .hero-slider { height: 330px; }
+      .slide { padding: 32px 44px 68px; }
+      .section { padding: 58px 0; }
+      .product-grid, .guide-grid, .results, .about-grid { grid-template-columns: 1fr; }
+      .product-image { height: 190px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 205px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="logo" href="#inicio">AMIGOS <span>DO BRILHO</span></a>
+      <div class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#linhas">Linhas</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#sobre-nos">Sobre nós</a>
+        <a href="#guias">Guias</a>
+        <a class="nav-contact" href="#contato">Contato</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="wrap hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Amigos do Brilho</p>
+          <h1>Estética<br>automotiva<br>em <span>outro nível!</span></h1>
+          <p>Produtos premium para brilho, acabamento e proteção automotiva.</p>
+          <div class="actions">
+            <a class="button" href="#produtos">Ver produtos</a>
+            <a class="button green" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="hero-slider" id="hero-slider" aria-label="Produtos em destaque">
+          <div class="slide active">
+            <img src="assets/produto-coat-ceramic.png" alt="Produto Coat Ceramic" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="product-fallback" hidden>COAT CERAMIC</span>
+            <span class="slide-name">COAT CERAMIC</span>
+          </div>
+          <div class="slide">
+            <img src="assets/produto-luster.webp" alt="Produto Luster" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="product-fallback" hidden>LUSTER</span>
+            <span class="slide-name">LUSTER</span>
+          </div>
+          <div class="slide">
+            <img src="assets/produto-graphene.webp" alt="Produto Graphene" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="product-fallback" hidden>GRAPHENE</span>
+            <span class="slide-name">GRAPHENE</span>
+          </div>
+
+          <div class="slider-controls">
+            <button type="button" id="slide-prev" aria-label="Produto anterior">‹</button>
+            <button type="button" id="slide-next" aria-label="Próximo produto">›</button>
+          </div>
+
+          <div class="slider-dots" aria-label="Escolher produto">
+            <button type="button" aria-label="Mostrar Coat Ceramic" aria-current="true"></button>
+            <button type="button" aria-label="Mostrar Luster" aria-current="false"></button>
+            <button type="button" aria-label="Mostrar Graphene" aria-current="false"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="produtos">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Catálogo Amigos do Brilho</p>
+          <h2>Produtos para cada etapa do <span>cuidado</span></h2>
+          <p>Encontre soluções para lavagem, limpeza técnica, acabamento e proteção automotiva.</p>
+        </div>
+        <div class="product-tools">
+          <input id="product-search" type="search" placeholder="Buscar um produto..." aria-label="Buscar produtos">
+        </div>
+        <div class="product-grid" id="product-grid">
+          <article class="product-card" data-product="desengraxante tron sujeira pesada">
+            <div class="product-kind">Desengraxante</div>
+            <img class="product-image" src="assets/PRODUTO%201.png" alt="Produto TRON" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>TRON</h3><p>Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20TRON." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="limpador alumínio alumax">
+            <div class="product-kind">Limpador de alumínio</div>
+            <img class="product-image" src="assets/PRODUTO%202%20png.png" alt="Produto ALUMAX" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>ALUMAX</h3><p>Solução para limpeza de alumínio e carrocerias. Confira as superfícies autorizadas no rótulo.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20ALUMAX." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="lava motos neutro flow motocicletas">
+            <div class="product-kind">Lava-motos neutro</div>
+            <img class="product-image" src="assets/PRODUTO%203.png" alt="Produto FLOW" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>FLOW</h3><p>Limpeza para motocicletas com fórmula neutra. Use conforme as instruções do fabricante.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20FLOW." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="revitalizador plásticos evox">
+            <div class="product-kind">Revitalizador de plásticos</div>
+            <img class="product-image" src="assets/PRODUTO%204%20.png" alt="Produto EVOX" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>EVOX</h3><p>Linha para revitalização e proteção de superfícies plásticas, com aparência natural e acabamento uniforme.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20EVOX." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="restaurador plásticos zucs">
+            <div class="product-kind">Restaurador de plásticos</div>
+            <img class="product-image" src="assets/PRODUTO%205%20.png" alt="Produto ZUCS" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>ZUCS</h3><p>Produto para plásticos internos e externos. Consulte o rótulo para confirmar a aplicação adequada.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20ZUCS." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="removedor insetos green pintura">
+            <div class="product-kind">Removedor de insetos</div>
+            <img class="product-image" src="assets/PRODUTO%206.png" alt="Produto GREEN" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>GREEN</h3><p>Ajuda a remover resíduos de insetos. Aplique somente nas superfícies indicadas pelo fabricante.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20GREEN." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="acabamento premium doctor shine plásticos">
+            <div class="product-kind">Acabamento premium</div>
+            <img class="product-image" src="assets/PRODUTO%207.png" alt="Produto DOCTOR SHINE" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>DOCTOR SHINE</h3><p>Produto para acabamento de plásticos, com toque seco. Confira as superfícies autorizadas.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20DOCTOR%20SHINE." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+          <article class="product-card" data-product="polidor premium pad pintura">
+            <div class="product-kind">Polidor</div>
+            <img class="product-image" src="assets/PRODUTO%208.png" alt="Produto PREMIUM PAD" onerror="this.style.visibility='hidden'">
+            <div class="product-info"><h3>PREMIUM PAD</h3><p>Produto para polimento e acabamento. Use conforme as instruções da embalagem.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20PREMIUM%20PAD." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="mais-vendidos">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Seleção em destaque</p>
+          <h2>Alguns dos produtos <span>mais procurados</span></h2>
+          <p>Conheça alguns destaques do catálogo Amigos do Brilho.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="value"><b>TRON</b><p>Desengraxante para sujeiras pesadas e resíduos automotivos.</p></article>
+          <article class="value"><b>FLOW</b><p>Lava-motos neutro para a limpeza de motocicletas.</p></article>
+          <article class="value"><b>GREEN</b><p>Removedor de insetos para as superfícies indicadas no rótulo.</p></article>
+          <article class="value"><b>DOCTOR SHINE</b><p>Acabamento de plásticos com toque seco.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="linhas">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Amigos do Brilho</p>
+          <h2>Linhas para cada etapa do <span>cuidado automotivo</span></h2>
+          <p>Consulte a equipe para conhecer os produtos disponíveis em cada linha.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <img src="assets/CARD%20DETALHAMENTO%20INTERNO.png" alt="Detalhamento interno" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="service-fallback" hidden>Detalhamento interno</span>
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Detalhamento%20Interno." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+          </article>
+          <article class="service-card">
+            <img src="assets/CARD%20LIMPEZA%20AUTOMOTIVA.png" alt="Limpeza automotiva" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="service-fallback" hidden>Limpeza automotiva</span>
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+          </article>
+          <article class="service-card">
+            <img src="assets/CARD%20ACABAMENTO%20PREMIUM.png" alt="Acabamento premium" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="service-fallback" hidden>Acabamento premium</span>
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+          </article>
+          <article class="service-card">
+            <img src="assets/CARD%20PROTECAO%20CERAMICA.png" alt="Proteção cerâmica" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="service-fallback" hidden>Proteção cerâmica</span>
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Prote%C3%A7%C3%A3o%20Cer%C3%A2mica." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+          </article>
+          <article class="service-card">
+            <img src="assets/CARD%20MAIS%20BRILHO.png" alt="Mais brilho" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+            <span class="service-fallback" hidden>Mais brilho</span>
+            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20Mais%20Brilho." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="resultados">
+      <div class="wrap results">
+        <div>
+          <p class="eyebrow">Cuidado em cada detalhe</p>
+          <h2>O acabamento certo muda a <span>percepção</span></h2>
+          <p>Uma rotina adequada de limpeza e manutenção ajuda a preservar a aparência do veículo. Escolha cada produto considerando a superfície e as orientações do fabricante.</p>
+          <a class="button" href="#produtos">Explorar produtos</a>
+        </div>
+        <div class="result-box">
+          <div><strong>BRILHO EM CADA ETAPA</strong><p>Limpeza · cuidado · acabamento</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="sobre-nos">
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <p class="eyebrow">Sobre nós</p>
+          <h2>Cuidado automotivo com <span>mais brilho</span></h2>
+          <p>A Amigos do Brilho reúne produtos para diferentes etapas do cuidado automotivo. Nosso objetivo é ajudar você a encontrar opções para limpar, cuidar e valorizar cada detalhe do veículo.</p>
+          <a class="button" href="#contato">Fale com a equipe</a>
+        </div>
+        <div class="about-panel">
+          <h3>O que move a marca</h3>
+          <div class="values-grid">
+            <div class="value"><b>Cuidado</b><p>Produtos para cada etapa.</p></div>
+            <div class="value"><b>Praticidade</b><p>Orientação para escolher.</p></div>
+            <div class="value"><b>Brilho</b><p>Acabamento que valoriza.</p></div>
+            <div class="value"><b>Performance</b><p>Foco no uso automotivo.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark" id="guias">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Guias Amigos do Brilho</p>
+          <h2>Dúvidas reais. Cuidado em <span>cada detalhe.</span></h2>
+          <p>Oito guias práticos para encontrar rapidamente uma orientação sobre limpeza e proteção automotiva.</p>
+        </div>
+
+        <div class="guide-controls">
+          <label class="guide-search">
+            <input id="guide-search" type="search" placeholder="Buscar nos guias..." aria-label="Buscar nos guias">
+          </label>
+          <div class="filters" role="group" aria-label="Filtrar guias por tema">
+            <button class="filter" type="button" data-guide-filter="todos" aria-pressed="true">Todos</button>
+            <button class="filter" type="button" data-guide-filter="vidros" aria-pressed="false">Vidros</button>
+            <button class="filter" type="button" data-guide-filter="lavagem" aria-pressed="false">Lavagem</button>
+            <button class="filter" type="button" data-guide-filter="limpeza" aria-pressed="false">Limpeza</button>
+            <button class="filter" type="button" data-guide-filter="plasticos" aria-pressed="false">Plásticos</button>
+            <button class="filter" type="button" data-guide-filter="protecao" aria-pressed="false">Proteção</button>
+          </div>
+          <p class="guide-count" id="guide-count">8 guias disponíveis</p>
+        </div>
+
+        <div class="guide-grid" id="guide-grid">
+          <details class="guide-card" data-theme="vidros">
+            <summary><span class="guide-category">Vidros e para-brisa</span>Como limpar o para-brisa por dentro sem deixar manchas?</summary>
+            <p>Use um pano limpo e sem fiapos e um produto indicado para vidro automotivo. Trabalhe em áreas pequenas e finalize com outra parte seca do pano. Se houver película, confirme a compatibilidade com o instalador.</p>
+          </details>
+          <details class="guide-card" data-theme="vidros">
+            <summary><span class="guide-category">Vidros e para-brisa</span>Como cuidar do vidro depois de instalar insulfilm?</summary>
+            <p>Siga o prazo de cura informado pelo instalador antes de limpar ou movimentar o vidro. Depois, use pano macio e produtos autorizados para a película instalada.</p>
+          </details>
+          <details class="guide-card" data-theme="lavagem">
+            <summary><span class="guide-category">Lavagem e manutenção</span>Como lavar o carro sem riscar a pintura?</summary>
+            <p>Enxágue para remover a sujeira solta, lave o veículo frio e à sombra e use luva automotiva limpa. Enxágue a luva com frequência e seque com pano macio.</p>
+          </details>
+          <details class="guide-card" data-theme="lavagem">
+            <summary><span class="guide-category">Lavagem e manutenção</span>Como evitar manchas ao lavar o carro em dia quente?</summary>
+            <p>Trabalhe à sombra e com a carroceria fria. Lave pequenas áreas por vez e enxágue antes que a água ou o produto sequem sobre a pintura.</p>
+          </details>
+          <details class="guide-card" data-theme="limpeza">
+            <summary><span class="guide-category">Insetos e sujeira pesada</span>Como remover insetos secos sem esfregar a pintura?</summary>
+            <p>Amoleça os resíduos com água ou com um removedor indicado para a superfície. Respeite o tempo do rótulo, enxágue bem e não esfregue crostas secas.</p>
+          </details>
+          <details class="guide-card" data-theme="plasticos">
+            <summary><span class="guide-category">Plásticos e acabamento</span>Como limpar o painel sem deixá-lo engordurado?</summary>
+            <p>Retire o pó com pano macio e aplique no pano um limpador compatível com o painel. Use pouca quantidade e remova os resíduos sem encharcar a superfície.</p>
+          </details>
+          <details class="guide-card" data-theme="protecao">
+            <summary><span class="guide-category">Polimento e proteção</span>Como preparar a pintura antes de aplicar uma proteção?</summary>
+            <p>Lave e avalie a pintura antes da aplicação. A preparação, a necessidade de polimento e o tempo de cura variam conforme o produto; siga a ficha técnica.</p>
+          </details>
+          <details class="guide-card" data-theme="protecao">
+            <summary><span class="guide-category">Polimento e proteção</span>Como manter a pintura depois de aplicar coating?</summary>
+            <p>Faça lavagens compatíveis com a proteção e remova sujeira sem esfregar a seco. Siga as instruções de manutenção do fabricante do coating aplicado.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="wrap">
+        <h2>Encontre o produto ideal</h2>
+        <p>Tem dúvidas sobre qual produto escolher? Fale com a equipe Amigos do Brilho.</p>
+        <a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© Amigos do Brilho · Cuidado automotivo</span>
+      <span><a href="#inicio">Voltar ao início</a> · <a href="#guias">Guias</a> · <a href="#produtos">Produtos</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const productSearch = document.getElementById("product-search");
+    const products = [...document.querySelectorAll(".product-card")];
+
+    productSearch.addEventListener("input", () => {
+      const query = productSearch.value.trim().toLocaleLowerCase("pt-BR");
+      products.forEach(product => {
+        product.hidden = !product.dataset.product.includes(query);
+      });
+    });
+
+    const slider = document.getElementById("hero-slider");
+    const slides = [...slider.querySelectorAll(".slide")];
+    const dots = [...slider.querySelectorAll(".slider-dots button")];
+    let currentSlide = 0;
+    let slideTimer;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === currentSlide));
+      dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === currentSlide)));
+    }
+
+    function stopSlideTimer() {
+      window.clearInterval(slideTimer);
+    }
+
+    function startSlideTimer() {
+      stopSlideTimer();
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        slideTimer = window.setInterval(() => showSlide(currentSlide + 1), 6000);
+      }
+    }
+
+    document.getElementById("slide-prev").addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      startSlideTimer();
+    });
+
+    document.getElementById("slide-next").addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      startSlideTimer();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        startSlideTimer();
+      });
+    });
+
+    slider.addEventListener("mouseenter", stopSlideTimer);
+    slider.addEventListener("mouseleave", startSlideTimer);
+    slider.addEventListener("focusin", stopSlideTimer);
+    slider.addEventListener("focusout", startSlideTimer);
+
+    let touchStartX = 0;
+    slider.addEventListener("touchstart", event => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+
+    slider.addEventListener("touchend", event => {
+      const difference = touchStartX - event.changedTouches[0].clientX;
+      if (Math.abs(difference) > 45) {
+        showSlide(currentSlide + (difference > 0 ? 1 : -1));
+        startSlideTimer();
+      }
+    }, { passive: true });
+
+    startSlideTimer();
+
+    const guideSearch = document.getElementById("guide-search");
+    const guideCards = [...document.querySelectorAll(".guide-card")];
+    const guideButtons = [...document.querySelectorAll("[data-guide-filter]")];
+    const guideCount = document.getElementById("guide-count");
+    let selectedTheme = "todos";
+
+    function filterGuides() {
+      const query = guideSearch.value.trim().toLocaleLowerCase("pt-BR");
+      let visible = 0;
+
+      guideCards.forEach(card => {
+        const matchesTheme = selectedTheme === "todos" || card.dataset.theme === selectedTheme;
+        const matchesSearch = card.textContent.toLocaleLowerCase("pt-BR").includes(query);
+        card.hidden = !(matchesTheme && matchesSearch);
+        if (!card.hidden) visible++;
+      });
+
+      guideCount.textContent = `${visible} ${visible === 1 ? "guia disponível" : "guias disponíveis"}`;
+      guideButtons.forEach(button => {
+        button.setAttribute("aria-pressed", String(button.dataset.guideFilter === selectedTheme));
+      });
+    }
+
+    guideButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        selectedTheme = button.dataset.guideFilter;
+        filterGuides();
+      });
+    });
+
+    guideSearch.addEventListener("input", filterGuides);
+    filterGuides();
+  </script>
+</body>
+</html>

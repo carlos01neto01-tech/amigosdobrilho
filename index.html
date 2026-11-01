@@ -1210,8 +1210,18 @@ body{
 .hero-text p { margin-top:20px; font-size:clamp(18px,1.65vw,23px); line-height:1.2; }
 .hero-buttons { max-width:390px; margin-top:30px; gap:12px; }
 .hero-buttons a { height:58px; font-size:clamp(16px,1.5vw,20px); }
-.hero-slider { width:56%; height:min(610px,68svh); }
-.product-wrap { padding-bottom:50px; }
+.hero-slider { width:56%; height:min(610px,68svh); transform:translateX(clamp(-38px,-2.7vw,-20px)); }
+.product-wrap { padding-bottom:22px; }
+.product-light.light-one {
+    top:auto; left:50%; right:auto; bottom:74px;
+    width:clamp(330px,34vw,470px); height:clamp(220px,23vw,320px);
+    margin-left:clamp(-235px,-17vw,-165px);
+}
+.product-light.light-two {
+    top:auto; left:50%; right:auto; bottom:28px;
+    width:clamp(250px,28vw,390px); height:clamp(180px,20vw,270px);
+    margin-left:clamp(-195px,-14vw,-125px);
+}
 .product.coat { max-height:500px; }
 .product.luster,.product.graphene { max-height:560px; }
 .best-sellers { padding-bottom:68px; }
@@ -1277,7 +1287,18 @@ body{
 @media(max-width:1100px) {
     .hero { min-height:0; }
     .hero-content { min-height:0; padding-top:38px; }
-    .hero-slider { height:clamp(350px,52vw,470px); }
+    .hero-slider { height:clamp(350px,52vw,470px); transform:none; }
+    .product-wrap { padding-bottom:22px; }
+    .product-light.light-one {
+        top:auto; left:50%; right:auto; bottom:58px;
+        width:clamp(240px,38vw,330px); height:clamp(180px,28vw,250px);
+        margin-left:clamp(-165px,-19vw,-120px);
+    }
+    .product-light.light-two {
+        top:auto; left:50%; right:auto; bottom:24px;
+        width:clamp(210px,31vw,290px); height:clamp(160px,23vw,220px);
+        margin-left:clamp(-145px,-15vw,-105px);
+    }
     .product.coat { max-height:360px; }
     .product.luster,.product.graphene { max-height:410px; }
     .service-lines .service-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
@@ -1302,7 +1323,7 @@ body{
     .hero-buttons { max-width:420px; margin-top:22px; gap:10px; }
     .hero-buttons a { height:52px; font-size:16px; }
     .hero-slider { height:min(390px,100vw); margin-top:12px; }
-    .product-wrap { padding-bottom:32px; }
+    .product-wrap { padding-bottom:16px; }
     .product.coat { max-height:300px; }
     .product.luster,.product.graphene { max-height:340px; }
     .best-sellers { padding-bottom:48px; }

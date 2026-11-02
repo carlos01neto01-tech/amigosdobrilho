@@ -1,902 +1,524 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Produtos e guias para limpeza, acabamento e proteção automotiva.">
-  <title>Amigos do Brilho | Produtos automotivos</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --orange: #ff8500;
-      --black: #080808;
-      --green: #18c133;
-      --gray: #f2f2f2;
-      --text: #171717;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--text);
-      background: var(--gray);
-      font-family: "Rubik", Arial, sans-serif;
-    }
-    a { color: inherit; }
-    button, input { font: inherit; }
-    section[id] { scroll-margin-top: 86px; }
-    .wrap { width: min(1200px, calc(100% - 36px)); margin: 0 auto; }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: #080808f2;
-      border-bottom: 1px solid #ff850044;
-      backdrop-filter: blur(12px);
-    }
-    .nav {
-      width: min(1320px, calc(100% - 36px));
-      min-height: 76px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .logo {
-      color: #fff;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: .04em;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .logo span { color: var(--orange); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .nav-links a {
-      color: #fff;
-      font-size: 13px;
-      text-decoration: none;
-    }
-    .nav-links a:hover { color: var(--orange); }
-    .nav-links .nav-contact {
-      padding: 12px 20px;
-      border-radius: 30px;
-      background: var(--green);
-      font-weight: 800;
-    }
-
-    .hero {
-      min-height: 650px;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      background:
-        linear-gradient(90deg, #000 0%, #000e 52%, #0008 100%),
-        radial-gradient(ellipse at 78% 40%, #8a4100 0, #261300 35%, #090909 72%);
-    }
-    .hero-layout {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      align-items: center;
-      gap: 24px;
-      padding: 64px 0;
-    }
-    .hero-copy { position: relative; z-index: 2; }
-    .eyebrow {
-      margin: 0 0 16px;
-      color: var(--orange);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-    }
-    .hero h1 {
-      max-width: 760px;
-      margin: 0;
-      font-size: clamp(42px, 6vw, 76px);
-      font-weight: 900;
-      line-height: .92;
-      letter-spacing: -.05em;
-      text-transform: uppercase;
-    }
-    .hero h1 span { color: var(--orange); }
-    .hero-copy > p:not(.eyebrow) {
-      max-width: 560px;
-      margin: 24px 0 0;
-      color: #eee;
-      font-size: clamp(17px, 2vw, 22px);
-      line-height: 1.5;
-    }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .button {
-      min-height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border: 0;
-      border-radius: 40px;
-      background: var(--orange);
-      color: #111;
-      font-weight: 900;
-      text-decoration: none;
-      cursor: pointer;
-      transition: transform .2s ease, filter .2s ease;
-    }
-    .button:hover { filter: brightness(1.08); transform: translateY(-1px); }
-    .button.green { background: var(--green); color: #fff; }
-
-    .hero-slider {
-      position: relative;
-      height: 490px;
-      overflow: hidden;
-      border: 1px solid #ff850044;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 50% 52%, #ff850047, transparent 33%),
-        linear-gradient(145deg, #181818cc, #08080844);
-      touch-action: pan-y;
-    }
-    .slide {
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 48px 54px 72px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateX(50px) scale(.96);
-      transition: opacity .5s ease, transform .5s ease;
-    }
-    .slide.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(0) scale(1);
-    }
-    .slide img {
-      display: block;
-      max-width: 88%;
-      max-height: 100%;
-      object-fit: contain;
-      filter: drop-shadow(0 22px 35px #000b);
-    }
-    .product-fallback {
-      color: var(--orange);
-      font-size: clamp(28px, 5vw, 54px);
-      font-weight: 900;
-      text-align: center;
-      text-shadow: 0 8px 28px #000;
-    }
-    .slider-controls {
-      position: absolute;
-      z-index: 5;
-      top: 50%;
-      right: 16px;
-      left: 16px;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-    .slider-controls button {
-      width: 48px;
-      height: 48px;
-      border: 1px solid var(--orange);
-      border-radius: 50%;
-      background: #080808bb;
-      color: var(--orange);
-      font-size: 31px;
-      line-height: 1;
-      cursor: pointer;
-      pointer-events: auto;
-    }
-    .slider-controls button:hover { background: var(--orange); color: #111; }
-    .slide-name {
-      position: absolute;
-      right: 0;
-      bottom: 52px;
-      left: 0;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: .2em;
-      text-align: center;
-    }
-    .slider-dots {
-      position: absolute;
-      z-index: 6;
-      right: 0;
-      bottom: 20px;
-      left: 0;
-      display: flex;
-      justify-content: center;
-      gap: 9px;
-    }
-    .slider-dots button {
-      width: 10px;
-      height: 10px;
-      padding: 0;
-      border: 0;
-      border-radius: 50%;
-      background: #777;
-      cursor: pointer;
-    }
-    .slider-dots button[aria-current="true"] {
-      background: var(--orange);
-      transform: scale(1.25);
-    }
-
-    .section { padding: 82px 0; }
-    .section.dark { background: var(--black); color: #fff; }
-    .section.light { background: #fff; }
-    .section-heading { max-width: 820px; margin: 0 auto 42px; text-align: center; }
-    .section-heading h2 {
-      margin: 0;
-      font-size: clamp(32px, 5vw, 58px);
-      font-weight: 900;
-      line-height: .98;
-      letter-spacing: -.04em;
-      text-transform: uppercase;
-    }
-    .section-heading h2 span { color: var(--orange); }
-    .section-heading p:not(.eyebrow) {
-      max-width: 680px;
-      margin: 16px auto 0;
-      color: #696969;
-      font-size: 16px;
-      line-height: 1.55;
-    }
-    .dark .section-heading p:not(.eyebrow) { color: #c9c9c9; }
-
-    .product-tools { max-width: 600px; margin: 0 auto 28px; }
-    .product-tools input, .guide-search input {
-      width: 100%;
-      min-height: 48px;
-      padding: 12px 16px;
-      border: 1px solid #ccc;
-      border-radius: 30px;
-      background: #fff;
-      outline: none;
-    }
-    .product-tools input:focus, .guide-search input:focus {
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px #ff850022;
-    }
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .product-card {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #ddd;
-      border-radius: 14px;
-      background: #fff;
-      box-shadow: 0 5px 18px #0000000c;
-    }
-    .product-card[hidden] { display: none; }
-    .product-kind {
-      padding: 11px;
-      background: var(--orange);
-      color: #111;
-      font-size: 11px;
-      font-weight: 900;
-      text-align: center;
-      text-transform: uppercase;
-    }
-    .product-image {
-      width: 100%;
-      height: 210px;
-      padding: 16px;
-      object-fit: contain;
-      background: linear-gradient(#fff, #eee);
-    }
-    .product-info { flex: 1; padding: 18px; display: flex; flex-direction: column; }
-    .product-info h3 { margin: 0 0 8px; font-size: 24px; font-weight: 900; }
-    .product-info p { margin: 0 0 16px; color: #555; font-size: 14px; line-height: 1.45; }
-    .product-info .button { width: 100%; margin-top: auto; padding: 12px; font-size: 12px; }
-
-    .feature-grid, .values-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .value {
-      padding: 24px;
-      border: 1px solid #333;
-      border-radius: 14px;
-      background: #111;
-    }
-    .value b { display: block; margin-bottom: 10px; color: var(--orange); font-size: 18px; }
-    .value p { margin: 0; color: #d0d0d0; font-size: 14px; line-height: 1.5; }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 18px;
-    }
-    .service-card {
-      position: relative;
-      grid-column: span 2;
-      min-height: 235px;
-      overflow: hidden;
-      border: 1px solid #ff850066;
-      border-radius: 14px;
-      background: linear-gradient(145deg, #3a2109, #111 65%);
-    }
-    .service-card:nth-child(4) { grid-column: 2 / span 2; }
-    .service-card:nth-child(5) { grid-column: 4 / span 2; }
-    .service-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .service-fallback {
-      position: absolute;
-      top: 20px;
-      right: 18px;
-      left: 18px;
-      color: #fff;
-      font-size: 19px;
-      font-weight: 900;
-      text-shadow: 0 2px 12px #000;
-    }
-    .service-card::after {
-      position: absolute;
-      inset: 35% 0 0;
-      background: linear-gradient(transparent, #000b);
-      content: "";
-      pointer-events: none;
-    }
-    .service-cta {
-      position: absolute;
-      z-index: 2;
-      right: 6%;
-      bottom: 7%;
-      left: 6%;
-      min-height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 14px;
-      border-radius: 30px;
-      background: var(--orange);
-      color: #111;
-      font-size: 12px;
-      font-weight: 900;
-      text-align: center;
-      text-decoration: none;
-    }
-    .service-cta:hover { filter: brightness(1.12); }
-
-    .results {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 36px;
-    }
-    .results h2 {
-      margin: 0;
-      font-size: clamp(32px, 5vw, 58px);
-      font-weight: 900;
-      line-height: .98;
-      text-transform: uppercase;
-    }
-    .results h2 span { color: var(--orange); }
-    .results p { color: #555; line-height: 1.6; }
-    .result-box {
-      min-height: 250px;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      border-radius: 18px;
-      background: radial-gradient(circle at center, #623000, #161616 68%);
-      color: #fff;
-      text-align: center;
-    }
-    .result-box strong { display: block; color: var(--orange); font-size: 26px; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 36px;
-    }
-    .about-copy h2 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 58px);
-      font-weight: 900;
-      line-height: .98;
-      text-transform: uppercase;
-    }
-    .about-copy h2 span { color: var(--orange); }
-    .about-copy p { color: #ccc; line-height: 1.65; }
-    .about-panel {
-      padding: 28px;
-      border: 1px solid #ff850066;
-      border-radius: 16px;
-      background: linear-gradient(145deg, #2c1907, #101010);
-    }
-    .about-panel h3 { margin-top: 0; color: var(--orange); }
-
-    .guide-controls { display: grid; gap: 14px; margin-bottom: 24px; }
-    .guide-search { max-width: 600px; width: 100%; margin: auto; }
-    .filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-    .filter {
-      padding: 10px 14px;
-      border: 1px solid #555;
-      border-radius: 30px;
-      background: #111;
-      color: #fff;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    .filter[aria-pressed="true"] { border-color: var(--orange); background: var(--orange); color: #111; }
-    .guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .guide-card {
-      padding: 20px;
-      border: 1px solid #333;
-      border-radius: 13px;
-      background: #111;
-    }
-    .guide-card[hidden] { display: none; }
-    .guide-card summary { color: #fff; font-size: 18px; font-weight: 800; cursor: pointer; }
-    .guide-category {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .guide-card p { margin: 12px 0 0; color: #ccc; font-size: 14px; line-height: 1.55; }
-    .guide-count { color: #bbb; text-align: center; font-size: 13px; }
-
-    .contact {
-      padding: 70px 0;
-      background: linear-gradient(110deg, #ff8500, #ff9f1a);
-      color: #111;
-      text-align: center;
-    }
-    .contact h2 { margin: 0; font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; }
-    .contact p { max-width: 650px; margin: 14px auto 24px; line-height: 1.55; }
-    .contact .button { background: #111; color: #fff; }
-
-    .footer { padding: 32px 0; background: #050505; color: #bbb; font-size: 13px; }
-    .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; }
-    .footer a { color: var(--orange); text-decoration: none; }
-
-    @media (max-width: 900px) {
-      .hero-layout { grid-template-columns: 1fr 1fr; }
-      .hero-slider { height: 410px; }
-      .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .service-card, .service-card:nth-child(4), .service-card:nth-child(5) { grid-column: auto; }
-      .feature-grid, .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .nav-links { gap: 12px; }
-    }
-    @media (max-width: 620px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
-      .nav-links { justify-content: flex-start; gap: 10px 14px; }
-      .nav-links a { font-size: 11px; }
-      .nav-links .nav-contact { padding: 9px 12px; }
-      .hero { min-height: auto; }
-      .hero-layout { grid-template-columns: 1fr; padding: 58px 0 38px; }
-      .hero h1 { font-size: clamp(42px, 12vw, 62px); }
-      .hero-slider { height: 330px; }
-      .slide { padding: 32px 44px 68px; }
-      .section { padding: 58px 0; }
-      .product-grid, .guide-grid, .results, .about-grid { grid-template-columns: 1fr; }
-      .product-image { height: 190px; }
-      .service-grid { grid-template-columns: 1fr; }
-      .service-card { min-height: 205px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="header">
-    <nav class="nav" aria-label="Navegação principal">
-      <a class="logo" href="#inicio">AMIGOS <span>DO BRILHO</span></a>
-      <div class="nav-links">
-        <a href="#inicio">Início</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#linhas">Linhas</a>
-        <a href="#resultados">Resultados</a>
-        <a href="#sobre-nos">Sobre nós</a>
-        <a href="#guias">Guias</a>
-        <a class="nav-contact" href="#contato">Contato</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero" id="inicio">
-      <div class="wrap hero-layout">
-        <div class="hero-copy">
-          <p class="eyebrow">Amigos do Brilho</p>
-          <h1>Estética<br>automotiva<br>em <span>outro nível!</span></h1>
-          <p>Produtos premium para brilho, acabamento e proteção automotiva.</p>
-          <div class="actions">
-            <a class="button" href="#produtos">Ver produtos</a>
-            <a class="button green" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="hero-slider" id="hero-slider" aria-label="Produtos em destaque">
-          <div class="slide active">
-            <img src="assets/produto-coat-ceramic.png" alt="Produto Coat Ceramic" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="product-fallback" hidden>COAT CERAMIC</span>
-            <span class="slide-name">COAT CERAMIC</span>
-          </div>
-          <div class="slide">
-            <img src="assets/produto-luster.webp" alt="Produto Luster" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="product-fallback" hidden>LUSTER</span>
-            <span class="slide-name">LUSTER</span>
-          </div>
-          <div class="slide">
-            <img src="assets/produto-graphene.webp" alt="Produto Graphene" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="product-fallback" hidden>GRAPHENE</span>
-            <span class="slide-name">GRAPHENE</span>
-          </div>
-
-          <div class="slider-controls">
-            <button type="button" id="slide-prev" aria-label="Produto anterior">‹</button>
-            <button type="button" id="slide-next" aria-label="Próximo produto">›</button>
-          </div>
-
-          <div class="slider-dots" aria-label="Escolher produto">
-            <button type="button" aria-label="Mostrar Coat Ceramic" aria-current="true"></button>
-            <button type="button" aria-label="Mostrar Luster" aria-current="false"></button>
-            <button type="button" aria-label="Mostrar Graphene" aria-current="false"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light" id="produtos">
-      <div class="wrap">
-        <div class="section-heading">
-          <p class="eyebrow">Catálogo Amigos do Brilho</p>
-          <h2>Produtos para cada etapa do <span>cuidado</span></h2>
-          <p>Encontre soluções para lavagem, limpeza técnica, acabamento e proteção automotiva.</p>
-        </div>
-        <div class="product-tools">
-          <input id="product-search" type="search" placeholder="Buscar um produto..." aria-label="Buscar produtos">
-        </div>
-        <div class="product-grid" id="product-grid">
-          <article class="product-card" data-product="desengraxante tron sujeira pesada">
-            <div class="product-kind">Desengraxante</div>
-            <img class="product-image" src="assets/PRODUTO%201.png" alt="Produto TRON" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>TRON</h3><p>Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20TRON." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="limpador alumínio alumax">
-            <div class="product-kind">Limpador de alumínio</div>
-            <img class="product-image" src="assets/PRODUTO%202%20png.png" alt="Produto ALUMAX" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>ALUMAX</h3><p>Solução para limpeza de alumínio e carrocerias. Confira as superfícies autorizadas no rótulo.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20ALUMAX." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="lava motos neutro flow motocicletas">
-            <div class="product-kind">Lava-motos neutro</div>
-            <img class="product-image" src="assets/PRODUTO%203.png" alt="Produto FLOW" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>FLOW</h3><p>Limpeza para motocicletas com fórmula neutra. Use conforme as instruções do fabricante.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20FLOW." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="revitalizador plásticos evox">
-            <div class="product-kind">Revitalizador de plásticos</div>
-            <img class="product-image" src="assets/PRODUTO%204%20.png" alt="Produto EVOX" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>EVOX</h3><p>Linha para revitalização e proteção de superfícies plásticas, com aparência natural e acabamento uniforme.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20EVOX." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="restaurador plásticos zucs">
-            <div class="product-kind">Restaurador de plásticos</div>
-            <img class="product-image" src="assets/PRODUTO%205%20.png" alt="Produto ZUCS" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>ZUCS</h3><p>Produto para plásticos internos e externos. Consulte o rótulo para confirmar a aplicação adequada.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20ZUCS." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="removedor insetos green pintura">
-            <div class="product-kind">Removedor de insetos</div>
-            <img class="product-image" src="assets/PRODUTO%206.png" alt="Produto GREEN" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>GREEN</h3><p>Ajuda a remover resíduos de insetos. Aplique somente nas superfícies indicadas pelo fabricante.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20GREEN." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="acabamento premium doctor shine plásticos">
-            <div class="product-kind">Acabamento premium</div>
-            <img class="product-image" src="assets/PRODUTO%207.png" alt="Produto DOCTOR SHINE" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>DOCTOR SHINE</h3><p>Produto para acabamento de plásticos, com toque seco. Confira as superfícies autorizadas.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20DOCTOR%20SHINE." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-          <article class="product-card" data-product="polidor premium pad pintura">
-            <div class="product-kind">Polidor</div>
-            <img class="product-image" src="assets/PRODUTO%208.png" alt="Produto PREMIUM PAD" onerror="this.style.visibility='hidden'">
-            <div class="product-info"><h3>PREMIUM PAD</h3><p>Produto para polimento e acabamento. Use conforme as instruções da embalagem.</p><a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20produto%20PREMIUM%20PAD." target="_blank" rel="noopener noreferrer">Solicitar pelo WhatsApp</a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark" id="mais-vendidos">
-      <div class="wrap">
-        <div class="section-heading">
-          <p class="eyebrow">Seleção em destaque</p>
-          <h2>Alguns dos produtos <span>mais procurados</span></h2>
-          <p>Conheça alguns destaques do catálogo Amigos do Brilho.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="value"><b>TRON</b><p>Desengraxante para sujeiras pesadas e resíduos automotivos.</p></article>
-          <article class="value"><b>FLOW</b><p>Lava-motos neutro para a limpeza de motocicletas.</p></article>
-          <article class="value"><b>GREEN</b><p>Removedor de insetos para as superfícies indicadas no rótulo.</p></article>
-          <article class="value"><b>DOCTOR SHINE</b><p>Acabamento de plásticos com toque seco.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark" id="linhas">
-      <div class="wrap">
-        <div class="section-heading">
-          <p class="eyebrow">Amigos do Brilho</p>
-          <h2>Linhas para cada etapa do <span>cuidado automotivo</span></h2>
-          <p>Consulte a equipe para conhecer os produtos disponíveis em cada linha.</p>
-        </div>
-
-        <div class="service-grid">
-          <article class="service-card">
-            <img src="assets/CARD%20DETALHAMENTO%20INTERNO.png" alt="Detalhamento interno" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="service-fallback" hidden>Detalhamento interno</span>
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Detalhamento%20Interno." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-          </article>
-          <article class="service-card">
-            <img src="assets/CARD%20LIMPEZA%20AUTOMOTIVA.png" alt="Limpeza automotiva" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="service-fallback" hidden>Limpeza automotiva</span>
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-          </article>
-          <article class="service-card">
-            <img src="assets/CARD%20ACABAMENTO%20PREMIUM.png" alt="Acabamento premium" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="service-fallback" hidden>Acabamento premium</span>
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-          </article>
-          <article class="service-card">
-            <img src="assets/CARD%20PROTECAO%20CERAMICA.png" alt="Proteção cerâmica" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="service-fallback" hidden>Proteção cerâmica</span>
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Prote%C3%A7%C3%A3o%20Cer%C3%A2mica." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-          </article>
-          <article class="service-card">
-            <img src="assets/CARD%20MAIS%20BRILHO.png" alt="Mais brilho" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false">
-            <span class="service-fallback" hidden>Mais brilho</span>
-            <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20Mais%20Brilho." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light" id="resultados">
-      <div class="wrap results">
-        <div>
-          <p class="eyebrow">Cuidado em cada detalhe</p>
-          <h2>O acabamento certo muda a <span>percepção</span></h2>
-          <p>Uma rotina adequada de limpeza e manutenção ajuda a preservar a aparência do veículo. Escolha cada produto considerando a superfície e as orientações do fabricante.</p>
-          <a class="button" href="#produtos">Explorar produtos</a>
-        </div>
-        <div class="result-box">
-          <div><strong>BRILHO EM CADA ETAPA</strong><p>Limpeza · cuidado · acabamento</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark" id="sobre-nos">
-      <div class="wrap about-grid">
-        <div class="about-copy">
-          <p class="eyebrow">Sobre nós</p>
-          <h2>Cuidado automotivo com <span>mais brilho</span></h2>
-          <p>A Amigos do Brilho reúne produtos para diferentes etapas do cuidado automotivo. Nosso objetivo é ajudar você a encontrar opções para limpar, cuidar e valorizar cada detalhe do veículo.</p>
-          <a class="button" href="#contato">Fale com a equipe</a>
-        </div>
-        <div class="about-panel">
-          <h3>O que move a marca</h3>
-          <div class="values-grid">
-            <div class="value"><b>Cuidado</b><p>Produtos para cada etapa.</p></div>
-            <div class="value"><b>Praticidade</b><p>Orientação para escolher.</p></div>
-            <div class="value"><b>Brilho</b><p>Acabamento que valoriza.</p></div>
-            <div class="value"><b>Performance</b><p>Foco no uso automotivo.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section dark" id="guias">
-      <div class="wrap">
-        <div class="section-heading">
-          <p class="eyebrow">Guias Amigos do Brilho</p>
-          <h2>Dúvidas reais. Cuidado em <span>cada detalhe.</span></h2>
-          <p>Oito guias práticos para encontrar rapidamente uma orientação sobre limpeza e proteção automotiva.</p>
-        </div>
-
-        <div class="guide-controls">
-          <label class="guide-search">
-            <input id="guide-search" type="search" placeholder="Buscar nos guias..." aria-label="Buscar nos guias">
-          </label>
-          <div class="filters" role="group" aria-label="Filtrar guias por tema">
-            <button class="filter" type="button" data-guide-filter="todos" aria-pressed="true">Todos</button>
-            <button class="filter" type="button" data-guide-filter="vidros" aria-pressed="false">Vidros</button>
-            <button class="filter" type="button" data-guide-filter="lavagem" aria-pressed="false">Lavagem</button>
-            <button class="filter" type="button" data-guide-filter="limpeza" aria-pressed="false">Limpeza</button>
-            <button class="filter" type="button" data-guide-filter="plasticos" aria-pressed="false">Plásticos</button>
-            <button class="filter" type="button" data-guide-filter="protecao" aria-pressed="false">Proteção</button>
-          </div>
-          <p class="guide-count" id="guide-count">8 guias disponíveis</p>
-        </div>
-
-        <div class="guide-grid" id="guide-grid">
-          <details class="guide-card" data-theme="vidros">
-            <summary><span class="guide-category">Vidros e para-brisa</span>Como limpar o para-brisa por dentro sem deixar manchas?</summary>
-            <p>Use um pano limpo e sem fiapos e um produto indicado para vidro automotivo. Trabalhe em áreas pequenas e finalize com outra parte seca do pano. Se houver película, confirme a compatibilidade com o instalador.</p>
-          </details>
-          <details class="guide-card" data-theme="vidros">
-            <summary><span class="guide-category">Vidros e para-brisa</span>Como cuidar do vidro depois de instalar insulfilm?</summary>
-            <p>Siga o prazo de cura informado pelo instalador antes de limpar ou movimentar o vidro. Depois, use pano macio e produtos autorizados para a película instalada.</p>
-          </details>
-          <details class="guide-card" data-theme="lavagem">
-            <summary><span class="guide-category">Lavagem e manutenção</span>Como lavar o carro sem riscar a pintura?</summary>
-            <p>Enxágue para remover a sujeira solta, lave o veículo frio e à sombra e use luva automotiva limpa. Enxágue a luva com frequência e seque com pano macio.</p>
-          </details>
-          <details class="guide-card" data-theme="lavagem">
-            <summary><span class="guide-category">Lavagem e manutenção</span>Como evitar manchas ao lavar o carro em dia quente?</summary>
-            <p>Trabalhe à sombra e com a carroceria fria. Lave pequenas áreas por vez e enxágue antes que a água ou o produto sequem sobre a pintura.</p>
-          </details>
-          <details class="guide-card" data-theme="limpeza">
-            <summary><span class="guide-category">Insetos e sujeira pesada</span>Como remover insetos secos sem esfregar a pintura?</summary>
-            <p>Amoleça os resíduos com água ou com um removedor indicado para a superfície. Respeite o tempo do rótulo, enxágue bem e não esfregue crostas secas.</p>
-          </details>
-          <details class="guide-card" data-theme="plasticos">
-            <summary><span class="guide-category">Plásticos e acabamento</span>Como limpar o painel sem deixá-lo engordurado?</summary>
-            <p>Retire o pó com pano macio e aplique no pano um limpador compatível com o painel. Use pouca quantidade e remova os resíduos sem encharcar a superfície.</p>
-          </details>
-          <details class="guide-card" data-theme="protecao">
-            <summary><span class="guide-category">Polimento e proteção</span>Como preparar a pintura antes de aplicar uma proteção?</summary>
-            <p>Lave e avalie a pintura antes da aplicação. A preparação, a necessidade de polimento e o tempo de cura variam conforme o produto; siga a ficha técnica.</p>
-          </details>
-          <details class="guide-card" data-theme="protecao">
-            <summary><span class="guide-category">Polimento e proteção</span>Como manter a pintura depois de aplicar coating?</summary>
-            <p>Faça lavagens compatíveis com a proteção e remova sujeira sem esfregar a seco. Siga as instruções de manutenção do fabricante do coating aplicado.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contato">
-      <div class="wrap">
-        <h2>Encontre o produto ideal</h2>
-        <p>Tem dúvidas sobre qual produto escolher? Fale com a equipe Amigos do Brilho.</p>
-        <a class="button" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">Conversar pelo WhatsApp</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <span>© Amigos do Brilho · Cuidado automotivo</span>
-      <span><a href="#inicio">Voltar ao início</a> · <a href="#guias">Guias</a> · <a href="#produtos">Produtos</a></span>
-    </div>
-  </footer>
-
-  <script>
-    const productSearch = document.getElementById("product-search");
-    const products = [...document.querySelectorAll(".product-card")];
-
-    productSearch.addEventListener("input", () => {
-      const query = productSearch.value.trim().toLocaleLowerCase("pt-BR");
-      products.forEach(product => {
-        product.hidden = !product.dataset.product.includes(query);
-      });
-    });
-
-    const slider = document.getElementById("hero-slider");
-    const slides = [...slider.querySelectorAll(".slide")];
-    const dots = [...slider.querySelectorAll(".slider-dots button")];
-    let currentSlide = 0;
-    let slideTimer;
-
-    function showSlide(index) {
-      currentSlide = (index + slides.length) % slides.length;
-      slides.forEach((slide, i) => slide.classList.toggle("active", i === currentSlide));
-      dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === currentSlide)));
-    }
-
-    function stopSlideTimer() {
-      window.clearInterval(slideTimer);
-    }
-
-    function startSlideTimer() {
-      stopSlideTimer();
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        slideTimer = window.setInterval(() => showSlide(currentSlide + 1), 6000);
-      }
-    }
-
-    document.getElementById("slide-prev").addEventListener("click", () => {
-      showSlide(currentSlide - 1);
-      startSlideTimer();
-    });
-
-    document.getElementById("slide-next").addEventListener("click", () => {
-      showSlide(currentSlide + 1);
-      startSlideTimer();
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        showSlide(index);
-        startSlideTimer();
-      });
-    });
-
-    slider.addEventListener("mouseenter", stopSlideTimer);
-    slider.addEventListener("mouseleave", startSlideTimer);
-    slider.addEventListener("focusin", stopSlideTimer);
-    slider.addEventListener("focusout", startSlideTimer);
-
-    let touchStartX = 0;
-    slider.addEventListener("touchstart", event => {
-      touchStartX = event.changedTouches[0].clientX;
-    }, { passive: true });
-
-    slider.addEventListener("touchend", event => {
-      const difference = touchStartX - event.changedTouches[0].clientX;
-      if (Math.abs(difference) > 45) {
-        showSlide(currentSlide + (difference > 0 ? 1 : -1));
-        startSlideTimer();
-      }
-    }, { passive: true });
-
-    startSlideTimer();
-
-    const guideSearch = document.getElementById("guide-search");
-    const guideCards = [...document.querySelectorAll(".guide-card")];
-    const guideButtons = [...document.querySelectorAll("[data-guide-filter]")];
-    const guideCount = document.getElementById("guide-count");
-    let selectedTheme = "todos";
-
-    function filterGuides() {
-      const query = guideSearch.value.trim().toLocaleLowerCase("pt-BR");
-      let visible = 0;
-
-      guideCards.forEach(card => {
-        const matchesTheme = selectedTheme === "todos" || card.dataset.theme === selectedTheme;
-        const matchesSearch = card.textContent.toLocaleLowerCase("pt-BR").includes(query);
-        card.hidden = !(matchesTheme && matchesSearch);
-        if (!card.hidden) visible++;
-      });
-
-      guideCount.textContent = `${visible} ${visible === 1 ? "guia disponível" : "guias disponíveis"}`;
-      guideButtons.forEach(button => {
-        button.setAttribute("aria-pressed", String(button.dataset.guideFilter === selectedTheme));
-      });
-    }
-
-    guideButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        selectedTheme = button.dataset.guideFilter;
-        filterGuides();
-      });
-    });
-
-    guideSearch.addEventListener("input", filterGuides);
-    filterGuides();
-  </script>
-</body>
-</html>
+<!DOCTYPE html> <html lang="pt-BR"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Amigos do Brilho | Produtos automotivos</title> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;800;900&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Rubik',sans-serif;background:#000;overflow-x:hidden}.hero{width:100%;min-height:100vh;position:relative;overflow:hidden;background:#000}.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.overlay{position:absolute;inset:0;background:linear-gradient( 90deg,rgba(0,0,0,.96) 0%,rgba(0,0,0,.84) 34%,rgba(0,0,0,.18) 68%,rgba(0,0,0,.58) 100% );z-index:2}.container{width:100%;max-width:1320px;margin:auto;position:relative;z-index:5;padding:28px 70px}.header{width:100%;height:96px;border:1.5px solid #ff8c00;border-radius:70px;display:flex;align-items:center;justify-content:space-between;padding:0 36px;background:rgba(0,0,0,.58);backdrop-filter:blur(10px)}.logo{width:155px}.menu{display:flex;align-items:center;gap:38px}.menu a{color:#fff;text-decoration:none;font-size:18px;font-weight:300;transition:.3s}.menu a:hover{color:#ff8c00}.menu .active{font-weight:800}.contact-btn{background:#18c133;color:#fff;text-decoration:none;padding:18px 48px;border-radius:50px;font-size:18px;font-weight:800}.hero-content{width:100%;min-height:calc(100vh - 130px);display:flex;align-items:center;justify-content:space-between;gap:20px}.hero-text{width:42%}.hero-text h1{color:#f2f2f2;font-size:78px;line-height:.92;font-weight:900;text-transform:uppercase;letter-spacing:-2px}.hero-text h1 span{color:#ff8c00}.hero-text p{margin-top:26px;color:#fff;font-size:27px;line-height:1.05;font-weight:300;max-width:520px}.hero-buttons{margin-top:42px;display:flex;flex-direction:column;gap:16px;max-width:460px}.hero-buttons a{width:100%;height:74px;border-radius:60px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:25px;font-weight:900;transition:.3s}.btn-products{background:#ff8c00;color:#000}.btn-whatsapp{background:#18c133;color:#fff}.hero-buttons a:hover{transform:translateY(-2px)}.hero-slider{width:58%;height:720px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}.slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateX(120px) scale(.95);transition:1s ease}.slide.active{opacity:1;pointer-events:auto;transform:translateX(0) scale(1)}.product-wrap{width:100%;height:100%;position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:72px}.product{position:relative;z-index:5;width:auto;object-fit:contain;filter:drop-shadow(0 25px 45px rgba(0,0,0,.55));animation:none;pointer-events:none}.product.coat{max-height:590px;margin-top:0}.product.luster{max-height:665px;margin-top:0}.product.graphene{max-height:675px;margin-top:0}.product-light{position:absolute;z-index:2;width:330px;height:330px;border-radius:50%;background:radial-gradient( circle,rgba(255,140,0,.40),rgba(255,140,0,.08) 42%,rgba(255,140,0,0) 70% );filter:blur(8px);animation:pulse 3s ease-in-out infinite}.light-one{top:120px;left:90px}.light-two{right:80px;bottom:120px}.slider-controls{position:absolute;top:130px;right:50px;z-index:30;display:flex;gap:12px}.slider-controls button{width:64px;height:64px;border-radius:18px;border:2px solid #ff8c00;background:rgba(0,0,0,.42);color:#ff8c00;font-size:42px;cursor:pointer;transition:.3s}.slider-controls button:hover{background:#ff8c00;color:#000}@keyframes pulse{0%,100%{transform:scale(.95);opacity:.75}50%{transform:scale(1.12);opacity:1}}@media(max-width:1100px){.container{padding:20px}.menu{display:none}.header{height:84px;padding:0 20px}.logo{width:120px}.contact-btn{padding:14px 28px;font-size:15px}.hero-content{flex-direction:column;align-items:flex-start;padding-top:40px}.hero-text,.hero-slider{width:100%}.hero-text h1{font-size:52px;letter-spacing:-1px}.hero-text p{font-size:22px}.hero-buttons{max-width:100%}.hero-buttons a{height:62px;font-size:21px}.hero-slider{height:560px;margin-top:20px}.product-wrap{padding-bottom:54px}.product.coat{max-height:410px;margin-top:0}.product.luster{max-height:485px;margin-top:0}.product.graphene{max-height:495px;margin-top:0}.product-light{width:230px;height:230px}.light-one{top:90px;left:40px}.light-two{bottom:80px;right:35px}.slider-controls{top:20px;right:10px}.slider-controls button{width:54px;height:54px;font-size:36px}}@media(max-width:520px){.container{padding:16px}.hero-text h1{font-size:43px}.hero-text p{font-size:20px}.hero-slider{height:500px}.product-wrap{padding-bottom:48px}.product.coat{max-height:360px;margin-top:0}.product.luster,.product.graphene{max-height:430px;margin-top:0}}:root{--shop-orange:#ff8500}.best-sellers{background:linear-gradient(180deg,#fff 0%,#f2f2f2 100%);color:#080808;overflow:hidden;padding-bottom:96px}.best-sellers *,.best-sellers *::before,.best-sellers *::after{box-sizing:border-box}.best-sellers .ticker{height:60px;display:flex;align-items:center;overflow:hidden;background:var(--shop-orange);color:#fff;white-space:nowrap}.best-sellers .ticker-track{display:flex;width:max-content;animation:shop-marquee 26s linear infinite}.best-sellers .ticker-line{flex:none;padding-right:18px;font-size:clamp(14px,1.9vw,25px);font-weight:800;letter-spacing:.22em}.best-sellers .section-heading{padding:112px 20px 88px;text-align:center}.best-sellers .eyebrow{margin:0 0 18px;font-size:clamp(15px,1.65vw,24px);font-weight:400;letter-spacing:.48em}.best-sellers h2{max-width:920px;margin:0 auto;font-size:clamp(34px,4.35vw,64px);line-height:.98;font-weight:900;letter-spacing:-.035em;text-transform:uppercase}.best-sellers .product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:1920px;margin:0 auto;padding:0 40px}.best-sellers .mobile-rail{display:none}.best-sellers .product-card{min-width:0;overflow:hidden;display:flex;flex-direction:column;border:2px solid #242424;border-radius:16px;background:linear-gradient(180deg,#fff 53%,#dedede 100%);box-shadow:0 3px 5px #0006;opacity:0;transform:translateY(42px);transition:opacity .72s ease,transform .72s cubic-bezier(.18,.75,.28,1),box-shadow .25s ease;transition-delay:var(--card-delay,0ms),var(--card-delay,0ms),0ms}.best-sellers .product-card.is-visible{opacity:1;transform:translateY(0)}.best-sellers .product-card.is-visible:hover{transform:translateY(-5px);box-shadow:0 9px 18px #0003}.best-sellers .product-kind{min-height:60px;display:grid;place-items:center;padding:8px 12px;background:var(--shop-orange);color:#fff;text-align:center;font-size:clamp(12px,1vw,16px);line-height:1.15;font-weight:700}.best-sellers .product-photo{display:block;width:100%;aspect-ratio:.93/1;object-fit:cover;background:#f7f7f7}.best-sellers .product-info{display:flex;flex:1;flex-direction:column;padding:20px 16px 18px}.best-sellers .product-name{margin:0 0 10px;font-size:clamp(25px,2.1vw,38px);line-height:1;font-weight:900;letter-spacing:-.02em}.best-sellers .product-description{min-height:4.1em;margin:0 0 16px;font-size:clamp(13px,1.05vw,18px);line-height:1.14}.best-sellers .product-tags{display:flex;flex-wrap:wrap;justify-content:center;align-content:flex-start;gap:6px;margin:auto 0 17px}.best-sellers .product-tag{min-height:38px;flex:0 1 calc(50% - 3px);display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:7px 9px;border:1.5px solid var(--shop-orange);border-radius:999px;color:var(--shop-orange);text-align:center;font-size:clamp(9px,.75vw,12px);line-height:1.05;font-weight:500}.best-sellers .product-tag::before{content:"";width:11px;height:11px;flex:0 0 11px;border-radius:50%;background:var(--shop-orange);box-shadow:0 0 9px #ff8500bf}.best-sellers .whatsapp-cta{position:relative;isolation:isolate;overflow:hidden;min-height:62px;display:flex;align-items:center;justify-content:center;padding:15px 14px;border-radius:999px;background:var(--shop-orange);color:#fff;text-align:center;text-decoration:none;font-size:clamp(12px,.92vw,16px);line-height:1.15;font-weight:800;transition:transform .2s ease,background .2s ease}.best-sellers .whatsapp-cta::after{content:"";position:absolute;z-index:-1;top:-55%;left:-58%;width:42%;height:210%;transform:skewX(-22deg);background:linear-gradient(90deg,transparent,#ffffffc7,transparent);animation:shop-light-sweep 3.8s ease-in-out infinite;pointer-events:none}.best-sellers .whatsapp-cta:hover{transform:translateY(-2px);background:#f17c00}.best-sellers .whatsapp-cta:focus-visible,.best-sellers .pagination button:focus-visible{outline:3px solid #111;outline-offset:3px}.best-sellers .pagination{display:none}@keyframes shop-marquee{to{transform:translateX(-50%)}}@keyframes shop-light-sweep{0%,55%{left:-58%}82%,100%{left:125%}}@media(max-width:1080px) and (min-width:701px){.best-sellers .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));padding-inline:28px;gap:18px}.best-sellers .product-photo{aspect-ratio:1.12/1}.best-sellers .product-name{font-size:32px}.best-sellers .product-description{font-size:16px}.best-sellers .product-tag{font-size:11px}.best-sellers .whatsapp-cta{font-size:15px}}@media(max-width:700px){.best-sellers{padding-bottom:56px}.best-sellers .ticker{height:37px}.best-sellers .ticker-line{font-size:10px;letter-spacing:.19em}.best-sellers .section-heading{padding:48px 18px 58px}.best-sellers .desktop-break{display:none}.best-sellers .eyebrow{margin-bottom:22px;font-size:14px;letter-spacing:.43em}.best-sellers h2{max-width:370px;font-size:clamp(29px,9vw,37px);line-height:.96}.best-sellers .product-grid{display:none}.best-sellers .mobile-rail{display:flex;gap:18px;overflow-x:auto;padding:0 max(18px,calc((100vw - 328px)/2));scrollbar-width:none;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}.best-sellers .mobile-rail::-webkit-scrollbar{display:none}.best-sellers .mobile-rail .product-card{flex:0 0 min(328px,calc(100vw - 74px));width:min(328px,calc(100vw - 74px));scroll-snap-align:center;border-radius:13px}.best-sellers .product-kind{min-height:54px;padding-inline:10px;font-size:14px}.best-sellers .product-photo{aspect-ratio:1.055/1}.best-sellers .product-info{padding:30px 21px 17px}.best-sellers .product-name{margin-bottom:17px;font-size:34px}.best-sellers .product-description{min-height:3.2em;margin-bottom:35px;font-size:15px;line-height:1.08}.best-sellers .product-tags{gap:6px;margin-bottom:20px}.best-sellers .product-tag{min-height:42px;flex:1 1 calc(50% - 6px);gap:8px;padding:7px 9px;font-size:10px}.best-sellers .whatsapp-cta{min-height:70px;font-size:14px}.best-sellers .pagination{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:34px}.best-sellers .pagination button{width:10px;height:10px;padding:0;border:0;border-radius:50%;background:#d7d7d7;cursor:pointer;transition:background .2s ease,transform .2s ease}.best-sellers .pagination button[aria-current="true"]{background:var(--shop-orange);transform:scale(1.05)}}@media(max-width:360px){.best-sellers .section-heading{padding-bottom:46px}.best-sellers .product-info{padding-inline:16px}.best-sellers .product-name{font-size:30px}.best-sellers .product-tag{font-size:9px}}@media(prefers-reduced-motion:reduce){.best-sellers *,.best-sellers *::before,.best-sellers *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.best-sellers .product-card{opacity:1;transform:none}}.service-lines{overflow:hidden;padding:112px 24px 125px;background:#050505;color:#fff}.service-lines .service-heading{max-width:1740px;margin:0 auto 150px;text-align:center}.service-lines h2{margin:0;font-size:clamp(38px,4.2vw,78px);line-height:.94;font-weight:900;letter-spacing:-.025em;text-transform:uppercase}.service-lines h2 .orange{color:#ff8500}.service-lines .mobile-title{display:none}.service-lines .service-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:22px 20px;max-width:1680px;margin:0 auto}.service-lines .service-card{position:relative;grid-column:span 2;min-width:0;aspect-ratio:1.46/1;isolation:isolate;opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s cubic-bezier(.18,.75,.28,1)}.service-lines .service-card.is-visible{opacity:1;transform:translateY(0)}.service-lines .service-card:nth-child(4):not(:last-child){grid-column:2/span 2}.service-lines .service-card:nth-child(5){grid-column:4/span 2}.service-lines .service-card:nth-child(4):last-child{grid-column:3/span 2}.service-lines .service-art{display:block;width:100%;height:100%;object-fit:fill}.service-lines .service-card-premium .service-art{border:2px solid #ff8500;border-radius:12px;box-shadow:0 0 18px #ff850080}.service-lines .service-cta{position:absolute;z-index:2;left:5%;bottom:6%;width:66%;min-height:44px;display:flex;align-items:center;justify-content:center;overflow:hidden;isolation:isolate;padding:12px 14px;border-radius:999px;background:linear-gradient(100deg,#ff7900,#ff9b00 50%,#ff7900);box-shadow:0 3px 10px #ff850052;color:#080808;text-decoration:none;text-align:center;font-size:clamp(12px,.95vw,17px);line-height:1.1;font-weight:900;transition:transform .2s ease,box-shadow .2s ease}.service-lines .service-cta::after{content:"";position:absolute;z-index:-1;top:-55%;left:-58%;width:42%;height:210%;transform:skewX(-22deg);background:linear-gradient(90deg,transparent,#ffffffc7,transparent);animation:shop-light-sweep 3.8s ease-in-out infinite;pointer-events:none}.service-lines .service-cta:hover{transform:translateY(-2px);box-shadow:0 5px 15px #ff850080}.service-lines .service-cta:focus-visible{outline:3px solid #fff;outline-offset:4px}@media(max-width:900px) and (min-width:701px){.service-lines{padding:88px 22px 90px}.service-lines .service-heading{margin-bottom:90px}.service-lines h2{font-size:clamp(36px,5vw,56px)}.service-lines .service-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.service-lines .service-card{grid-column:span 2}.service-lines .service-card:nth-child(4):last-child{grid-column:2/span 2}.service-lines .service-card:nth-child(4):not(:last-child),.service-lines .service-card:nth-child(5){grid-column:span 2}.service-lines .service-card:nth-child(5):last-child{grid-column:2/span 2}.service-lines .service-cta{min-height:40px;font-size:13px}}@media(max-width:700px){.service-lines{padding:78px 14px 70px}.service-lines .service-heading{max-width:365px;margin:0 auto 48px}.service-lines .desktop-title{display:none}.service-lines .mobile-title{display:block}.service-lines h2{font-size:clamp(31px,8.6vw,36px);line-height:.96;letter-spacing:-.025em}.service-lines .service-grid{display:flex;flex-direction:column;gap:16px;width:100%;max-width:390px;margin:0 auto}.service-lines .service-card{width:100%;aspect-ratio:1.46/1}.service-lines .service-cta{left:5%;bottom:6%;width:66%;min-height:38px;padding:9px 10px;font-size:clamp(10px,3vw,13px)}}@media(prefers-reduced-motion:reduce){.service-lines *,.service-lines *::before,.service-lines *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.service-lines .service-card{opacity:1;transform:none}}.results-showcase{overflow:hidden;padding:112px 0 118px;background:linear-gradient(180deg,#f3f3f3 0%,#fff 100%);color:#050505}.results-showcase .results-heading{max-width:1500px;margin:0 auto 76px;padding:0 28px;text-align:center}.results-showcase .results-eyebrow{margin:0 0 20px;font-size:clamp(18px,2vw,34px);font-weight:400;letter-spacing:.48em}.results-showcase h2{margin:0;font-size:clamp(44px,5vw,86px);line-height:.94;font-weight:900;letter-spacing:-.035em;text-transform:uppercase}.results-showcase h2 .orange{color:#ff8500}.results-showcase .mobile-title{display:none}.results-showcase .results-controls{display:none}.results-showcase .results-viewport{--video-gap:20px;width:100%;max-width:1760px;margin:0 auto;padding:0 38px;overflow:hidden}.results-showcase .results-track{display:flex;width:max-content;gap:var(--video-gap);will-change:transform}.results-showcase .results-group{display:flex;flex:0 0 auto;gap:var(--video-gap)}.results-showcase .results-card{position:relative;flex:0 0 calc((min(100vw - 76px,1684px) - 60px) / 4);width:calc((min(100vw - 76px,1684px) - 60px) / 4);aspect-ratio:.65 / 1;overflow:hidden;background:#171717}.results-showcase .results-video{display:block;width:100%;height:100%;object-fit:cover;background:#171717}.results-showcase .video-play{position:absolute;z-index:2;top:50%;left:50%;width:clamp(88px,7.4vw,128px);aspect-ratio:1;display:grid;place-items:center;padding:0;transform:translate(-50%,-50%);border:0;border-radius:50%;background:#ff8500;color:#fff;cursor:pointer;transition:transform .2s ease,background .2s ease,opacity .2s ease}.results-showcase .video-play:hover{transform:translate(-50%,-50%) scale(1.06);background:#f27800}.results-showcase .video-play:focus-visible{outline:4px solid #111;outline-offset:5px}.results-showcase .video-play svg{width:42%;height:42%;fill:currentColor}.results-showcase .video-play .pause-icon{display:none}.results-showcase .video-play.is-playing .play-icon{display:none}.results-showcase .video-play.is-playing .pause-icon{display:block}.results-showcase .results-cta-wrap{max-width:1050px;margin:76px auto 0;padding:0 26px}.results-showcase .results-cta{position:relative;isolation:isolate;overflow:hidden;min-height:122px;display:flex;align-items:center;justify-content:center;padding:20px 32px;border-radius:999px;background:linear-gradient(100deg,#ff7900,#ff9b00 50%,#ff7900);box-shadow:0 5px 8px #0004;color:#080808;text-align:center;text-decoration:none;font-size:clamp(24px,2.2vw,42px);line-height:1.05;font-weight:900;transition:transform .2s ease,box-shadow .2s ease}.results-showcase .results-cta::after{content:"";position:absolute;z-index:-1;top:-55%;left:-58%;width:42%;height:210%;transform:skewX(-22deg);background:linear-gradient(90deg,transparent,#ffffffc7,transparent);animation:shop-light-sweep 3.8s ease-in-out infinite;pointer-events:none}.results-showcase .results-cta:hover{transform:translateY(-2px);box-shadow:0 8px 14px #0004}.results-showcase .results-cta:focus-visible{outline:4px solid #111;outline-offset:5px}@media(max-width:700px){.results-showcase{padding:68px 0 78px}.results-showcase .results-heading{margin:0 auto 40px;padding:0 18px}.results-showcase .results-eyebrow{margin-bottom:14px;font-size:14px;letter-spacing:.43em}.results-showcase h2{font-size:clamp(29px,8.4vw,38px);line-height:.93;letter-spacing:-.035em}.results-showcase .desktop-title{display:none}.results-showcase .mobile-title{display:block}.results-showcase .results-heading-row{position:relative;padding-bottom:34px}.results-showcase .results-controls{position:absolute;right:18px;bottom:0;display:flex;gap:5px}.results-showcase .results-controls button{width:31px;height:29px;display:grid;place-items:center;padding:0;border:1px solid #ff8500;border-radius:5px;background:transparent;color:#ff8500;font:400 25px/1 Arial,sans-serif;cursor:pointer}.results-showcase .results-controls button:focus-visible{outline:2px solid #111;outline-offset:3px}.results-showcase .results-viewport{--video-gap:16px;padding:0 0}.results-showcase .results-card{flex-basis:min(292px,72vw);width:min(292px,72vw);aspect-ratio:.655 / 1}.results-showcase .video-play{width:92px}.results-showcase .results-cta-wrap{margin:37px auto 0;padding:0 28px}.results-showcase .results-cta{min-height:70px;padding:14px 20px;font-size:clamp(16px,4.5vw,21px)}}@media(prefers-reduced-motion:reduce){.results-showcase *,.results-showcase *::before,.results-showcase *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}.why-amigos{position:relative;isolation:isolate;overflow:hidden;min-height:clamp(780px,63.8vw,1225px);background:#090909;color:#fff}.why-amigos .why-background{position:absolute;z-index:-2;inset:0;display:block}.why-amigos .why-background img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center}.why-amigos::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,0) 75%);pointer-events:none}.why-amigos .why-content{position:relative;z-index:1;width:100%;max-width:1920px;margin:0 auto;padding:clamp(120px,9vw,175px) 4.3% 70px}.why-amigos h2{max-width:1100px;margin:0;color:#fff;font-size:clamp(42px,4.5vw,88px);line-height:.94;font-weight:900;letter-spacing:-.035em;text-transform:uppercase}.why-amigos h2 span{color:#ff8500}.why-amigos .why-benefits{display:flex;flex-direction:column;gap:22px;width:min(61%,1135px);margin-top:clamp(65px,7vw,138px)}.why-amigos .why-benefit{min-height:clamp(88px,7.2vw,138px);display:flex;align-items:stretch;overflow:hidden;border:2px solid #ff8500;border-radius:30px;background:rgba(0,0,0,.86);box-shadow:0 0 20px rgba(255,133,0,.19);backdrop-filter:blur(5px)}.why-amigos .why-icon-box{flex:0 0 clamp(72px,6.1vw,118px);display:grid;place-items:center;background:linear-gradient(135deg,#ff7900,#ff9b00);border-radius:26px}.why-amigos .why-icon{display:block;width:clamp(34px,3vw,58px);height:clamp(34px,3vw,58px);object-fit:contain}.why-amigos .why-copy{align-self:center;min-width:0;padding:14px clamp(18px,1.8vw,35px)}.why-amigos .why-copy h3{margin:0 0 3px;color:#ff8500;font-size:clamp(22px,2.3vw,43px);line-height:1;font-weight:700;text-transform:uppercase}.why-amigos .why-copy p{margin:0;color:#f4f4f4;font-size:clamp(13px,1.15vw,22px);line-height:1.13;font-weight:400}@media(max-width:700px){.why-amigos{min-height:max(693px,172.4vw);aspect-ratio:402 / 693}.why-amigos .why-background img{object-position:center top}.why-amigos::after{background:linear-gradient(180deg,transparent 28%,rgba(0,0,0,.12) 48%,rgba(0,0,0,.03) 100%)}.why-amigos .why-content{padding:clamp(340px,85vw,600px) 32px 22px}.why-amigos h2{max-width:390px;margin:0 auto;font-size:clamp(26px,7.2vw,34px);line-height:.94;letter-spacing:-.025em;text-align:center}.why-amigos .why-benefits{width:100%;max-width:470px;gap:8px;margin:17px auto 0}.why-amigos .why-benefit{min-height:58px;border-width:1.5px;border-radius:22px;box-shadow:0 0 14px rgba(255,133,0,.25)}.why-amigos .why-icon-box{flex-basis:52px;border-radius:19px}.why-amigos .why-icon{width:29px;height:29px}.why-amigos .why-copy{padding:6px 10px 6px 18px}.why-amigos .why-copy h3{margin-bottom:2px;font-size:clamp(12px,3.55vw,15px)}.why-amigos .why-copy p{font-size:clamp(8px,2.35vw,10px);line-height:1.03}}@media(prefers-reduced-motion:reduce){.why-amigos *,.why-amigos *::before,.why-amigos *::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}.final-contact{min-height:clamp(700px,70vw,1120px);display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);grid-template-areas:"copy phone";align-items:center;gap:2vw;max-width:1920px;margin:0 auto;padding:clamp(72px,8vw,150px) 5%;background:#fff;color:#090909;overflow:hidden}.final-contact .final-copy{grid-area:copy;position:relative;z-index:1}.final-contact h2{max-width:800px;color:#090909;font-size:clamp(44px,4.6vw,88px);line-height:.9;letter-spacing:-.035em;font-weight:900;text-transform:uppercase}.final-contact h2 span{color:#ff8500}.final-contact p{max-width:760px;margin-top:clamp(24px,2.6vw,50px);font-size:clamp(20px,2.1vw,36px);line-height:1.05;font-weight:400}.final-contact .final-cta{width:min(100%,860px);min-height:clamp(72px,8vw,150px);margin-top:clamp(34px,3.8vw,74px);padding:18px 28px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:radial-gradient(ellipse at 50% 50%,#ffad32 0%,#ff8500 58%,#ff7900 100%);box-shadow:0 5px 4px rgba(0,0,0,.28);color:#050505;font-size:clamp(20px,2.25vw,38px);line-height:1;font-weight:900;text-align:center;text-decoration:none;transition:transform .25s ease,filter .25s ease}.final-contact .final-cta:hover{transform:translateY(-3px);filter:brightness(1.05)}.final-contact .final-cta:focus-visible,.site-footer a:focus-visible{outline:3px solid #111;outline-offset:5px}.final-contact .final-phone{grid-area:phone;justify-self:center;display:block;width:clamp(500px,46vw,840px);max-width:112%;line-height:0;opacity:1;transform:translateX(0);transition:opacity .85s ease,transform .95s cubic-bezier(.2,.75,.25,1)}.final-contact .final-phone img{display:block;width:100%;height:auto}.has-scroll-reveal .final-contact .final-phone{opacity:0;transform:translateX(150px)}.has-scroll-reveal .final-contact .final-phone.is-visible{opacity:1;transform:translateX(0)}.site-footer{background:#ff8500;color:#050505;padding:clamp(48px,5.2vw,100px) 7.5%}.site-footer .footer-inner{max-width:1600px;margin:0 auto;display:grid;grid-template-columns:1fr .62fr 1.2fr;align-items:center;gap:clamp(35px,6vw,120px)}.site-footer .footer-brand{display:flex;justify-content:center}.site-footer .footer-brand-link{width:clamp(210px,19vw,370px);aspect-ratio:1;display:grid;place-items:center;border-radius:50%;background:#050505;color:#ff8500;text-decoration:none}.site-footer .footer-brand-link svg{width:78%;height:auto}.site-footer .footer-column h2{margin:0 0 clamp(20px,2.3vw,42px);font-size:clamp(34px,4vw,68px);line-height:1;font-weight:800;letter-spacing:-.04em}.site-footer .footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px}.site-footer .footer-links a,.site-footer .footer-address{color:#050505;font-size:clamp(19px,2vw,33px);line-height:1.3;text-decoration:none}.site-footer .footer-links a:hover,.site-footer .footer-address:hover{text-decoration:underline}.site-footer .footer-address{display:inline-block}.site-footer .footer-contact{width:min(100%,460px);min-height:clamp(68px,6vw,114px);margin:clamp(22px,2.3vw,44px) auto 0;display:flex;align-items:center;justify-content:center;border-radius:999px;background:linear-gradient(110deg,#050505,#282828);color:#ff8500;font-size:clamp(24px,2.35vw,42px);line-height:1;font-weight:900;text-decoration:none;transition:transform .25s ease,filter .25s ease}.site-footer .footer-contact:hover{transform:translateY(-3px);filter:brightness(1.18)}@media(max-width:700px){.final-contact{min-height:0;grid-template-columns:1fr;grid-template-areas:"phone" "copy";gap:0;padding:26px 28px 68px;text-align:center}.final-contact .final-phone{width:min(100%,430px);max-width:none;margin:0 auto 0;transform:translateY(0)}.has-scroll-reveal .final-contact .final-phone{transform:translateY(-125px)}.has-scroll-reveal .final-contact .final-phone.is-visible{transform:translateY(0)}.final-contact h2{max-width:520px;margin:0 auto;font-size:clamp(29px,7.4vw,42px);line-height:.91;letter-spacing:-.025em}.final-contact p{max-width:480px;margin:16px auto 0;font-size:clamp(15px,4vw,19px);line-height:1.02}.final-contact .final-cta{width:min(100%,450px);min-height:72px;margin:28px auto 0;padding:14px 18px;font-size:clamp(17px,4.6vw,22px)}.site-footer{padding:74px 28px 48px;text-align:center}.site-footer .footer-inner{grid-template-columns:1fr;gap:34px}.site-footer .footer-brand{margin-bottom:2px}.site-footer .footer-brand-link{width:min(50vw,210px)}.site-footer .footer-column h2{margin-bottom:12px;font-size:clamp(27px,7vw,34px)}.site-footer .footer-links{align-items:center;gap:2px}.site-footer .footer-links a,.site-footer .footer-address{font-size:16px;line-height:1.45}.site-footer .footer-contact{width:min(100%,340px);min-height:74px;margin:30px auto 0;font-size:27px}}@media(prefers-reduced-motion:reduce){.final-contact *,.site-footer *{transition-duration:.01ms!important}.has-scroll-reveal .final-contact .final-phone{opacity:1!important;transform:none!important}}:root{--page-gutter:clamp(16px,4vw,54px)}.hero{min-height:clamp(620px,100svh,900px)}.container{max-width:1480px;padding:22px var(--page-gutter)}.header{height:76px;padding:0 clamp(20px,2.5vw,34px)}.logo{width:clamp(112px,10vw,138px)}.menu{gap:clamp(18px,2.25vw,34px)}.menu a{font-size:clamp(15px,1.25vw,18px)}.contact-btn{padding:14px clamp(22px,3vw,38px);font-size:16px}.hero-content{min-height:calc(100svh - 120px);gap:clamp(24px,3vw,44px)}.hero-text{width:44%}.hero-text h1{font-size:clamp(46px,5vw,72px);line-height:.98;letter-spacing:-.045em}.hero-text p{margin-top:20px;font-size:clamp(18px,1.65vw,23px);line-height:1.2}.hero-buttons{max-width:390px;margin-top:30px;gap:12px}.hero-buttons a{height:58px;font-size:clamp(16px,1.5vw,20px)}.hero-slider{width:56%;height:min(610px,68svh);transform:translateX(clamp(-38px,-2.7vw,-20px))}.product-wrap{padding-bottom:22px}.product-light.light-one{top:auto;left:50%;right:auto;bottom:74px;width:clamp(330px,34vw,470px);height:clamp(220px,23vw,320px);margin-left:clamp(-235px,-17vw,-165px)}.product-light.light-two{top:auto;left:50%;right:auto;bottom:28px;width:clamp(250px,28vw,390px);height:clamp(180px,20vw,270px);margin-left:clamp(-195px,-14vw,-125px)}.product.coat{max-height:500px}.product.luster,.product.graphene{max-height:560px}.best-sellers{padding-bottom:68px}.best-sellers .section-heading{padding:78px 20px 62px}.best-sellers .product-grid{max-width:1400px;gap:16px;padding:0 var(--page-gutter)}.service-lines{padding:88px 24px 92px}.service-lines .service-heading{max-width:1420px;margin-bottom:76px}.service-lines h2{font-size:clamp(34px,4vw,64px);line-height:1}.service-lines .service-grid{max-width:1320px;gap:18px}.service-lines .service-card{aspect-ratio:1.46 / 1}.service-lines .service-art{object-fit:cover}.service-lines .service-card-premium .service-art{border-width:2px}.service-lines .service-cta{left:50%;bottom:6%;width:min(78%,280px);height:44px;min-height:44px;padding:10px 14px;transform:translateX(-50%);font-size:clamp(12px,1vw,15px)}.service-lines .service-cta:hover{transform:translate(-50%,-2px)}.results-showcase{padding:86px 0 88px}.results-showcase .results-heading{margin-bottom:54px}.results-showcase .results-eyebrow{margin-bottom:14px;font-size:clamp(15px,1.5vw,22px)}.results-showcase h2{font-size:clamp(36px,4.5vw,70px)}.results-showcase .results-viewport{max-width:1500px;padding:0 32px}.results-showcase .results-card{flex-basis:calc((min(100vw - 64px,1436px) - 60px) / 4);width:calc((min(100vw - 64px,1436px) - 60px) / 4);aspect-ratio:.72 / 1}.results-showcase .video-play{width:clamp(72px,6.2vw,104px)}.results-showcase .results-cta-wrap{max-width:920px;margin:56px auto 0}.results-showcase .results-cta{min-height:84px;font-size:clamp(20px,2vw,32px)}.why-amigos{min-height:clamp(650px,62vw,920px)}.why-amigos .why-content{max-width:1480px;padding:clamp(90px,7.4vw,132px) 5% 56px}.why-amigos h2{font-size:clamp(40px,4.1vw,72px)}.why-amigos .why-benefits{width:min(60%,850px);gap:16px;margin-top:clamp(54px,5.5vw,86px)}.why-amigos .why-benefit{min-height:94px;border-radius:24px}.why-amigos .why-icon-box{flex:0 0 84px;width:84px;border-radius:21px}.why-amigos .why-icon{width:42px;height:42px}.why-amigos .why-copy{padding:12px 22px}.why-amigos .why-copy h3{font-size:clamp(19px,1.8vw,28px)}.why-amigos .why-copy p{font-size:clamp(13px,1.05vw,17px);line-height:1.25}.final-contact{min-height:clamp(560px,58vw,850px);gap:2.5vw;padding:clamp(58px,6.5vw,104px) 5%}.final-contact h2{font-size:clamp(42px,4vw,68px)}.final-contact p{margin-top:24px;font-size:clamp(18px,1.65vw,25px);line-height:1.2}.final-contact .final-cta{min-height:84px;margin-top:34px;font-size:clamp(18px,1.8vw,28px)}.final-contact .final-phone{width:clamp(380px,43vw,680px)}.site-footer{padding:64px 6%}.site-footer .footer-inner{max-width:1400px;gap:clamp(28px,4vw,72px)}.site-footer .footer-brand-link{width:clamp(180px,16vw,280px)}.site-footer .footer-column h2{font-size:clamp(30px,3.2vw,50px)}.site-footer .footer-links a,.site-footer .footer-address{font-size:clamp(17px,1.6vw,24px)}.site-footer .footer-contact{min-height:78px;font-size:clamp(22px,2vw,30px)}.video-player-dialog{width:min(980px,calc(100vw - 32px));max-width:none;max-height:calc(100svh - 32px);margin:auto;padding:0;overflow:hidden;border:1px solid #ff8500;border-radius:20px;background:#0b0b0b;color:#fff;box-shadow:0 24px 90px #000b}.video-player-dialog::backdrop{background:rgba(0,0,0,.84);backdrop-filter:blur(5px)}.video-player-shell{background:#0b0b0b}.video-player-header{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 16px 10px 22px}.video-player-title{margin:0;color:#fff;font-size:clamp(17px,2vw,23px);line-height:1.2;font-weight:700}.video-player-close{flex:0 0 42px;width:42px;height:42px;display:grid;place-items:center;border:1px solid #ff8500;border-radius:50%;background:#191919;color:#ff8500;font:400 30px/1 Arial,sans-serif;cursor:pointer}.video-player-close:focus-visible{outline:3px solid #fff;outline-offset:3px}.video-player{display:block;width:100%;height:min(72svh,720px);background:#000;object-fit:contain}@media(max-width:1100px){.hero{min-height:0}.hero-content{min-height:0;padding-top:38px}.hero-slider{height:clamp(350px,52vw,470px);transform:none}.product-wrap{padding-bottom:22px}.product-light.light-one{top:auto;left:50%;right:auto;bottom:58px;width:clamp(240px,38vw,330px);height:clamp(180px,28vw,250px);margin-left:clamp(-165px,-19vw,-120px)}.product-light.light-two{top:auto;left:50%;right:auto;bottom:24px;width:clamp(210px,31vw,290px);height:clamp(160px,23vw,220px);margin-left:clamp(-145px,-15vw,-105px)}.product.coat{max-height:360px}.product.luster,.product.graphene{max-height:410px}.service-lines .service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.service-lines .service-grid .service-card:nth-child(4):not(:last-child),.service-lines .service-grid .service-card:nth-child(5){grid-column:auto}.service-lines .service-grid .service-card:nth-child(5):last-child{grid-column:1 / -1;width:calc((100% - 16px) / 2);justify-self:center}.why-amigos{min-height:clamp(620px,75vw,820px)}.why-amigos .why-content{padding-top:90px}.why-amigos .why-benefits{width:min(68%,760px);margin-top:48px}.final-contact{min-height:560px}.final-contact .final-phone{width:min(43vw,560px)}}@media(max-width:700px){.container{padding:14px 16px}.header{height:62px;padding:0 14px}.logo{width:100px}.contact-btn{padding:11px 18px;font-size:13px}.hero-content{padding-top:32px;gap:4px}.hero-text,.hero-slider{width:100%}.hero-text h1{font-size:clamp(38px,10vw,48px);line-height:.98}.hero-text p{max-width:440px;margin-top:16px;font-size:18px;line-height:1.25}.hero-buttons{max-width:420px;margin-top:22px;gap:10px}.hero-buttons a{height:52px;font-size:16px}.hero-slider{height:min(390px,100vw);margin-top:12px}.product-wrap{padding-bottom:16px}.product.coat{max-height:300px}.product.luster,.product.graphene{max-height:340px}.best-sellers{padding-bottom:48px}.best-sellers .section-heading{padding:56px 16px 42px}.service-lines{padding:62px 16px 66px}.service-lines .service-heading{margin-bottom:34px}.service-lines .service-grid{display:flex;flex-direction:column;gap:14px;max-width:480px}.service-lines .service-grid .service-card,.service-lines .service-grid .service-card:nth-child(5):last-child{width:100%;aspect-ratio:1.46 / 1}.service-lines .service-cta{width:min(78%,280px);height:40px;min-height:40px;bottom:6%;padding:8px 10px;font-size:clamp(11px,3vw,14px)}.results-showcase{padding:58px 0 64px}.results-showcase .results-heading{margin-bottom:32px}.results-showcase .results-card{flex-basis:min(260px,72vw);width:min(260px,72vw);aspect-ratio:.72 / 1}.results-showcase .video-play{width:76px}.results-showcase .results-cta-wrap{margin:32px auto 0;padding:0 20px}.results-showcase .results-cta{min-height:64px;padding:12px 16px;font-size:17px}.why-amigos{min-height:0;aspect-ratio:auto}.why-amigos .why-background img{object-position:center top}.why-amigos .why-content{padding:clamp(280px,78vw,360px) 20px 28px}.why-amigos h2{font-size:clamp(26px,7.2vw,34px)}.why-amigos .why-benefits{width:100%;max-width:440px;gap:8px;margin-top:16px}.why-amigos .why-benefit{min-height:60px;border-radius:18px}.why-amigos .why-icon-box{flex:0 0 54px;width:54px;border-radius:16px}.why-amigos .why-icon{width:30px;height:30px}.why-amigos .why-copy{padding:6px 10px 6px 12px}.why-amigos .why-copy h3{margin-bottom:3px;font-size:clamp(12px,3.5vw,15px);line-height:1.05}.why-amigos .why-copy p{font-size:clamp(10px,2.8vw,12px);line-height:1.15}.final-contact{padding:24px 22px 52px}.final-contact .final-phone{width:min(100%,360px)}.final-contact h2{font-size:clamp(29px,7.4vw,40px)}.final-contact p{font-size:clamp(15px,4vw,18px);line-height:1.2}.final-contact .final-cta{min-height:62px;margin-top:22px;font-size:17px}.site-footer{padding:54px 22px 42px}.site-footer .footer-inner{gap:28px}.site-footer .footer-brand-link{width:min(45vw,190px)}.site-footer .footer-contact{min-height:64px;font-size:23px}.video-player-dialog{width:calc(100vw - 18px);border-radius:14px}.video-player-header{min-height:54px;padding:8px 10px 8px 14px}.video-player-close{flex-basis:38px;width:38px;height:38px}.video-player{height:min(70svh,620px)}}@media(prefers-reduced-motion:reduce){.service-lines .service-card{opacity:1;transform:none}}.site-header{position:sticky;top:10px;z-index:1000;width:min(1480px,calc(100% - 2 * clamp(12px,3vw,40px)));height:76px;margin:10px auto 0;padding:0 clamp(14px,2.2vw,30px);background:rgba(5,5,5,.94);box-shadow:0 12px 36px rgba(0,0,0,.3)}.site-header .brand{flex:0 0 auto;display:flex;align-items:center;line-height:0}.site-header .logo{display:block;width:clamp(88px,9vw,128px);height:auto;object-fit:contain}.site-header .menu{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2vw,30px);margin-left:auto;margin-right:clamp(14px,2.3vw,34px)}.site-header .menu a{color:#fff;font-size:clamp(12px,1.1vw,16px);font-weight:600;white-space:nowrap}.site-header .menu a:hover,.site-header .menu a.active{color:#ff8c00}.site-header .contact-btn{flex:0 0 auto;padding:12px clamp(16px,2vw,28px);font-size:14px;white-space:nowrap}.page-body{min-height:100vh;background:#080808;color:#fff}.page-main{min-height:calc(100svh - 86px)}.page-hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(68px,8vw,112px) 22px clamp(48px,6vw,78px);background:radial-gradient(ellipse at 50% 0%,#3a1c00 0%,#101010 45%,#080808 100%);color:#fff;text-align:center}.page-hero::before{content:"";position:absolute;z-index:-1;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,#ff8500,transparent)}.page-eyebrow{margin:0 0 16px;color:#ff8500;font-size:clamp(13px,1.35vw,18px);font-weight:800;letter-spacing:.32em;text-transform:uppercase}.page-hero h1{max-width:1040px;margin:0 auto;color:#fff;font-size:clamp(36px,5.2vw,72px);line-height:.98;font-weight:900;letter-spacing:-.04em;text-transform:uppercase}.page-hero h1 span{color:#ff8500}.page-hero>p:last-child{max-width:760px;margin:22px auto 0;color:#e8e8e8;font-size:clamp(16px,1.55vw,21px);line-height:1.45}.page-wrap{width:min(1320px,calc(100% - 2 * clamp(16px,4vw,48px)));margin:0 auto}.products-page,.bestsellers-page{background:#f3f3f3;color:#101010}.products-page .page-hero,.bestsellers-page .page-hero{padding-bottom:58px}.catalog-section{padding:42px 0 84px}.catalog-toolbar{max-width:1080px;margin:0 auto 28px}.search-control{min-height:62px;display:flex;align-items:center;gap:12px;padding:0 18px;border:1px solid #c9c9c9;border-radius:15px;background:#fff;box-shadow:0 5px 20px #0000000d}.search-control svg{flex:0 0 24px;width:24px;height:24px;fill:none;stroke:#777;stroke-width:2}.search-control input{min-width:0;width:100%;height:58px;border:0;outline:0;color:#111;background:transparent;font:500 17px/1.2 'Rubik',sans-serif}.search-control input::placeholder{color:#777}.search-control:focus-within{border-color:#ff8500;box-shadow:0 0 0 3px #ff850026}.category-filters{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:20px 0 0}.filter-chip{min-height:40px;padding:9px 16px;border:1px solid #c7c7c7;border-radius:999px;background:#fff;color:#242424;font:700 13px/1.1 'Rubik',sans-serif;cursor:pointer;transition:background .18s,color .18s,border-color .18s,transform .18s}.filter-chip:hover{transform:translateY(-1px);border-color:#ff8500}.filter-chip[aria-pressed="true"]{border-color:#ff8500;background:#ff8500;color:#111}.catalog-summary{margin:0 0 18px;color:#555;text-align:center;font-size:14px}.catalog-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.catalog-card{min-width:0;overflow:hidden;display:flex;flex-direction:column;border:1px solid #d8d8d8;border-radius:17px;background:#fff;color:#111;box-shadow:0 6px 20px #00000012;transition:transform .2s,box-shadow .2s}.catalog-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px #00000020}.catalog-card-category{min-height:44px;display:flex;align-items:center;justify-content:center;padding:9px 12px;background:#ff8500;color:#111;text-align:center;font-size:12px;line-height:1.2;font-weight:900;text-transform:uppercase;letter-spacing:.05em}.catalog-card .product-photo{display:block;width:100%;aspect-ratio:1 / 1;object-fit:contain;padding:12px;background:#f7f7f7}.catalog-card-body{flex:1;display:flex;flex-direction:column;padding:18px 18px 16px}.catalog-card .product-name{margin:0 0 10px;font-size:clamp(22px,1.9vw,29px);line-height:1.02;font-weight:900;letter-spacing:-.025em}.catalog-card .product-description{min-height:4.2em;margin:0 0 16px;color:#444;font-size:14px;line-height:1.35}.catalog-card .product-tags{display:flex;flex-wrap:wrap;gap:7px;margin:auto 0 16px}.catalog-card .product-tag{min-height:30px;display:inline-flex;align-items:center;padding:6px 9px;border:1px solid #ff8500;border-radius:999px;color:#6c3900;font-size:11px;line-height:1.1;font-weight:700}.catalog-card .whatsapp-cta{min-height:48px;display:flex;align-items:center;justify-content:center;padding:11px 12px;border-radius:999px;background:#ff8500;color:#111;text-align:center;text-decoration:none;font-size:13px;line-height:1.1;font-weight:900;transition:background .18s,transform .18s}.catalog-card .whatsapp-cta:hover{transform:translateY(-2px);background:#ff9c26}.catalog-empty{grid-column:1/-1;padding:40px 20px;border:1px dashed #aaa;border-radius:16px;color:#555;text-align:center}.bestsellers-page .catalog-section{padding-top:52px}.bestsellers-page .catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.about-page{background:#080808;color:#fff}.about-story{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(28px,5vw,76px);padding:clamp(54px,7vw,96px) 0}.about-image{min-height:360px;overflow:hidden;border:1px solid #ff8500;border-radius:22px;background:#111;box-shadow:0 15px 48px #ff85001c}.about-image img{display:block;width:100%;height:100%;min-height:360px;object-fit:cover;object-position:center}.about-copy .page-eyebrow{margin-bottom:12px}.about-copy h2{margin:0 0 20px;font-size:clamp(30px,3.5vw,48px);line-height:1;font-weight:900;text-transform:uppercase}.about-copy h2 span{color:#ff8500}.about-copy p{margin:0 0 15px;color:#dedede;font-size:clamp(16px,1.3vw,19px);line-height:1.65}.about-values{padding:0 0 clamp(60px,7vw,92px)}.about-values h2{margin:0 0 24px;text-align:center;font-size:clamp(28px,3.2vw,44px);line-height:1;font-weight:900;text-transform:uppercase}.about-values h2 span{color:#ff8500}.about-values-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.about-value{padding:24px;border:1px solid #ff8500;border-radius:18px;background:linear-gradient(145deg,#171717,#0d0d0d)}.about-value h3{margin:0 0 9px;color:#ff8500;font-size:20px;text-transform:uppercase}.about-value p{margin:0;color:#ddd;font-size:15px;line-height:1.5}.about-cta{display:inline-flex;min-height:54px;align-items:center;justify-content:center;margin-top:14px;padding:14px 26px;border-radius:999px;background:#ff8500;color:#111;text-decoration:none;font-size:14px;font-weight:900}@media(max-width:1100px){.site-header{width:calc(100% - 24px);height:68px;padding-inline:14px}.site-header .menu{display:flex;gap:clamp(8px,1.4vw,16px);margin-right:12px}.site-header .logo{width:clamp(76px,9vw,100px)}.site-header .menu a{font-size:clamp(10px,1.35vw,13px)}.site-header .contact-btn{padding:10px 13px;font-size:11px}.catalog-grid,.bestsellers-page .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.site-header{display:grid;grid-template-columns:1fr auto;grid-template-rows:31px 22px;gap:5px 8px;height:auto;min-height:70px;top:6px;padding:7px 10px 8px;border-radius:19px}.site-header .brand{grid-row:1;grid-column:1}.site-header .logo{width:68px;max-height:30px}.site-header .contact-btn{grid-row:1;grid-column:2;justify-self:end;min-height:30px;padding:7px 12px;font-size:10px}.site-header .menu{grid-row:2;grid-column:1/-1;justify-content:space-between;gap:4px;width:100%;margin:0}.site-header .menu a{font-size:clamp(9px,2.6vw,11px);line-height:1;letter-spacing:0}.page-hero{padding:54px 17px 40px}.page-hero>p:last-child{margin-top:15px;font-size:15px;line-height:1.4}.page-wrap{width:calc(100% - 32px)}.catalog-section,.bestsellers-page .catalog-section{padding:28px 0 54px}.catalog-toolbar{margin-bottom:20px}.search-control{min-height:54px;padding-inline:13px}.search-control input{height:50px;font-size:15px}.category-filters{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;margin-top:14px;padding:2px 2px 8px;scrollbar-width:thin}.filter-chip{flex:none;min-height:36px;padding:8px 12px;font-size:11px}.catalog-grid,.bestsellers-page .catalog-grid{grid-template-columns:minmax(0,1fr);gap:14px}.catalog-card{display:grid;grid-template-columns:minmax(110px,.72fr) minmax(0,1.28fr);grid-template-rows:auto 1fr;border-radius:14px}.catalog-card-category{grid-column:1/-1;min-height:36px;font-size:10px}.catalog-card .product-photo{grid-row:2;width:100%;height:100%;min-height:180px;aspect-ratio:auto;padding:8px}.catalog-card-body{grid-row:2;padding:13px 12px 12px}.catalog-card .product-name{margin-bottom:7px;font-size:21px}.catalog-card .product-description{min-height:0;margin-bottom:10px;font-size:12px;line-height:1.28}.catalog-card .product-tags{gap:5px;margin:0 0 10px}.catalog-card .product-tag{min-height:25px;padding:5px 7px;font-size:9px}.catalog-card .whatsapp-cta{min-height:40px;padding:9px 8px;font-size:10px}.about-story{grid-template-columns:1fr;gap:25px;padding:38px 0 48px}.about-image,.about-image img{min-height:230px;max-height:300px}.about-image img{object-position:center 35%}.about-values{padding-bottom:52px}.about-values-grid{grid-template-columns:1fr;gap:11px}.about-value{padding:18px}}@media(max-width:360px){.site-header{width:calc(100% - 16px);padding-inline:8px}.site-header .menu a{font-size:9px}.catalog-card{grid-template-columns:minmax(100px,.68fr) minmax(0,1.32fr)}.catalog-card .product-name{font-size:19px}}.guide-hub{position:relative;overflow:hidden;padding:clamp(68px,7vw,108px) var(--page-gutter) clamp(72px,7vw,112px);background:linear-gradient(180deg,#f4f4f4 0%,#fff 100%);color:#090909}.guide-hub::before{content:"";position:absolute;top:-220px;right:-190px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,#ff85001c 0%,#ff850000 70%);pointer-events:none}.guide-wrap{position:relative;z-index:1;max-width:1400px;margin:0 auto}.guide-heading{max-width:920px;margin:0 auto 48px;text-align:center}.guide-kicker{margin:0 0 16px;color:#a95400;font-size:14px;font-weight:800;letter-spacing:.38em;text-transform:uppercase}.guide-heading h2{margin:0;font-size:clamp(34px,4.2vw,62px);line-height:.98;font-weight:900;letter-spacing:-.04em;text-transform:uppercase}.guide-heading h2 span{color:#ff8500}.guide-heading>p:last-child{max-width:740px;margin:20px auto 0;color:#444;font-size:clamp(16px,1.45vw,20px);line-height:1.5}.guide-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.guide-card{min-width:0;min-height:260px;display:flex;flex-direction:column;padding:24px 20px 20px;border:1px solid #dedede;border-top:4px solid #ff8500;border-radius:14px;background:#fff;box-shadow:0 8px 26px #0000000a;color:inherit;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease}.guide-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #00000016}.guide-card:focus-visible{outline:3px solid #111;outline-offset:4px}.guide-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:22px}.guide-card-number{color:#ff8500;font-size:14px;font-weight:900;letter-spacing:.12em}.guide-card-theme{color:#666;font-size:10px;line-height:1.2;font-weight:800;letter-spacing:.1em;text-align:right;text-transform:uppercase}.guide-card h3{margin:0 0 12px;font-size:clamp(20px,1.65vw,25px);line-height:1.05;font-weight:900;letter-spacing:-.025em}.guide-card-question{margin:0;color:#444;font-size:15px;line-height:1.42}.guide-card-count{margin:auto 0 0;padding-top:22px;color:#904800;font-size:11px;line-height:1.2;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.guide-note{max-width:900px;margin:28px auto 0;color:#555;font-size:13px;line-height:1.5;text-align:center}.guide-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:26px}.guide-button{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border:2px solid #ff8500;border-radius:999px;background:#ff8500;color:#111;text-decoration:none;font-size:13px;font-weight:900;letter-spacing:.04em;transition:transform .2s ease,background .2s ease}.guide-button:hover{transform:translateY(-2px);background:#ff9c24}.guide-button.secondary{background:transparent;color:#111}.guide-button.secondary:hover{background:#fff0df}.guide-button:focus-visible{outline:3px solid #111;outline-offset:3px}@media(max-width:1100px){.guide-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.guide-card{min-height:238px}}@media(max-width:700px){.guide-hub{padding:58px 16px 64px}.guide-heading{margin-bottom:30px}.guide-kicker{margin-bottom:12px;font-size:11px;letter-spacing:.3em}.guide-heading h2{max-width:430px;margin:0 auto;font-size:clamp(31px,8.5vw,40px)}.guide-heading>p:last-child{margin-top:14px;font-size:15px}.guide-grid{grid-template-columns:1fr;gap:10px}.guide-card{min-height:0;padding:20px 18px 17px}.guide-card-top{margin-bottom:14px}.guide-card h3{margin-bottom:8px;font-size:22px}.guide-card-question{font-size:14px}.guide-card-count{padding-top:15px}.guide-note{margin-top:20px;font-size:12px}.guide-actions{flex-direction:column;margin:22px auto 0;max-width:380px}.guide-button{width:100%;min-height:48px;font-size:12px}}.guide-grid{grid-auto-rows:1fr;align-items:stretch}.guide-card{min-height:300px;height:100%;padding:0;overflow:hidden}.guide-card-visual{width:100%;aspect-ratio:16/8.5;overflow:hidden;background:linear-gradient(135deg,#171717,#50300f 60%,#111)}.guide-card-visual img{display:block;width:100%;height:100%;object-fit:cover}.guide-card-body{flex:1;display:flex;flex-direction:column;padding:20px}.guide-card-question{min-height:4.2em}.guide-article-view[hidden],.guide-grid[hidden]{display:none!important}.guide-article-view{max-width:1020px;margin:0 auto;padding:clamp(20px,4vw,48px);border:1px solid #dedede;border-radius:24px;background:#fff;box-shadow:0 18px 55px #00000010}.guide-article-back{display:inline-flex;align-items:center;gap:9px;min-height:44px;margin:0 0 22px;padding:10px 16px;border:1px solid #ff8500;border-radius:999px;color:#6b3700;text-decoration:none;font-size:13px;font-weight:800}.guide-article-back:hover{background:#fff0df}.guide-article-kicker{margin:0 0 12px;color:#a95400;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.guide-article-title{margin:0;color:#111;font-size:clamp(30px,4.5vw,54px);line-height:1.02;font-weight:900;letter-spacing:-.04em}.guide-article-dek{max-width:800px;margin:16px 0 20px;color:#444;font-size:clamp(17px,1.8vw,21px);line-height:1.5}.guide-article-meta{margin:0 0 24px;color:#727272;font-size:12px;font-weight:700}.guide-article-figure{margin:0 0 30px;overflow:hidden;border:1px solid #e5e5e5;border-radius:18px;background:#f3f3f3}.guide-article-image{display:block;width:100%;aspect-ratio:16/8.5;object-fit:cover;background:#171717}.guide-article-figure figcaption{padding:10px 14px;color:#656565;font-size:12px;line-height:1.45}.guide-article-columns{display:grid;grid-template-columns:minmax(0,1fr) 260px;align-items:start;gap:28px}.guide-article-copy section{margin:0 0 25px}.guide-article-copy h3{margin:0 0 9px;color:#111;font-size:22px;line-height:1.2}.guide-article-copy p,.guide-article-copy li{color:#393939;font-size:16px;line-height:1.7}.guide-article-copy p{margin:0 0 12px}.guide-article-copy ol,.guide-article-copy ul{margin:0;padding-left:23px}.guide-article-copy li{padding:0 0 10px 4px}.guide-article-aside{position:sticky;top:100px;padding:22px;border-radius:18px;background:#111;color:#fff}.guide-article-aside h3{margin:0 0 10px;color:#ff8500;font-size:17px}.guide-article-aside p{margin:0;color:#e5e5e5;font-size:14px;line-height:1.55}.guide-article-callout{padding:16px 18px;border-left:4px solid #ff8500;border-radius:0 12px 12px 0;background:#fff5e9}.guide-article-navigation{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid #e5e5e5}.guide-article-navigation a{color:#8b4800;font-size:13px;font-weight:900;text-decoration:none}.guide-article-navigation a:hover{text-decoration:underline}.product.coat{max-height:570px}.product.luster,.product.graphene{max-height:625px}.hero-slider{height:min(680px,74svh)}.best-sellers .product-grid{max-width:1320px;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.best-sellers .product-card{min-height:100%}.best-sellers .product-photo{aspect-ratio:1.08/1;object-fit:contain;padding:14px}.best-sellers .product-kind{min-height:62px}.best-sellers .product-name{min-height:2em}.best-sellers .product-description{min-height:4.4em}.catalog-grid,.bestsellers-page .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.catalog-card .product-photo{aspect-ratio:.88/1;padding:18px;object-fit:contain}.service-lines .service-grid{align-items:stretch}.service-lines .service-card{min-width:0;overflow:hidden}.service-lines .service-art{object-fit:cover;object-position:center}.service-lines .service-cta{left:50%;bottom:6%;width:min(78%,300px);min-height:46px;transform:translateX(-50%)}.service-lines .service-cta:hover{transform:translate(-50%,-2px)}@media(max-width:1100px){.guide-article-columns{grid-template-columns:minmax(0,1fr) 220px;gap:20px}.product.coat{max-height:390px}.product.luster,.product.graphene{max-height:455px}.hero-slider{height:clamp(390px,55vw,500px)}.best-sellers .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-grid,.bestsellers-page .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.guide-card{min-height:0}.guide-card-question{min-height:0}.guide-card-body{padding:18px}.guide-article-view{padding:20px 16px;border-radius:17px}.guide-article-title{font-size:clamp(28px,8vw,38px)}.guide-article-dek{font-size:16px}.guide-article-image{aspect-ratio:4/3}.guide-article-columns{grid-template-columns:1fr;gap:18px}.guide-article-aside{position:static}.guide-article-copy h3{font-size:20px}.guide-article-copy p,.guide-article-copy li{font-size:15px}.product.coat{max-height:330px}.product.luster,.product.graphene{max-height:370px}.hero-slider{height:min(420px,108vw)}.best-sellers .product-grid{display:none}.best-sellers .mobile-rail{display:flex}.best-sellers .product-photo{aspect-ratio:1/1;padding:12px;object-fit:contain}.best-sellers .product-name,.best-sellers .product-description{min-height:0}.catalog-grid,.bestsellers-page .catalog-grid{grid-template-columns:1fr}.catalog-card .product-photo{min-height:210px}.service-lines .service-card{aspect-ratio:1.46/1}}.site-page[hidden]{display:none!important}</style></head> <body class="page-body"> <header class="header site-header"> <a class="brand" href="#inicio" data-page-link="inicio" aria-label="Amigos do Brilho, início"><img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Amigos do Brilho"></a> <nav class="menu" aria-label="Navegação principal"> <a href="#inicio" data-page-link="inicio" class="active" aria-current="page">INÍCIO</a> <a href="#produtos" data-page-link="produtos">PRODUTOS</a> <a href="#mais-vendidos" data-page-link="mais-vendidos">MAIS VENDIDOS</a> <a href="#sobre-nos" data-page-link="sobre-nos">SOBRE NÓS</a> <a href="#guias" data-guide-link>GUIAS</a> </nav> <a href="#contato" data-contact-link class="contact-btn">CONTATO</a> </header> <div class="site-page" data-site-page="inicio"><section class="hero" id="inicio"> <img class="hero-bg" src="assets/hero-bg.webp" alt="Fundo Amigos do Brilho" > <div class="overlay"></div> <div class="container"> <div class="hero-content"> <div class="hero-text"> <h1> ESTÉTICA<br> AUTOMOTIVA<br> EM <span>OUTRO<br>NÍVEL!</span> </h1> <p> Produtos premium para brilho, acabamento e proteção automotiva. </p> <div class="hero-buttons"> <a href="#produtos" data-page-link="produtos" class="btn-products"> VER PRODUTOS </a> <a href="#" class="btn-whatsapp"> FALAR NO WHATSAPP </a> </div> </div> <div class="hero-slider" id="slider"> <div class="slider-controls"> <button type="button" id="prev"> ‹ </button> <button type="button" id="next"> › </button> </div> <div class="slide active"> <div class="product-wrap"> <span class="product-light light-one"></span> <span class="product-light light-two"></span> <img src="assets/produto-coat-ceramic.png" class="product coat" alt="Produto Coat Ceramic" > </div> </div> <div class="slide"> <div class="product-wrap"> <span class="product-light light-one"></span> <span class="product-light light-two"></span> <img src="assets/produto-luster.webp" class="product luster" alt="Produto Luster" > </div> </div> <div class="slide"> <div class="product-wrap"> <span class="product-light light-one"></span> <span class="product-light light-two"></span> <img src="assets/produto-graphene.webp" class="product graphene" alt="Produto Graphene" > </div> </div> <div class="dots"> <button class="dot active"></button> <button class="dot"></button> <button class="dot"></button> </div> </div> </div> </div> </section> <section class="best-sellers" id="mais-vendidos" aria-labelledby="best-sellers-title"> <div class="ticker" aria-hidden="true"><div class="ticker-track"> <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span> <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span> </div></div> <header class="section-heading"><p class="eyebrow">MAIS VENDIDOS</p><h2 id="best-sellers-title">ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS</h2></header> <div class="product-grid" id="product-grid" aria-label="Produtos mais vendidos"></div> <div class="mobile-rail" id="mobile-product-rail" role="region" aria-label="Carrossel de produtos mais vendidos" tabindex="0"></div> <nav class="pagination" id="product-pagination" aria-label="Navegação dos produtos"> <button type="button" aria-label="Ir para o primeiro grupo de produtos"></button><button type="button" aria-label="Ir para o segundo grupo de produtos"></button><button type="button" aria-label="Ir para o terceiro grupo de produtos"></button><button type="button" aria-label="Ir para o quarto grupo de produtos"></button><button type="button" aria-label="Ir para o quinto grupo de produtos"></button> </nav> </section> <section class="service-lines" id="linhas" aria-labelledby="service-lines-title"> <header class="service-heading"> <h2 id="service-lines-title"> <span class="desktop-title">LINHAS DESENVOLVIDAS PARA CADA<br>ETAPA DO <span class="orange">CUIDADO AUTOMOTIVO</span></span> <span class="mobile-title">LINHAS<br>DESENVOLVIDAS<br>PARA CADA<br>ETAPA DO <span class="orange">CUIDADO</span><br><span class="orange">AUTOMOTIVO</span></span> </h2> </header> <div class="service-grid"> <article class="service-card"> <img class="service-art" src="assets/CARD%20DETALHAMENTO%20INTERNO.png" alt="Detalhamento interno: produtos para renovar, proteger e elevar o acabamento interno do veículo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Detalhamento%20Interno." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card"> <img class="service-art" src="assets/CARD%20LIMPEZA%20AUTOMOTIVA.png" alt="Limpeza automotiva: soluções para limpeza eficiente com acabamento visual superior para o cuidado automotivo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card service-card-premium"> <img class="service-art" src="assets/CARD%20ACABAMENTO%20PREMIUM.png" alt="Acabamento premium: produtos para uma finalização sofisticada e visual refinado em cada detalhe do veículo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card"> <img class="service-art" src="assets/CARD%20PROTECAO%20CERAMICA.png" alt="Proteção cerâmica: tecnologia para preservar pintura, acabamento e aparência por muito mais tempo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Prote%C3%A7%C3%A3o%20Cer%C3%A2mica." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card"> <img class="service-art" src="assets/CARD%20MAIS%20BRILHO.png" alt="Mais brilho: produtos para intensificar profundidade, reflexo e acabamento visual no veículo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20Mais%20Brilho." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> </div> </section> <section class="results-showcase" id="resultados" aria-labelledby="results-title"> <header class="results-heading"> <p class="results-eyebrow">RESULTADOS</p> <div class="results-heading-row"> <h2 id="results-title"> <span class="desktop-title">O <span class="orange">ACABAMENTO CERTO</span> MUDA<br>COMPLETAMENTE A PERCEPÇÃO<br>VISUAL DO VEÍCULO</span> <span class="mobile-title">O <span class="orange">ACABAMENTO CERTO</span><br>MUDA COMPLETAMENTE<br>A PERCEPÇÃO VISUAL<br>DO VEÍCULO</span> </h2> <nav class="results-controls" aria-label="Controles dos vídeos"> <button type="button" class="results-prev" aria-label="Vídeo anterior">‹</button> <button type="button" class="results-next" aria-label="Próximo vídeo">›</button> </nav> </div> </header> <div class="results-viewport" aria-label="Carrossel contínuo de resultados em vídeo"> <div class="results-track" id="results-track"></div> </div> <div class="results-cta-wrap"> <a class="results-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a> </div> </section> <section class="why-amigos" id="porque-escolher" aria-labelledby="why-amigos-title"> <picture class="why-background" aria-hidden="true"> <source media="(max-width: 700px)" srcset="assets/RAPAZ%20MOBILE%20.png"> <img src="assets/RAPAZ.png" alt=""> </picture> <div class="why-content"> <h2 id="why-amigos-title">POR QUE ESCOLHER A<br><span>AMIGOS DO BRILHO?</span></h2> <div class="why-benefits"> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/whatsapp.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>ATENDIMENTO DIRETO</h3> <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p> </div> </article> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/correto%20.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>LINHA SELECIONADA</h3> <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p> </div> </article> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/LIMPEZA.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>CATALOGO COMPLETO</h3> <p>Diversas opções para brilho, proteção, revitalização e acabamento automotivo.</p> </div> </article> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/ESTATISTICA%20.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>FOCO EM PERFORMANCE</h3> <p>Uma linha desenvolvida para elevar o padrão visual e a experiência no cuidado automotivo.</p> </div> </article> </div> </div> </section> <section class="final-contact" id="contato" aria-labelledby="final-contact-title"> <div class="final-copy"> <h2 id="final-contact-title">ENCONTRE O<br>PRODUTO <span>IDEAL</span><br>PARA O SEU CARRO</h2> <p>Fale diretamente com nossa equipe e descubra os produtos ideais para brilho, proteção, acabamento e detalhamento automotivo.</p> <a class="final-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a> </div> <a class="final-phone" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer" aria-label="Fale com a equipe Amigos do Brilho pelo WhatsApp"> <img src="assets/WHATS%20PHONE.png" alt="Celular com a conversa do WhatsApp Amigos do Brilho" loading="lazy"> </a> </section> <section class="guide-hub" id="guias" aria-labelledby="guides-title"> <div class="guide-wrap"> <header class="guide-heading"> <p class="guide-kicker">GUIAS AMIGOS DO BRILHO</p> <h2 id="guides-title">Dúvidas reais.<br><span>Cuidado em cada detalhe.</span></h2> <p>Guias práticos para responder dúvidas reais sobre limpeza, acabamento e proteção automotiva. Escolha um tema para encontrar os artigos completos.</p> </header> <div class="guide-grid" id="guide-grid" aria-label="Artigos completos de cuidado automotivo"></div> <article class="guide-article-view" id="guide-article-view" aria-live="polite" hidden></article> <p class="guide-note">Conteúdo educativo: confira sempre o rótulo e a ficha técnica antes de aplicar qualquer produto em uma superfície.</p> <div class="guide-actions"> <a class="guide-button" href="#guias" data-guide-link>VER TODOS OS ARTIGOS</a> <a class="guide-button secondary" href="#produtos" data-page-link="produtos">EXPLORAR PRODUTOS</a> <a class="guide-button secondary" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20produtos%20para%20cuidado%20automotivo." target="_blank" rel="noopener noreferrer">TIRAR UMA DÚVIDA</a> </div> </div> </section></div> <div class="site-page" data-site-page="produtos" hidden><main class="page-main products-page"> <section class="page-hero" aria-labelledby="products-title"> <p class="page-eyebrow">CATÁLOGO AMIGOS DO BRILHO</p> <h1 id="products-title">Encontre o produto <span>ideal</span></h1> <p>Explore o catálogo por categoria ou pesquise pelo nome do produto, marca ou tipo de cuidado.</p> </section> <section class="catalog-section page-wrap" aria-label="Pesquisar e filtrar produtos"> <div class="catalog-toolbar"> <label class="search-control" for="product-search"> <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg> <input id="product-search" type="search" placeholder="Buscar produto, marca ou categoria..." autocomplete="off"> </label> <div class="category-filters" id="category-filters" role="group" aria-label="Filtrar por categoria"></div> </div> <p class="catalog-summary" id="catalog-summary" aria-live="polite"></p> <div class="catalog-grid" id="catalog-grid" aria-live="polite"></div> </section> </main></div> <div class="site-page" data-site-page="mais-vendidos" hidden><main class="page-main bestsellers-page"> <section class="page-hero" aria-labelledby="bestsellers-title"> <p class="page-eyebrow">SELEÇÃO EM DESTAQUE</p> <h1 id="bestsellers-title">Mais <span>vendidos</span></h1> <p>Uma seleção de produtos para diferentes etapas do cuidado, da limpeza ao acabamento.</p> </section> <section class="catalog-section page-wrap" aria-label="Produtos em destaque"> <p class="catalog-summary">Destaques da seleção Amigos do Brilho</p> <div class="catalog-grid" id="featured-grid"></div> </section> </main></div> <div class="site-page" data-site-page="sobre-nos" hidden><main class="page-main about-page"> <section class="page-hero" aria-labelledby="about-title"> <p class="page-eyebrow">SOBRE NÓS</p> <h1 id="about-title">Cuidado automotivo com <span>mais brilho</span></h1> <p>Uma marca feita para quem valoriza cada detalhe do veículo e acredita que o cuidado também faz parte da experiência.</p> </section> <section class="about-story page-wrap" aria-labelledby="story-title"> <div class="about-image"><img src="assets/RAPAZ.png" alt="Profissional cuidando de um veículo" loading="lazy"></div> <div class="about-copy"> <p class="page-eyebrow">NOSSA HISTÓRIA</p> <h2 id="story-title">Brilho em cada <span>etapa</span></h2> <p>A Amigos do Brilho surgiu de uma ideia simples: tornar o cuidado automotivo mais prático e acessível, reunindo produtos para limpeza, proteção e acabamento em um só lugar.</p> <p>A marca acompanha quem gosta de cuidar do próprio carro e também quem trabalha com estética automotiva. Cada veículo pede uma atenção diferente, e encontrar o produto certo ajuda a transformar a rotina em um resultado que dá orgulho de ver.</p> <p>Seguimos construindo essa história junto com nossos clientes, com atenção aos detalhes e paixão por carros bem cuidados.</p> <a class="about-cta" href="#produtos" data-page-link="produtos">CONHEÇA OS PRODUTOS</a> </div> </section> <section class="about-values page-wrap" aria-labelledby="values-title"> <h2 id="values-title">O que move a <span>marca</span></h2> <div class="about-values-grid"> <article class="about-value"><h3>Cuidado</h3><p>Produtos para diferentes partes do veículo e etapas da rotina automotiva.</p></article> <article class="about-value"><h3>Praticidade</h3><p>Um catálogo organizado para ajudar cada pessoa a encontrar o que procura.</p></article> <article class="about-value"><h3>Brilho</h3><p>Uma paixão compartilhada por acabamento, proteção e bons resultados.</p></article> </div> </section> </main></div> <footer class="site-footer" aria-label="Rodapé Amigos do Brilho"> <div class="footer-inner"> <div class="footer-brand"> <a class="footer-brand-link" href="#inicio" data-page-link="inicio" aria-label="Amigos do Brilho, voltar ao início"> <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg"> <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/> <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/> <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/> <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text> <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text> </svg> </a> </div> <nav class="footer-column" aria-label="Redes sociais e guias"> <h2>Links</h2> <div class="footer-links"> <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a> <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="guias/index.html" data-guide-link>Guias e dicas</a> </div> </nav> <div class="footer-column footer-location"> <h2>Localização</h2> <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a> <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a> </div> </div> </footer><script>(() => {
+const phone = document.querySelector('.final-phone');
+if (!phone) return;
+document.body.classList.add('has-scroll-reveal');
+if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+phone.classList.add('is-visible');
+return;
+}
+const observer = new IntersectionObserver(entries => {
+if (entries.some(entry => entry.isIntersecting)) {
+phone.classList.add('is-visible');
+observer.disconnect();
+}
+}, { threshold: .2 });
+observer.observe(phone);
+})();</script><script>const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let current = 0;
+function showSlide(index){
+slides.forEach(slide=>{
+slide.classList.remove('active');
+});
+dots.forEach(dot=>{
+dot.classList.remove('active');
+});
+slides[index].classList.add('active');
+dots[index].classList.add('active');
+}
+function nextSlide(){
+current++;
+if(current >= slides.length){
+current = 0;
+}
+showSlide(current);
+}
+function prevSlide(){
+current--;
+if(current < 0){
+current = slides.length - 1;
+}
+showSlide(current);
+}
+document.getElementById('next')
+.addEventListener('click',nextSlide);
+document.getElementById('prev')
+.addEventListener('click',prevSlide);
+dots.forEach((dot,index)=>{
+dot.addEventListener('click',()=>{
+current = index;
+showSlide(current);
+});
+});
+/* AUTO SLIDE */
+setInterval(()=>{
+nextSlide();
+},6000);
+/* TOUCH */
+const slider = document.getElementById('slider');
+let startX = 0;
+slider.addEventListener('touchstart',(e)=>{
+startX = e.touches[0].clientX;
+});
+slider.addEventListener('touchend',(e)=>{
+let endX = e.changedTouches[0].clientX;
+let diff = startX - endX;
+if(diff > 50){
+nextSlide();
+}
+if(diff < -50){
+prevSlide();
+}
+});</script><script>(() => {
+const products = [
+['DESENGRAXANTE','TRON','PRODUTO 1.png','Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.',['Desengraxe intenso','Alta eficiência','Ação profunda']],
+['LIMPADOR DE ALUMÍNIO','ALUMAX','PRODUTO 2 png.png','Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.',['Alto rendimento','Limpeza profunda','Ação eficiente']],
+['LAVA MOTOS NEUTRO','FLOW','PRODUTO 3.png','Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.',['pH neutro','Seguro para pintura','Fácil enxágue']],
+['REVITALIZADOR DE PLÁSTICOS','EVOX','PRODUTO 4 .png','Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.',['Aspecto natural','Proteção prolongada','Acabamento refinado']],
+['RESTAURADOR DE PLÁSTICOS','ZUCS','PRODUTO 5 .png','Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.',['Alta fixação','Proteção prolongada','Resistente à água']],
+['REMOVEDOR DE INSETOS','GREEN','PRODUTO 6.png','Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+['ACABAMENTO PREMIUM','DOCTOR SHINE','PRODUTO 7.png','Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.',['Ação rápida','Seguro para pintura','Pronto para uso']],
+['POLIDOR','PREMIUM PAD','PRODUTO 8.png','Alta performance para quem busca polimento com acabamento refinado e resultado profissional.',['Excelente nível de acabamento','Ideal para refino e correção da pintura','Alta durabilidade']]
+];
+const markup = (p,i) => `<article class="product-card" style="--card-delay:${i*105}ms"><div class="product-kind">${p[0]}</div><img class="product-photo" src="assets/${p[2]}" alt="${p[1]}" loading="lazy"><div class="product-info"><h3 class="product-name">${p[1]}</h3><p class="product-description">${p[3]}</p><div class="product-tags">${p[4].map(t=>`<span class="product-tag">${t}</span>`).join('')}</div><a class="whatsapp-cta" href="https://wa.me/?text=${encodeURIComponent(`Olá! Tenho interesse no produto ${p[1]}.`)}" target="_blank" rel="noopener noreferrer">SOLICITAR PELO WHATSAPP</a></div></article>`;
+const grid=document.getElementById('product-grid'), rail=document.getElementById('mobile-product-rail');
+grid.innerHTML=products.map(markup).join(''); rail.innerHTML=products.map(markup).join('');
+const cards=[...document.querySelectorAll('.best-sellers .product-card')];
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');observer.unobserve(e.target);}}),{threshold:.12});
+cards.forEach(card=>observer.observe(card));
+const dots=[...document.querySelectorAll('#product-pagination button')];
+const update=()=>{const center=rail.getBoundingClientRect().left+rail.clientWidth/2;let ix=0,dist=Infinity;[...rail.querySelectorAll('.product-card')].forEach((card,i)=>{const b=card.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-center);if(d<dist){ix=i;dist=d;}});const active=Math.round(ix*(dots.length-1)/(products.length-1));dots.forEach((dot,i)=>dot.setAttribute('aria-current',String(i===active)));};
+rail.addEventListener('scroll',()=>requestAnimationFrame(update),{passive:true});
+dots.forEach((dot,i)=>dot.addEventListener('click',()=>rail.querySelectorAll('.product-card')[Math.round(i*(products.length-1)/(dots.length-1))].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'})));
+if(matchMedia('(max-width: 700px)').matches) requestAnimationFrame(()=>rail.querySelectorAll('.product-card')[1].scrollIntoView({block:'nearest',inline:'center'}));
+update();
+})();</script><script>(() => {
+const serviceCards = [...document.querySelectorAll('.service-lines .service-card')];
+serviceCards.forEach((card, index) => {
+card.style.transitionDelay = `${index * 110}ms`;
+});
+const serviceObserver = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('is-visible');
+serviceObserver.unobserve(entry.target);
+}
+});
+}, { threshold: .12 });
+serviceCards.forEach(card => serviceObserver.observe(card));
+})();</script><dialog class="video-player-dialog" id="video-player-dialog" aria-labelledby="video-player-title"> <div class="video-player-shell"> <header class="video-player-header"> <h2 class="video-player-title" id="video-player-title">Reprodutor de vídeo</h2> <button class="video-player-close" type="button" aria-label="Fechar reprodutor">&times;</button> </header> <video class="video-player" controls playsinline preload="none" aria-label="Reprodutor do vídeo"></video> </div> </dialog><script>(() => {
+const videos = [
+{ file: 'SnapInsta.to_AQMvt_HCwwOI-ylW2M7BBTNaZe_JCxs5FiIFIS-miuOP-OZTpaXuRQeirHbLeu7v6_t_agyJdlOVbPaM2SBxTxagWXitX6RlOG9RQ2I.mp4', label: 'Aplicação de produto no veículo' },
+{ file: 'SnapInsta.to_AQN7RgGrQlkXBwIR45oPL9MaK-AQ8JldrYfFFdFBgvziqPmdy-hz5xznHrf0Naq28hBxdN0x2xDfiL5vg7osEeF6tgUh5avF28hKT-A.mp4', label: 'Limpeza automotiva com aplicador' },
+{ file: 'SnapInsta.to_AQNDlScKWD0lDym9WA_REyZPc0KiJ2bULx3RORW6ZcklLybGFIOp-EjhhvWGRFmZyBHc05OxSzY1ImZnq-FHAOvt8pF_qb77Pf-28So.mp4', label: 'Aplicação de acabamento automotivo' },
+{ file: 'SnapInsta.to_AQNyQ5_Sf4n9WLhiYbPk0nCfmC3cAHJTke3VYQsqLzASBH7NhPUOefMSqbZX1-i2ok3tiLioeMIice96AYmAb8zoRzSzoK1kI7dxZfQ.mp4', label: 'Produto de brilho aplicado com microfibra' }
+];
+const track = document.getElementById('results-track');
+const viewport = document.querySelector('.results-showcase .results-viewport');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const cardMarkup = (video, index, clone = false) => `
+<article class="results-card"${clone ? ' aria-hidden="true" inert' : ''}>
+<video class="results-video" src="assets/${encodeURIComponent(video.file)}" muted loop playsinline preload="metadata" aria-label="${video.label}" data-video-index="${index}"></video>
+<button class="video-play" type="button" aria-label="Assistir ${video.label}">
+<svg class="play-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M30 17v66l54-33z"/></svg>
+<svg class="pause-icon" viewBox="0 0 100 100" aria-hidden="true"><path d="M25 18h18v64H25zm32 0h18v64H57z"/></svg>
+</button>
+</article>`;
+const groupMarkup = (clone = false) => `<div class="results-group"${clone ? ' aria-hidden="true" inert' : ''}>${videos.map((video, index) => cardMarkup(video, index, clone)).join('')}</div>`;
+track.innerHTML = groupMarkup(true) + groupMarkup() + groupMarkup(true);
+const groups = [...track.querySelectorAll('.results-group')];
+const originals = groups[1];
+const cards = [...track.querySelectorAll('.results-card')];
+const allVideos = [...track.querySelectorAll('video')];
+let offset = 0;
+let period = 0;
+let lastTime = 0;
+let active = false;
+let pointerPaused = false;
+let focusPaused = false;
+const speed = 34;
+function measureAndPosition() {
+const gap = parseFloat(getComputedStyle(track).gap) || 0;
+period = groups[0].getBoundingClientRect().width + gap;
+const firstCard = originals.querySelector('.results-card');
+const cardStep = firstCard.getBoundingClientRect().width + (parseFloat(getComputedStyle(originals).gap) || 0);
+const mobileOffset = cardStep - (viewport.clientWidth - firstCard.getBoundingClientRect().width) / 2;
+offset = period + (matchMedia('(max-width: 700px)').matches ? mobileOffset : 0);
+track.style.transform = `translate3d(${-offset}px,0,0)`;
+}
+function draw(now) {
+if (!lastTime) lastTime = now;
+const delta = Math.min(now - lastTime, 40);
+lastTime = now;
+if (active && !pointerPaused && !focusPaused && !document.hidden && !reducedMotion.matches) offset += speed * delta / 1000;
+if (period > 0) {
+while (offset >= period * 2) offset -= period;
+while (offset < period) offset += period;
+track.style.transform = `translate3d(${-offset}px,0,0)`;
+}
+requestAnimationFrame(draw);
+}
+function setPlaying(video, playing) {
+const button = video.parentElement.querySelector('.video-play');
+button.classList.toggle('is-playing', playing);
+button.setAttribute('aria-label', `${playing ? 'Pausar' : 'Reproduzir'} ${videos[Number(video.dataset.videoIndex)].label}`);
+}
+const videoObserver = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+const video = entry.target;
+if (entry.isIntersecting && video.dataset.loaded !== 'true') {
+video.dataset.loaded = 'true';
+video.preload = 'auto';
+video.load();
+} else if (!entry.isIntersecting && !video.paused) {
+video.pause();
+setPlaying(video, false);
+}
+});
+}, { root: viewport, threshold: .2 });
+allVideos.forEach(video => videoObserver.observe(video));
+const playerDialog = document.getElementById('video-player-dialog');
+const playerVideo = playerDialog.querySelector('.video-player');
+const playerTitle = playerDialog.querySelector('.video-player-title');
+const playerClose = playerDialog.querySelector('.video-player-close');
+let lastPlayerTrigger = null;
+function openPlayer(video, trigger) {
+playerTitle.textContent = video.label;
+lastPlayerTrigger = trigger;
+const source = trigger.parentElement.querySelector('.results-video');
+playerVideo.src = source.currentSrc || source.src;
+playerVideo.load();
+playerDialog.showModal();
+playerVideo.play().catch(() => {});
+}
+playerClose.addEventListener('click', () => playerDialog.close());
+playerDialog.addEventListener('click', event => {
+if (event.target === playerDialog) playerDialog.close();
+});
+playerDialog.addEventListener('close', () => {
+playerVideo.pause();
+playerVideo.removeAttribute('src');
+playerVideo.load();
+if (lastPlayerTrigger?.isConnected) lastPlayerTrigger.focus();
+});
+track.addEventListener('click', event => {
+const button = event.target.closest('.video-play');
+if (!button) return;
+const source = button.parentElement.querySelector('.results-video');
+const video = videos[Number(source.dataset.videoIndex)];
+if (video) openPlayer(video, button);
+});
+const moveByCard = direction => {
+const card = originals.querySelector('.results-card');
+const step = card.getBoundingClientRect().width + (parseFloat(getComputedStyle(originals).gap) || 0);
+offset += direction * step;
+while (offset >= period * 2) offset -= period;
+while (offset < period) offset += period;
+track.style.transform = `translate3d(${-offset}px,0,0)`;
+};
+document.querySelector('.results-prev').addEventListener('click', () => moveByCard(-1));
+document.querySelector('.results-next').addEventListener('click', () => moveByCard(1));
+viewport.addEventListener('pointerenter', () => { pointerPaused = true; });
+viewport.addEventListener('pointerleave', () => { pointerPaused = false; });
+viewport.addEventListener('focusin', () => { focusPaused = true; });
+viewport.addEventListener('focusout', event => { if (!viewport.contains(event.relatedTarget)) focusPaused = false; });
+new IntersectionObserver(entries => {
+active = entries.some(entry => entry.isIntersecting);
+}, { threshold: 0 }).observe(document.querySelector('.results-showcase'));
+measureAndPosition();
+window.addEventListener('resize', measureAndPosition, { passive: true });
+requestAnimationFrame(draw);
+})();</script><script>(() => {
+const products = [
+{
+"id": "tron",
+"category": "Desengraxante",
+"brand": "TRON",
+"image": "PRODUTO 1.png",
+"description": "Desengraxante desenvolvido para remoção eficiente de sujeiras pesadas e resíduos automotivos.",
+"features": [
+"Desengraxe intenso",
+"Alta eficiência",
+"Ação profunda"
+]
+},
+{
+"id": "alumax",
+"category": "Limpador de alumínio",
+"brand": "ALUMAX",
+"image": "PRODUTO 2 png.png",
+"description": "Solução desenvolvida para limpeza pesada de alumínio e carrocerias com alto poder de ação.",
+"features": [
+"Alto rendimento",
+"Limpeza profunda",
+"Ação eficiente"
+]
+},
+{
+"id": "flow",
+"category": "Lava motos neutro",
+"brand": "FLOW",
+"image": "PRODUTO 3.png",
+"description": "Limpeza segura para motocicletas com fórmula neutra que remove sujeira sem comprometer acabamento e proteção.",
+"features": [
+"pH neutro",
+"Seguro para pintura",
+"Fácil enxágue"
+]
+},
+{
+"id": "evox",
+"category": "Revitalizador de plásticos",
+"brand": "EVOX",
+"image": "PRODUTO 4 .png",
+"description": "Linha voltada para revitalização e proteção de superfícies plásticas com aparência natural e acabamento uniforme.",
+"features": [
+"Aspecto natural",
+"Proteção prolongada",
+"Acabamento refinado"
+]
+},
+{
+"id": "zucs",
+"category": "Restaurador de plásticos",
+"brand": "ZUCS",
+"image": "PRODUTO 5 .png",
+"description": "Produto desenvolvido para restaurar plásticos internos e externos com proteção prolongada e acabamento refinado.",
+"features": [
+"Alta fixação",
+"Proteção prolongada",
+"Resistente à água"
+]
+},
+{
+"id": "green",
+"category": "Removedor de insetos",
+"brand": "GREEN",
+"image": "PRODUTO 6.png",
+"description": "Remove resíduos de insetos sem agredir pintura, facilitando a limpeza antes que manchas e marcas apareçam.",
+"features": [
+"Ação rápida",
+"Seguro para pintura",
+"Pronto para uso"
+]
+},
+{
+"id": "doctor-shine",
+"category": "Acabamento premium",
+"brand": "DOCTOR SHINE",
+"image": "PRODUTO 7.png",
+"description": "Recupera aparência de plásticos ressecados deixando acabamento escuro uniforme e toque seco.",
+"features": [
+"Ação rápida",
+"Seguro para pintura",
+"Pronto para uso"
+]
+},
+{
+"id": "premium-pad",
+"category": "Polidor",
+"brand": "PREMIUM PAD",
+"image": "PRODUTO 8.png",
+"description": "Alta performance para quem busca polimento com acabamento refinado e resultado profissional.",
+"features": [
+"Excelente nível de acabamento",
+"Ideal para refino e correção da pintura",
+"Alta durabilidade"
+]
+}
+];
+const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const cardMarkup = product => {
+const features = product.features.map(feature => '<span class="product-tag">' + escapeHtml(feature) + '</span>').join('');
+const message = encodeURIComponent('Olá! Tenho interesse no produto ' + product.brand + '.');
+return '<article class="catalog-card" data-product="' + escapeHtml(product.id) + '">' +
+'<div class="catalog-card-category">' + escapeHtml(product.category) + '</div>' +
+'<img class="product-photo" src="assets/' + encodeURI(product.image) + '" alt="' + escapeHtml(product.brand + ' — ' + product.category) + '" loading="lazy">' +
+'<div class="catalog-card-body"><h2 class="product-name">' + escapeHtml(product.brand) + '</h2>' +
+'<p class="product-description">' + escapeHtml(product.description) + '</p>' +
+'<div class="product-tags">' + features + '</div>' +
+'<a class="whatsapp-cta" href="https://wa.me/?text=' + message + '" target="_blank" rel="noopener noreferrer">SOLICITAR PELO WHATSAPP</a></div></article>';
+};
+window.AmigosDoBrilhoCatalogo = { products, cardMarkup, escapeHtml };
+})();</script><script>(() => {
+const catalog = window.AmigosDoBrilhoCatalogo;
+if (!catalog) return;
+const search = document.getElementById('product-search');
+const filters = document.getElementById('category-filters');
+const grid = document.getElementById('catalog-grid');
+const summary = document.getElementById('catalog-summary');
+const categories = [...new Set(catalog.products.map(product => product.category))];
+let selectedCategory = 'Todas';
+filters.innerHTML = ['Todas', ...categories].map(category => '<button class="filter-chip" type="button" data-category="' + catalog.escapeHtml(category) + '" aria-pressed="' + (category === 'Todas') + '">' + catalog.escapeHtml(category) + '</button>').join('');
+function render() {
+const query = search.value.trim().toLocaleLowerCase('pt-BR');
+const matches = catalog.products.filter(product => {
+const categoryMatch = selectedCategory === 'Todas' || product.category === selectedCategory;
+const searchable = [product.brand, product.category, product.description, ...product.features].join(' ').toLocaleLowerCase('pt-BR');
+return categoryMatch && searchable.includes(query);
+});
+summary.textContent = matches.length + (matches.length === 1 ? ' produto encontrado' : ' produtos encontrados');
+grid.innerHTML = matches.length ? matches.map(catalog.cardMarkup).join('') : '<p class="catalog-empty">Não encontramos esse produto. Tente outro nome ou escolha uma categoria.</p>';
+}
+filters.addEventListener('click', event => {
+const button = event.target.closest('[data-category]');
+if (!button) return;
+selectedCategory = button.dataset.category;
+filters.querySelectorAll('.filter-chip').forEach(chip => chip.setAttribute('aria-pressed', String(chip === button)));
+render();
+});
+search.addEventListener('input', render);
+render();
+})();</script><script>(() => {
+const articles = [
+{
+slug: 'como-limpar-parabrisa-por-dentro-sem-manchas', theme: 'Vidros e para-brisa', label: 'VISIBILIDADE',
+title: 'Como limpar o para-brisa por dentro sem deixar manchas?',
+summary: 'Use um pano limpo sem fiapos, pouca solução compatível e movimentos sobrepostos; termine com a superfície seca.',
+image: 'assets/artigos/como-limpar-parabrisa-por-dentro-sem-manchas.jpg',
+overview: 'O vidro interno acumula poeira, gordura e resíduos do ar-condicionado. Se o pano já estiver sujo ou úmido demais, esses resíduos se espalham e formam halos, principalmente contra a luz.',
+steps: [
+['Prepare o vidro', 'Estacione à sombra e deixe o interior esfriar. Separe dois panos limpos e sem fiapos: um para limpar e outro para o acabamento.'],
+['Limpe em áreas pequenas', 'Aplique pouca quantidade de produto indicado para vidro automotivo no pano, nunca diretamente sobre painel, sensores ou componentes eletrônicos. Passe em faixas sobrepostas.'],
+['Finalize a seco', 'Use a parte seca do segundo pano para retirar o resíduo. Confira o para-brisa de vários ângulos e repita somente nos pontos que ainda apresentarem marcas.']
+],
+care: 'Em veículos com película, confirme a compatibilidade do produto com o fabricante ou instalador. Não use abrasivos, esponjas ásperas nem misture produtos de limpeza.',
+takeaways: ['Use panos limpos e separados para limpeza e acabamento.', 'Trabalhe com pouca solução e em áreas pequenas.', 'Confira o resultado contra a luz antes de dirigir.']
+},
+{
+slug: 'ordem-segura-lavar-carro', theme: 'Lavagem e manutenção', label: 'ROTINA',
+title: 'Qual ordem seguir numa lavagem segura da carroceria?',
+summary: 'Retire a sujeira solta, use acessórios separados para rodas e pintura e lave de cima para baixo.',
+image: 'assets/artigos/ordem-segura-lavar-carro.jpg',
+overview: 'Uma boa sequência reduz a chance de levar areia e sujeira pesada para áreas já limpas. O estado da pintura, a temperatura da carroceria e as instruções dos produtos também influenciam o resultado.',
+steps: [
+['Prepare o local', 'Lave à sombra e com a carroceria fria. Separe baldes, luvas e panos limpos; mantenha os acessórios das rodas longe dos usados na pintura.'],
+['Remova o excesso de sujeira', 'Enxágue o veículo para soltar poeira e partículas. Limpe rodas com acessórios próprios e enxágue antes de começar a carroceria.'],
+['Lave e seque sem pressa', 'Trabalhe de cima para baixo em áreas pequenas, enxaguando a luva com frequência. Enxágue completamente e seque com pano macio e limpo.']
+],
+care: 'Não lave sob sol forte nem deixe shampoo ou limpador secar na superfície. Em motos, evite direcionar jatos de alta pressão para conectores, rolamentos, freios e componentes sensíveis.',
+takeaways: ['Rodas e pintura precisam de acessórios separados.', 'A lavagem por contato começa depois de remover a sujeira solta.', 'Siga a diluição e o enxágue descritos no rótulo.']
+},
+{
+slug: 'remover-insetos-secos-sem-esfregar', theme: 'Insetos e sujeira pesada', label: 'LIMPEZA TÉCNICA',
+title: 'Como remover insetos secos da pintura sem esfregar a seco?',
+summary: 'Amoleça o resíduo, use somente produto compatível e enxágue sem pressionar ou raspar a pintura.',
+image: 'assets/artigos/remover-insetos-secos-sem-esfregar.jpg',
+overview: 'Resíduos de insetos podem aderir à pintura e ao vidro. Esfregar a crosta seca aumenta o risco de marcas; o primeiro objetivo é amolecer e remover o material com o mínimo de atrito.',
+steps: [
+['Molhe a área', 'Enxágue para retirar partículas soltas. Mantenha a superfície fria e úmida; não tente remover a crosta com unha, espátula ou pano seco.'],
+['Amoleça o resíduo', 'Aplique água ou um removedor de insetos aprovado para aquela superfície. Respeite o tempo de ação indicado no rótulo e não deixe o produto secar.'],
+['Remova e enxágue', 'Passe um pano macio com leveza. Se o resíduo persistir, repita o processo em vez de aumentar a força. Enxágue bem e seque com pano limpo.']
+],
+care: 'A compatibilidade muda conforme a fórmula, o verniz, a película e o acabamento. Teste em área discreta quando indicado; interrompa se notar alteração e procure orientação profissional.',
+takeaways: ['Nunca esfregue crostas secas na lataria.', 'Respeite o tempo de ação e as superfícies permitidas.', 'Enxágue completamente antes que o produto seque.']
+},
+{
+slug: 'recuperar-plastico-esbranquicado-carro', theme: 'Plásticos e acabamento', label: 'ACABAMENTO',
+title: 'Como recuperar plástico esbranquiçado do carro?',
+summary: 'Limpe, seque e avalie o material antes de aplicar um revitalizador próprio para aquela superfície.',
+image: 'assets/artigos/recuperar-plastico-esbranquicado-carro.jpg',
+overview: 'O aspecto esbranquiçado pode vir de sujeira acumulada, resíduos de produto ou desgaste do próprio plástico. Limpar primeiro ajuda a entender o que pode ser melhorado com segurança.',
+steps: [
+['Identifique a peça', 'Confira se é plástico interno ou externo, liso ou texturizado, pintado ou protegido. Consulte o manual do veículo e o rótulo do produto.'],
+['Limpe e seque', 'Use limpador compatível e pano ou escova macia. Remova resíduos sem encharcar a peça e aguarde a secagem completa.'],
+['Aplique pouco produto', 'Se o rótulo autorizar, coloque uma pequena quantidade no aplicador, espalhe de modo uniforme e retire o excesso com pano limpo. Avalie o resultado antes de repetir.']
+],
+care: 'Revitalizadores podem melhorar a aparência, mas não reparam trincas, riscos profundos ou desgaste estrutural. Evite aplicar em volante, pedais, comandos, pneus ou superfícies onde o produto não seja permitido.',
+takeaways: ['Identifique o material e o acabamento antes de aplicar.', 'A peça precisa estar limpa e seca.', 'Pouco produto e remoção do excesso ajudam a evitar manchas.']
+},
+{
+slug: 'diferenca-cera-selante-coating', theme: 'Polimento e proteção', label: 'PROTEÇÃO',
+title: 'Cera, selante e coating cerâmico: qual a diferença?',
+summary: 'São categorias diferentes de proteção, com aplicação, preparação e manutenção próprias. Compare as instruções e a ficha técnica.',
+image: 'assets/artigos/diferenca-cera-selante-coating.jpg',
+overview: 'Os nomes descrevem tipos de produto, mas não garantem por si só duração, resistência ou resultado. A fórmula, a superfície indicada, o preparo e a manutenção mudam de fabricante para fabricante.',
+steps: [
+['Leia a finalidade', 'Confira se o produto é cera, selante ou coating e quais superfícies o fabricante autoriza. Não escolha apenas pelo nome ou pela promessa na embalagem.'],
+['Compare aplicação e preparo', 'Verifique se a pintura precisa estar descontaminada, corrigida, seca ou em condições específicas. Observe também o tempo de cura e a forma de remoção.'],
+['Planeje a manutenção', 'Veja como lavar a superfície protegida e quais produtos são compatíveis. Considere a rotina do veículo e a disponibilidade para seguir esses cuidados.']
+],
+care: 'Não misture camadas ou produtos sem confirmação de compatibilidade. Para corrigir defeitos da pintura, avalie o estado do verniz antes de polir e siga a documentação do produto escolhido.',
+takeaways: ['Compare a ficha técnica, não somente o nome comercial.', 'Preparação e cura fazem parte do processo.', 'Proteção não elimina a necessidade de lavagem e manutenção.']
+}
+];
+const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+function svgFor(article) {
+const esc = value => escapeHtml(value).replace(/\n/g, ' ');
+const rows = article.steps.map((step, index) => `<g transform="translate(54 ${172 + index * 112})"><circle cx="27" cy="26" r="25" fill="#ff8500"/><text x="27" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="#111">${index + 1}</text><text x="72" y="22" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="#fff">${esc(step[0])}</text><text x="72" y="49" font-family="Arial,sans-serif" font-size="13" fill="#dedede">Etapa ${index + 1} do cuidado</text></g>`).join('');
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#242424"/><stop offset="1" stop-color="#080808"/></linearGradient><radialGradient id="glow"><stop stop-color="#ff8500" stop-opacity=".3"/><stop offset="1" stop-color="#ff8500" stop-opacity="0"/></radialGradient></defs><rect width="900" height="520" fill="url(#bg)"/><circle cx="770" cy="20" r="290" fill="url(#glow)"/><text x="54" y="68" font-family="Arial,sans-serif" font-size="14" font-weight="800" letter-spacing="4" fill="#ffae4a">AMIGOS DO BRILHO · ${esc(article.label)}</text><text x="54" y="122" font-family="Arial,sans-serif" font-size="26" font-weight="900" fill="#fff">PASSO A PASSO</text>${rows}<path d="M80 197v66m0 46v66" stroke="#ff8500" stroke-width="3" stroke-dasharray="5 7"/></svg>`;
+return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+}
+const grid = document.getElementById('guide-grid');
+const articleView = document.getElementById('guide-article-view');
+const extras = [...document.querySelectorAll('.guide-note,.guide-actions')];
+grid.innerHTML = articles.map((article, index) => `<a class="guide-card" href="#artigo/${article.slug}" data-guide-link><div class="guide-card-visual"><img src="${escapeHtml(article.image)}" alt="Imagem do passo a passo: ${escapeHtml(article.title)}" loading="lazy" data-guide-image="${article.slug}"></div><div class="guide-card-body"><div class="guide-card-top"><span class="guide-card-number">${String(index + 1).padStart(2,'0')}</span><span class="guide-card-theme">${escapeHtml(article.label)}</span></div><h3>${escapeHtml(article.title)}</h3><p class="guide-card-question">${escapeHtml(article.summary)}</p><p class="guide-card-count">ABRIR GUIA COMPLETO →</p></div></a>`).join('');
+function useFallbackImages(root) {
+root.querySelectorAll('[data-guide-image]').forEach(image => {
+const article = articles.find(item => item.slug === image.dataset.guideImage);
+image.addEventListener('error', () => { image.onerror = null; if (article) image.src = svgFor(article); }, { once:true });
+});
+}
+function showList() {
+grid.hidden = false;
+articleView.hidden = true;
+extras.forEach(item => item.hidden = false);
+document.title = 'Amigos do Brilho | Produtos automotivos';
+}
+function showArticle(slug) {
+const article = articles.find(item => item.slug === slug);
+if (!article) return false;
+document.title = article.title + ' | Guias Amigos do Brilho';
+const steps = article.steps.map(step => `<li><strong>${escapeHtml(step[0])}.</strong> ${escapeHtml(step[1])}</li>`).join('');
+const takeaways = article.takeaways.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+articleView.innerHTML = `<a class="guide-article-back" href="#guias">← VOLTAR AOS GUIAS</a><p class="guide-article-kicker">${escapeHtml(article.theme)} · GUIA PRÁTICO</p><h2 class="guide-article-title">${escapeHtml(article.title)}</h2><p class="guide-article-dek">${escapeHtml(article.summary)}</p><p class="guide-article-meta">Conteúdo educativo · Amigos do Brilho</p><figure class="guide-article-figure"><img class="guide-article-image" id="imagem-passo-a-passo-${article.slug}" data-guide-image="${article.slug}" src="${escapeHtml(article.image)}" alt="Imagem do passo a passo: ${escapeHtml(article.title)}" loading="eager"><figcaption>Imagem e etapas do guia “${escapeHtml(article.title)}”.</figcaption></figure><div class="guide-article-columns"><div class="guide-article-copy"><section><h3>O que considerar</h3><p>${escapeHtml(article.overview)}</p></section><section><h3>Passo a passo</h3><ol>${steps}</ol></section><section><h3>Cuidados importantes</h3><p>${escapeHtml(article.care)}</p></section><section class="guide-article-callout"><h3>Resumo para levar</h3><ul>${takeaways}</ul></section></div><aside class="guide-article-aside"><h3>Escolha com informação</h3><p>Leia o rótulo e a ficha técnica do produto antes de aplicar. A compatibilidade depende da fórmula e da superfície.</p></aside></div><nav class="guide-article-navigation" aria-label="Navegação entre artigos"><a href="#guias">← Todos os guias</a><a href="#produtos" data-page-link="produtos">Ver produtos →</a></nav>`;
+grid.hidden = true;
+articleView.hidden = false;
+extras.forEach(item => item.hidden = true);
+useFallbackImages(articleView);
+return true;
+}
+useFallbackImages(grid);
+window.AmigosGuidePages = { articles, showList, showArticle };
+})();</script><script>(() => {
+const catalog = window.AmigosDoBrilhoCatalogo;
+if (!catalog) return;
+const featuredIds = ['tron', 'flow', 'green', 'doctor-shine'];
+const featured = featuredIds.map(id => catalog.products.find(product => product.id === id)).filter(Boolean);
+document.getElementById('featured-grid').innerHTML = featured.map(catalog.cardMarkup).join('');
+})();</script><script>(() => {
+const pages = ["inicio","produtos","mais-vendidos","sobre-nos"];
+const guidePages = window.AmigosGuidePages;
+const views = [...document.querySelectorAll("[data-site-page]")];
+const navLinks = [...document.querySelectorAll(".site-header .menu [data-page-link]")];
+function showPage(name, contact = false, targetId = null) {
+const page = pages.includes(name) ? name : "inicio";
+views.forEach(view => { view.hidden = view.dataset.sitePage !== page; });
+navLinks.forEach(link => { const active = link.dataset.pageLink === page; link.classList.toggle("active", active); if (active) link.setAttribute("aria-current","page"); else link.removeAttribute("aria-current"); });
+if (contact) requestAnimationFrame(() => document.getElementById("contato")?.scrollIntoView({behavior:"smooth"}));
+else if (targetId) requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView({behavior:"smooth"}));
+else window.scrollTo({top:0,behavior:"smooth"});
+}
+document.addEventListener("click", event => {
+const guide = event.target.closest("[data-guide-link]");
+if (guide) return;
+const contact = event.target.closest("[data-contact-link]");
+if (contact) { event.preventDefault(); history.pushState(null,"","#contato"); showPage("inicio",true); return; }
+const link = event.target.closest("[data-page-link]");
+if (!link) return;
+event.preventDefault(); const page = link.dataset.pageLink;
+history.pushState(null,"","#" + page); showPage(page);
+});
+function sync() {
+const hash = location.hash.slice(1);
+if (hash.startsWith("artigo/")) {
+const loaded = guidePages?.showArticle(decodeURIComponent(hash.slice("artigo/".length)));
+if (!loaded) guidePages?.showList();
+showPage("inicio",false,"guias");
+} else if (pages.includes(hash)) { guidePages?.showList(); showPage(hash); }
+else if (hash === "contato") { guidePages?.showList(); showPage("inicio",true); }
+else if (hash === "guias") { guidePages?.showList(); showPage("inicio",false,"guias"); }
+else { guidePages?.showList(); showPage("inicio"); }
+}
+window.addEventListener("popstate",sync); window.addEventListener("hashchange",sync); sync();
+})();</script></body> </html>

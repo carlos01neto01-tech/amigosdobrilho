@@ -32,6 +32,8 @@
   .hero-buttons a{height:50px;font-size:16px}
 }
 </style>
+
+
 <style id="mobile-card-and-heading-fixes">
 .hero-text h1{font-size:clamp(42px,4.4vw,64px);line-height:.98;letter-spacing:-.045em}
 .best-sellers .product-grid{align-items:stretch;grid-auto-rows:1fr}
@@ -42,26 +44,41 @@
 .best-sellers .product-card .product-description{min-height:4.4em}
 .best-sellers .product-card .product-tags{min-height:72px;align-content:flex-start}
 .service-lines .service-card{width:100%;height:auto;aspect-ratio:1.46/1}
+.hero-video-start[hidden]{display:none!important}
 @media(max-width:700px){
-  .hero-text h1{font-size:clamp(30px,8.2vw,48px);line-height:.96;letter-spacing:-.035em}
-  .best-sellers .mobile-rail{align-items:stretch;gap:16px;padding:0 max(16px,calc((100vw - 360px)/2))}
-  .best-sellers .mobile-rail .product-card{flex:0 0 min(360px,calc(100vw - 32px));width:min(360px,calc(100vw - 32px));height:auto;align-self:stretch;scroll-snap-align:center}
-  .best-sellers .mobile-rail .product-photo{aspect-ratio:1.5/1;padding:10px;object-fit:contain}
-  .best-sellers .mobile-rail .product-info{padding:18px 18px 16px}
-  .best-sellers .mobile-rail .product-name{min-height:2em;margin-bottom:10px;font-size:30px}
-  .best-sellers .mobile-rail .product-description{min-height:3.2em;margin-bottom:14px;font-size:14px;line-height:1.18}
-  .best-sellers .mobile-rail .product-tags{min-height:66px;gap:6px;margin-bottom:12px;align-content:flex-start}
-  .best-sellers .mobile-rail .product-tag{min-height:34px}
-  .best-sellers .mobile-rail .whatsapp-cta{min-height:54px}
+  .hero{height:auto;min-height:0;overflow:hidden}
+  .hero .container{height:auto;min-height:0;padding:14px 16px 28px}
+  .hero-content{height:auto;min-height:0;flex:none;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;padding-top:0}
+  .hero-mobile-video-stage{position:relative;display:block;flex:none;width:calc(100% + 32px);height:clamp(300px,43svh,420px);margin:0 -16px;overflow:hidden;background:#050505}
+  .hero-mobile-video{object-fit:cover;object-position:center}
+  .hero-video-start{position:absolute;z-index:5;top:50%;left:50%;max-width:calc(100% - 36px);min-height:52px;transform:translate(-50%,-50%);padding:14px 22px;border:1px solid #fff;border-radius:999px;background:#ff8500;color:#080808;font:900 14px/1.1 'Rubik',sans-serif;text-align:center;cursor:pointer;box-shadow:0 8px 26px #0008}
+  .hero-video-start:focus-visible{outline:3px solid #fff;outline-offset:4px}
+  .hero-text{width:100%;flex:none;text-align:center}
+  .hero-text h1{font-size:clamp(30px,7.6vw,42px);line-height:.96;letter-spacing:-.045em}
+  .hero-text p{max-width:440px;margin:12px auto 0;font-size:clamp(15px,4vw,18px);line-height:1.22}
+  .hero-buttons{max-width:420px;margin:16px auto 0;gap:9px}
+  .hero-buttons a{height:50px;font-size:16px}
+  .best-sellers .mobile-rail{width:100%;align-items:stretch;gap:12px;padding:0 max(16px,calc((100vw - 430px)/2)) 10px;margin:0;overflow-x:auto;overflow-y:hidden;scroll-padding-inline:16px;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+  .best-sellers .mobile-rail .product-card{box-sizing:border-box;flex:0 0 min(430px,calc(100vw - 32px));width:min(430px,calc(100vw - 32px));height:auto;min-height:0;align-self:stretch;scroll-snap-align:center;overflow:visible}
+  .best-sellers .mobile-rail .product-photo{flex:none;width:100%;aspect-ratio:1.35/1;padding:12px;object-fit:contain}
+  .best-sellers .mobile-rail .product-info{flex:1;min-width:0;padding:18px 16px 16px}
+  .best-sellers .mobile-rail .product-name{min-height:2em;margin:0 0 10px;font-size:clamp(25px,7vw,30px);line-height:1;overflow-wrap:anywhere}
+  .best-sellers .mobile-rail .product-description{display:block;min-height:4.2em;margin:0 0 14px;font-size:14px;line-height:1.32;overflow:visible;overflow-wrap:anywhere}
+  .best-sellers .mobile-rail .product-tags{min-height:72px;gap:6px;margin:0 0 12px;align-content:flex-start}
+  .best-sellers .mobile-rail .product-tag{box-sizing:border-box;min-width:0;min-height:38px;flex:1 1 calc(50% - 6px);gap:6px;padding:8px 6px;font-size:10px;line-height:1.15;white-space:normal;overflow-wrap:anywhere}
+  .best-sellers .mobile-rail .product-tag::before{width:8px;height:8px;flex-basis:8px}
+  .best-sellers .mobile-rail .whatsapp-cta{flex:none;min-height:56px;padding:12px;font-size:13px;line-height:1.15;white-space:normal;overflow-wrap:anywhere}
 }
 </style>
+
 </head> <body class="page-body"> <header class="header site-header"> <a class="brand" href="#inicio" data-page-link="inicio" aria-label="Amigos do Brilho, início"><img class="logo" src="assets/logo-amigos-do-brilho.png" alt="Amigos do Brilho"></a> <nav class="menu" aria-label="Navegação principal"> <a href="#inicio" data-page-link="inicio" class="active" aria-current="page">INÍCIO</a> <a href="#produtos" data-page-link="produtos">PRODUTOS</a> <a href="#mais-vendidos" data-page-link="mais-vendidos">MAIS VENDIDOS</a> <a href="#sobre-nos" data-page-link="sobre-nos">SOBRE NÓS</a> <a href="#guias" data-guide-link>GUIAS</a> </nav> <a href="#contato" data-contact-link class="contact-btn">CONTATO</a> </header> <div class="site-page" data-site-page="inicio"><section class="hero" id="inicio"> <div class="hero-video-stage hero-desktop-video-stage" aria-hidden="true">
   <video class="hero-video is-active" muted playsinline webkit-playsinline preload="auto"></video>
   <video class="hero-video" muted playsinline webkit-playsinline preload="auto"></video>
 </div> <div class="overlay"></div> <div class="container"> <div class="hero-content">
-  <div class="hero-mobile-video-stage" aria-hidden="true">
-    <video class="hero-video hero-mobile-video is-active" muted playsinline webkit-playsinline preload="auto"></video>
-    <video class="hero-video hero-mobile-video" muted playsinline webkit-playsinline preload="auto"></video>
+  <div class="hero-mobile-video-stage" role="region" aria-label="Animação dos produtos Amigos do Brilho">
+    <video class="hero-video hero-mobile-video is-active" autoplay muted playsinline webkit-playsinline preload="auto" aria-hidden="true"></video>
+    <video class="hero-video hero-mobile-video" autoplay muted playsinline webkit-playsinline preload="auto" aria-hidden="true"></video>
+    <button class="hero-video-start" type="button" hidden>TOQUE PARA VER A ANIMAÇÃO</button>
   </div>
   <div class="hero-text"> <h1>ESTÉTICA<br>AUTOMOTIVA<br><span>EM OUTRO NÍVEL!</span></h1> <p> Produtos premium para brilho, acabamento e proteção automotiva. </p> <div class="hero-buttons"> <a href="#produtos" data-page-link="produtos" class="btn-products"> VER PRODUTOS </a> <a href="#" class="btn-whatsapp"> FALAR NO WHATSAPP </a> </div> </div>  </div> </div> </section> <section class="best-sellers" id="mais-vendidos" aria-labelledby="best-sellers-title"> <div class="ticker" aria-hidden="true"><div class="ticker-track"> <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span> <span class="ticker-line">• BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM • BRILHO • PROTEÇÃO • ACABAMENTO PREMIUM •&nbsp;</span> </div></div> <header class="section-heading"><p class="eyebrow">MAIS VENDIDOS</p><h2 id="best-sellers-title">ALGUNS DOS PRODUTOS<br class="desktop-break"> MAIS PROCURADOS</h2></header> <div class="product-grid" id="product-grid" aria-label="Produtos mais vendidos"></div> <div class="mobile-rail" id="mobile-product-rail" role="region" aria-label="Carrossel de produtos mais vendidos" tabindex="0"></div> <nav class="pagination" id="product-pagination" aria-label="Navegação dos produtos"> <button type="button" aria-label="Ir para o primeiro grupo de produtos"></button><button type="button" aria-label="Ir para o segundo grupo de produtos"></button><button type="button" aria-label="Ir para o terceiro grupo de produtos"></button><button type="button" aria-label="Ir para o quarto grupo de produtos"></button><button type="button" aria-label="Ir para o quinto grupo de produtos"></button> </nav> </section> <section class="service-lines" id="linhas" aria-labelledby="service-lines-title"> <header class="service-heading"> <h2 id="service-lines-title"> <span class="desktop-title">LINHAS DESENVOLVIDAS PARA CADA<br>ETAPA DO <span class="orange">CUIDADO AUTOMOTIVO</span></span> <span class="mobile-title">LINHAS<br>DESENVOLVIDAS<br>PARA CADA<br>ETAPA DO <span class="orange">CUIDADO</span><br><span class="orange">AUTOMOTIVO</span></span> </h2> </header> <div class="service-grid"> <article class="service-card"> <img class="service-art" src="assets/CARD%20DETALHAMENTO%20INTERNO.png" alt="Detalhamento interno: produtos para renovar, proteger e elevar o acabamento interno do veículo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Detalhamento%20Interno." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card"> <img class="service-art" src="assets/CARD%20LIMPEZA%20AUTOMOTIVA.png" alt="Limpeza automotiva: soluções para limpeza eficiente com acabamento visual superior para o cuidado automotivo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Limpeza%20Automotiva." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card service-card-premium"> <img class="service-art" src="assets/CARD%20ACABAMENTO%20PREMIUM.png" alt="Acabamento premium: produtos para uma finalização sofisticada e visual refinado em cada detalhe do veículo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Acabamento%20Premium." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card"> <img class="service-art" src="assets/CARD%20PROTECAO%20CERAMICA.png" alt="Proteção cerâmica: tecnologia para preservar pintura, acabamento e aparência por muito mais tempo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20de%20Prote%C3%A7%C3%A3o%20Cer%C3%A2mica." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> <article class="service-card"> <img class="service-art" src="assets/CARD%20MAIS%20BRILHO.png" alt="Mais brilho: produtos para intensificar profundidade, reflexo e acabamento visual no veículo." loading="lazy"> <a class="service-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20a%20linha%20Mais%20Brilho." target="_blank" rel="noopener noreferrer">VER LINHA COMPLETA</a> </article> </div> </section> <section class="results-showcase" id="resultados" aria-labelledby="results-title"> <header class="results-heading"> <p class="results-eyebrow">RESULTADOS</p> <div class="results-heading-row"> <h2 id="results-title"> <span class="desktop-title">O <span class="orange">ACABAMENTO CERTO</span> MUDA<br>COMPLETAMENTE A PERCEPÇÃO<br>VISUAL DO VEÍCULO</span> <span class="mobile-title">O <span class="orange">ACABAMENTO CERTO</span><br>MUDA COMPLETAMENTE<br>A PERCEPÇÃO VISUAL<br>DO VEÍCULO</span> </h2> <nav class="results-controls" aria-label="Controles dos vídeos"> <button type="button" class="results-prev" aria-label="Vídeo anterior">‹</button> <button type="button" class="results-next" aria-label="Próximo vídeo">›</button> </nav> </div> </header> <div class="results-viewport" aria-label="Carrossel contínuo de resultados em vídeo"> <div class="results-track" id="results-track"></div> </div> <div class="results-cta-wrap"> <a class="results-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20conhecer%20os%20produtos%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a> </div> </section> <section class="why-amigos" id="porque-escolher" aria-labelledby="why-amigos-title"> <picture class="why-background" aria-hidden="true"> <source media="(max-width: 700px)" srcset="assets/RAPAZ%20MOBILE%20.png"> <img src="assets/RAPAZ.png" alt=""> </picture> <div class="why-content"> <h2 id="why-amigos-title">POR QUE ESCOLHER A<br><span>AMIGOS DO BRILHO?</span></h2> <div class="why-benefits"> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/whatsapp.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>ATENDIMENTO DIRETO</h3> <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p> </div> </article> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/correto%20.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>LINHA SELECIONADA</h3> <p>Suporte rápido e atendimento direto para ajudar na escolha ideal de cada produto.</p> </div> </article> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/LIMPEZA.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>CATALOGO COMPLETO</h3> <p>Diversas opções para brilho, proteção, revitalização e acabamento automotivo.</p> </div> </article> <article class="why-benefit"> <div class="why-icon-box"><img class="why-icon" src="assets/ESTATISTICA%20.png" alt="" aria-hidden="true"></div> <div class="why-copy"> <h3>FOCO EM PERFORMANCE</h3> <p>Uma linha desenvolvida para elevar o padrão visual e a experiência no cuidado automotivo.</p> </div> </article> </div> </div> </section> <section class="final-contact" id="contato" aria-labelledby="final-contact-title"> <div class="final-copy"> <h2 id="final-contact-title">ENCONTRE O<br>PRODUTO <span>IDEAL</span><br>PARA O SEU CARRO</h2> <p>Fale diretamente com nossa equipe e descubra os produtos ideais para brilho, proteção, acabamento e detalhamento automotivo.</p> <a class="final-cta" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer">QUERO ESSES PRODUTOS</a> </div> <a class="final-phone" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20ajuda%20para%20encontrar%20o%20produto%20ideal%20para%20meu%20carro." target="_blank" rel="noopener noreferrer" aria-label="Fale com a equipe Amigos do Brilho pelo WhatsApp"> <img src="assets/WHATS%20PHONE.png" alt="Celular com a conversa do WhatsApp Amigos do Brilho" loading="lazy"> </a> </section> <section class="guide-hub" id="guias" aria-labelledby="guides-title"> <div class="guide-wrap"> <header class="guide-heading"> <p class="guide-kicker">GUIAS AMIGOS DO BRILHO</p> <h2 id="guides-title">Dúvidas reais.<br><span>Cuidado em cada detalhe.</span></h2> <p>Guias práticos para responder dúvidas reais sobre limpeza, acabamento e proteção automotiva. Escolha um tema para encontrar os artigos completos.</p> </header> <div class="guide-grid" id="guide-grid" aria-label="Artigos completos de cuidado automotivo"></div> <article class="guide-article-view" id="guide-article-view" aria-live="polite" hidden></article> <p class="guide-note">Conteúdo educativo: confira sempre o rótulo e a ficha técnica antes de aplicar qualquer produto em uma superfície.</p> <div class="guide-actions"> <a class="guide-button" href="#guias" data-guide-link>VER TODOS OS ARTIGOS</a> <a class="guide-button secondary" href="#produtos" data-page-link="produtos">EXPLORAR PRODUTOS</a> <a class="guide-button secondary" href="https://wa.me/?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20produtos%20para%20cuidado%20automotivo." target="_blank" rel="noopener noreferrer">TIRAR UMA DÚVIDA</a> </div> </div> </section></div> <div class="site-page" data-site-page="produtos" hidden><main class="page-main products-page"> <section class="page-hero" aria-labelledby="products-title"> <p class="page-eyebrow">CATÁLOGO AMIGOS DO BRILHO</p> <h1 id="products-title">Encontre o produto <span>ideal</span></h1> <p>Explore o catálogo por categoria ou pesquise pelo nome do produto, marca ou tipo de cuidado.</p> </section> <section class="catalog-section page-wrap" aria-label="Pesquisar e filtrar produtos"> <div class="catalog-toolbar"> <label class="search-control" for="product-search"> <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg> <input id="product-search" type="search" placeholder="Buscar produto, marca ou categoria..." autocomplete="off"> </label> <div class="category-filters" id="category-filters" role="group" aria-label="Filtrar por categoria"></div> </div> <p class="catalog-summary" id="catalog-summary" aria-live="polite"></p> <div class="catalog-grid" id="catalog-grid" aria-live="polite"></div> </section> </main></div> <div class="site-page" data-site-page="mais-vendidos" hidden><main class="page-main bestsellers-page"> <section class="page-hero" aria-labelledby="bestsellers-title"> <p class="page-eyebrow">SELEÇÃO EM DESTAQUE</p> <h1 id="bestsellers-title">Mais <span>vendidos</span></h1> <p>Uma seleção de produtos para diferentes etapas do cuidado, da limpeza ao acabamento.</p> </section> <section class="catalog-section page-wrap" aria-label="Produtos em destaque"> <p class="catalog-summary">Destaques da seleção Amigos do Brilho</p> <div class="catalog-grid" id="featured-grid"></div> </section> </main></div> <div class="site-page" data-site-page="sobre-nos" hidden><main class="page-main about-page"> <section class="page-hero" aria-labelledby="about-title"> <p class="page-eyebrow">SOBRE NÓS</p> <h1 id="about-title">Cuidado automotivo com <span>mais brilho</span></h1> <p>Uma marca feita para quem valoriza cada detalhe do veículo e acredita que o cuidado também faz parte da experiência.</p> </section> <section class="about-story page-wrap" aria-labelledby="story-title"> <div class="about-image"><img src="assets/RAPAZ.png" alt="Profissional cuidando de um veículo" loading="lazy"></div> <div class="about-copy"> <p class="page-eyebrow">NOSSA HISTÓRIA</p> <h2 id="story-title">Brilho em cada <span>etapa</span></h2> <p>A Amigos do Brilho surgiu de uma ideia simples: tornar o cuidado automotivo mais prático e acessível, reunindo produtos para limpeza, proteção e acabamento em um só lugar.</p> <p>A marca acompanha quem gosta de cuidar do próprio carro e também quem trabalha com estética automotiva. Cada veículo pede uma atenção diferente, e encontrar o produto certo ajuda a transformar a rotina em um resultado que dá orgulho de ver.</p> <p>Seguimos construindo essa história junto com nossos clientes, com atenção aos detalhes e paixão por carros bem cuidados.</p> <a class="about-cta" href="#produtos" data-page-link="produtos">CONHEÇA OS PRODUTOS</a> </div> </section> <section class="about-values page-wrap" aria-labelledby="values-title"> <h2 id="values-title">O que move a <span>marca</span></h2> <div class="about-values-grid"> <article class="about-value"><h3>Cuidado</h3><p>Produtos para diferentes partes do veículo e etapas da rotina automotiva.</p></article> <article class="about-value"><h3>Praticidade</h3><p>Um catálogo organizado para ajudar cada pessoa a encontrar o que procura.</p></article> <article class="about-value"><h3>Brilho</h3><p>Uma paixão compartilhada por acabamento, proteção e bons resultados.</p></article> </div> </section> </main></div> <footer class="site-footer" aria-label="Rodapé Amigos do Brilho"> <div class="footer-inner"> <div class="footer-brand"> <a class="footer-brand-link" href="#inicio" data-page-link="inicio" aria-label="Amigos do Brilho, voltar ao início"> <svg viewBox="0 0 340 240" role="img" aria-label="Amigos do Brilho, produtos automotivos" xmlns="http://www.w3.org/2000/svg"> <path d="M65 102c16-6 28-31 51-37 28-8 81-8 110 0 25 7 36 31 49 37l14 7v23H52v-19z" fill="none" stroke="#f5f5f5" stroke-width="7" stroke-linejoin="round"/> <path d="m112 69-23 33h158l-21-32m-76 0-17 33m73-33 14 33" fill="none" stroke="#f5f5f5" stroke-width="5"/> <path d="M46 143h247" stroke="#ff8500" stroke-width="4"/> <text x="170" y="173" fill="#ff8500" font-family="Arial,sans-serif" font-size="25" font-weight="900" text-anchor="middle">AMIGOS DO BRILHO</text> <text x="170" y="198" fill="#d6b88a" font-family="Arial,sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="middle">PRODUTOS AUTOMOTIVOS</text> </svg> </a> </div> <nav class="footer-column" aria-label="Redes sociais e guias"> <h2>Links</h2> <div class="footer-links"> <a href="https://www.instagram.com/explore/search/keyword/?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/?text=Ol%C3%A1%21%20Encontrei%20voc%C3%AAs%20pelo%20site%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">WhatsApp</a> <a href="https://www.facebook.com/search/top?q=Amigos%20do%20Brilho" target="_blank" rel="noopener noreferrer">Facebook</a> <a href="guias/index.html" data-guide-link>Guias e dicas</a> </div> </nav> <div class="footer-column footer-location"> <h2>Localização</h2> <a class="footer-address" href="https://www.google.com/maps/search/?api=1&query=Av.+Laguna%2C+20+-+Zona+01%2C+Maring%C3%A1+-+PR" target="_blank" rel="noopener noreferrer">Av. Laguna, 20 - Zona 01</a> <a class="footer-contact" href="https://wa.me/?text=Ol%C3%A1%21%20Quero%20falar%20com%20a%20equipe%20Amigos%20do%20Brilho." target="_blank" rel="noopener noreferrer">CONTATO</a> </div> </div> </footer><script>(() => {
 const phone = document.querySelector('.final-phone');
@@ -93,109 +110,211 @@ observer.observe(phone);
   const mobileQuery = window.matchMedia('(max-width: 700px)');
   let stopCurrentPlaylist = null;
 
-  function startPlaylist(stage, sources) {
+  function startPlaylist(stage, sources, fallbackSources = [], allowGesture = false) {
     const players = [...stage.querySelectorAll('video')];
     if (players.length !== 2 || !sources.length) return () => {};
 
+    const startButton = stage.querySelector('.hero-video-start');
     let active = 0;
     let transitioning = false;
     let running = true;
     let transitionTimer = null;
-    let retryTimer = null;
+    let gestureNeeded = false;
+    const listeners = [];
+
+    function listen(target, type, handler, options) {
+      target.addEventListener(type, handler, options);
+      listeners.push([target, type, handler, options]);
+    }
+
+    function clearGesturePrompt() {
+      gestureNeeded = false;
+      if (startButton) startButton.hidden = true;
+    }
+
+    function showGesturePrompt() {
+      if (!allowGesture || !startButton || !running) return;
+      gestureNeeded = true;
+      startButton.hidden = false;
+    }
 
     players.forEach(player => {
+      player.pause();
+      player.classList.remove('is-active');
       player.muted = true;
+      player.defaultMuted = true;
+      player.autoplay = true;
       player.playsInline = true;
-      player.preload = 'auto';
       player.loop = false;
+      player.controls = false;
+      player.setAttribute('muted', '');
+      player.setAttribute('autoplay', '');
+      player.setAttribute('playsinline', '');
+      player.setAttribute('webkit-playsinline', '');
     });
+    players[0].classList.add('is-active');
+    if (startButton) startButton.hidden = true;
 
     function load(player, clipIndex) {
+      player.pause();
       player.dataset.clipIndex = String(clipIndex);
+      player.dataset.usingFallback = 'false';
       player.src = sources[clipIndex];
       player.load();
     }
 
-    load(players[0], 0);
-    load(players[1], sources.length > 1 ? 1 : 0);
-
-    function playFirst() {
-      if (!running || document.hidden) return;
-      players[0].classList.add('is-active');
-      Promise.resolve(players[0].play()).then(() => {
-        if (running) players[0].classList.add('is-active');
-      }).catch(() => {});
+    function switchToFallback(player) {
+      const clipIndex = Number(player.dataset.clipIndex || 0);
+      const fallback = fallbackSources[clipIndex];
+      if (!fallback || player.dataset.usingFallback === 'true') return false;
+      player.dataset.usingFallback = 'true';
+      player.src = fallback;
+      player.load();
+      if (player === players[active]) {
+        listen(player, 'canplay', () => {
+          if (running && !document.hidden && player === players[active]) attemptPlay(player);
+        }, { once: true });
+      }
+      return true;
     }
 
+    function attemptPlay(player) {
+      if (!running || document.hidden) return;
+      player.muted = true;
+      player.defaultMuted = true;
+      player.playsInline = true;
+      let playResult;
+      try {
+        playResult = player.play();
+      } catch (error) {
+        if (error && error.name === 'NotSupportedError' && switchToFallback(player)) return;
+        if (player === players[active]) showGesturePrompt();
+        return;
+      }
+      if (playResult && typeof playResult.then === 'function') {
+        playResult.then(() => {
+          if (running && player === players[active] && !player.paused) clearGesturePrompt();
+        }).catch(error => {
+          if (!running) return;
+          if (error && error.name === 'NotSupportedError' && switchToFallback(player)) return;
+          if (player === players[active] && error && error.name === 'NotAllowedError') showGesturePrompt();
+        });
+      }
+      window.setTimeout(() => {
+        if (running && player === players[active] && player.paused && !player.ended) showGesturePrompt();
+      }, 1600);
+    }
+
+    players.forEach((player, index) => {
+      listen(player, 'error', () => {
+        if (switchToFallback(player)) return;
+        if (player === players[active]) showGesturePrompt();
+      });
+      listen(player, 'playing', () => {
+        if (player === players[active]) clearGesturePrompt();
+      });
+      listen(player, 'ended', () => {
+        if (index === active && !document.hidden) advance();
+      });
+    });
+
     function advance() {
-      if (!running || transitioning) return;
-      if (document.hidden) return;
+      if (!running || transitioning || document.hidden) return;
       transitioning = true;
       const outgoing = players[active];
       const incomingIndex = 1 - active;
       const incoming = players[incomingIndex];
       const incomingClip = Number(incoming.dataset.clipIndex || 0);
 
-      const startIncoming = () => {
+      function startIncoming() {
         if (!running || !transitioning || document.hidden) return;
-        if (incoming.readyState < 2) return;
-        incoming.removeEventListener('canplay', startIncoming);
-        try { incoming.currentTime = 0; } catch (_) {}
-        Promise.resolve(incoming.play()).then(() => {
-          if (!running) return;
-          active = incomingIndex;
-          incoming.classList.add('is-active');
-          outgoing.classList.remove('is-active');
-          transitioning = false;
-          const nextClip = (incomingClip + 1) % sources.length;
-          transitionTimer = window.setTimeout(() => {
-            outgoing.pause();
+        if (incoming.readyState < 2) {
+          listen(incoming, 'canplay', startIncoming, { once: true });
+          return;
+        }
+        try {
+          Promise.resolve(incoming.play()).then(() => {
+            if (!running) return;
+            active = incomingIndex;
+            incoming.classList.add('is-active');
             outgoing.classList.remove('is-active');
-            if (running) load(outgoing, nextClip);
-          }, 480);
-        }).catch(() => {
-          if (!running) return;
-          retryTimer = window.setTimeout(startIncoming, 500);
-        });
-      };
-
-      if (incoming.readyState >= 2) {
-        startIncoming();
-      } else {
-        incoming.addEventListener('canplay', startIncoming);
-        incoming.load();
+            transitioning = false;
+            clearGesturePrompt();
+            const nextClip = (incomingClip + 1) % sources.length;
+            transitionTimer = window.setTimeout(() => {
+              outgoing.pause();
+              outgoing.classList.remove('is-active');
+              if (running) load(outgoing, nextClip);
+            }, 420);
+          }).catch(error => {
+            if (!running) return;
+            transitioning = false;
+            if (error && error.name === 'NotSupportedError' && switchToFallback(incoming)) {
+              transitioning = true;
+              startIncoming();
+              return;
+            }
+            showGesturePrompt();
+          });
+        } catch (error) {
+          transitioning = false;
+          if (error && error.name === 'NotSupportedError' && switchToFallback(incoming)) {
+            transitioning = true;
+            startIncoming();
+            return;
+          }
+          showGesturePrompt();
+        }
       }
+
+      if (incoming.readyState >= 2) startIncoming();
+      else listen(incoming, 'canplay', startIncoming, { once: true });
     }
 
-    players.forEach((player, index) => {
-      player.addEventListener('ended', () => {
-        if (index === active && !document.hidden) advance();
-      });
-    });
+    function onUserGesture() {
+      if (!running) return;
+      const current = players[active];
+      if (!gestureNeeded && !current.paused) return;
+      clearGesturePrompt();
+      if (current.ended) advance();
+      else attemptPlay(current);
+    }
 
-    function onVisibilityChange() {
+    if (startButton) {
+      listen(startButton, 'click', event => {
+        event.stopPropagation();
+        onUserGesture();
+      });
+    }
+    listen(document, 'pointerdown', onUserGesture, { capture: true, passive: true });
+    listen(document, 'touchstart', onUserGesture, { capture: true, passive: true });
+    listen(document, 'click', onUserGesture, true);
+    listen(document, 'visibilitychange', () => {
       if (!running) return;
       if (document.hidden) {
         players.forEach(player => player.pause());
         return;
       }
       if (players[active].ended) advance();
-      else Promise.resolve(players[active].play()).catch(() => {});
-    }
-    document.addEventListener('visibilitychange', onVisibilityChange);
-    playFirst();
+      else attemptPlay(players[active]);
+    });
+
+    load(players[0], 0);
+    load(players[1], sources.length > 1 ? 1 : 0);
+    players[0].classList.add('is-active');
+    attemptPlay(players[0]);
 
     return () => {
       running = false;
-      document.removeEventListener('visibilitychange', onVisibilityChange);
       if (transitionTimer !== null) window.clearTimeout(transitionTimer);
-      if (retryTimer !== null) window.clearTimeout(retryTimer);
+      listeners.forEach(([target, type, handler, options]) => target.removeEventListener(type, handler, options));
       players.forEach(player => {
         player.pause();
         player.removeAttribute('src');
         player.classList.remove('is-active');
         player.load();
       });
+      if (startButton) startButton.hidden = true;
     };
   }
 
@@ -204,7 +323,7 @@ observer.observe(phone);
     const mobile = mobileQuery.matches;
     const stage = document.querySelector(mobile ? '.hero-mobile-video-stage' : '.hero-desktop-video-stage');
     if (!stage) return;
-    stopCurrentPlaylist = startPlaylist(stage, mobile ? mobileSources : desktopSources);
+    stopCurrentPlaylist = startPlaylist(stage, mobile ? mobileSources : desktopSources, mobile ? desktopSources : [], mobile);
   }
 
   selectPlaylist();
@@ -212,6 +331,7 @@ observer.observe(phone);
   else mobileQuery.addListener(selectPlaylist);
 })();
 </script>
+
 
 <script>(() => {
 const products = [
@@ -328,7 +448,7 @@ allVideos.forEach(video => videoObserver.observe(video));
 const playerDialog = document.getElementById('video-player-dialog');
 const playerVideo = playerDialog.querySelector('.video-player');
 const playerTitle = playerDialog.querySelector('.video-player-title');
-const playerClose = document.querySelector('.video-player-close');
+const playerClose = playerDialog.querySelector('.video-player-close');
 let lastPlayerTrigger = null;
 function openPlayer(video, trigger) {
 playerTitle.textContent = video.label;
@@ -466,7 +586,6 @@ const products = [
 "id": "premium-pad",
 "category": "Polidor",
 "brand": "PREMIUM PAD",
-"image": "PRODUTO 8.png",
 "description": "Alta performance para quem busca polimento com acabamento refinado e resultado profissional.",
 "features": [
 "Excelente nível de acabamento",
